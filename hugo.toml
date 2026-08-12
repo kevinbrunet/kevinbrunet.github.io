@@ -1,0 +1,48 @@
+baseURL = "https://kevinbrunet.github.io/"
+defaultContentLanguage = "fr"
+defaultContentLanguageInSubdir = false
+title = "Kévin Brunet | Architecturer la confiance"
+enableRobotsTXT = true
+summaryLength = 28
+
+[params]
+  description = "Sécuriser et fiabiliser les systèmes d'information et les agents IA pour que les organisations puissent réellement s'appuyer sur eux."
+  author = "Kévin Brunet"
+  eyebrow = "SYSTÈMES · ARCHITECTURE"
+
+[languages]
+  [languages.fr]
+    languageCode = "fr-FR"
+    languageName = "Français"
+    weight = 1
+    title = "Kévin Brunet | Architecturer la confiance"
+    [languages.fr.params]
+      description = "Sécuriser et fiabiliser les systèmes d'information et les agents IA pour que les organisations puissent réellement s'appuyer sur eux."
+      author = "Kévin Brunet"
+  [languages.en]
+    languageCode = "en"
+    languageName = "English"
+    weight = 2
+    title = "Kévin Brunet | Architecting trust"
+    [languages.en.params]
+      description = "Securing and strengthening information systems and AI agents so organizations can genuinely rely on them."
+      author = "Kévin Brunet"
+
+[taxonomies]
+  category = "categories"
+  series = "series"
+
+[permalinks]
+  articles = "/articles/:slug/"
+
+[markup.goldmark.renderer]
+  unsafe = false
+
+[markup.highlight]
+  noClasses = false
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  term = ["HTML", "RSS"]

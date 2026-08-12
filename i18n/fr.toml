@@ -1,0 +1,58 @@
+[skip_content]
+other = "Aller au contenu"
+[home_label]
+other = "Accueil Kévin Brunet"
+[menu]
+other = "Menu"
+[main_navigation]
+other = "Navigation principale"
+[articles]
+other = "Articles"
+[series]
+other = "Séries"
+[about]
+other = "À propos"
+[languages]
+other = "Langues"
+[footer_signature_before]
+other = "Architecturer"
+[footer_signature_link]
+other = "la confiance."
+[hero_title_line_1]
+other = "Architecturer"
+[hero_title_line_2]
+other = "la confiance."
+[read_articles]
+other = "Lire les articles"
+[hero_image_alt]
+other = "Boucle d'un agent IA reliant identité, objectif, contexte, décision, action, contrôle, résultat, traçabilité, données et supervision humaine"
+[latest_articles]
+other = "Derniers articles"
+[all_articles]
+other = "Tous les articles"
+[all_series]
+other = "Voir toutes les séries"
+[series_fallback]
+other = "Un parcours pour approfondir ce sujet, article après article."
+[article_count]
+one = "article"
+other = "articles"
+[series_to_explore]
+other = "séries à explorer"
+[published_articles]
+other = "articles publiés"
+[reading_time]
+one = "{{ .Count }} min de lecture"
+other = "{{ .Count }} min de lecture"
+[linkedin_profile]
+other = "Voir mon profil LinkedIn"
+[footer_topics]
+other = "Architecture, IA et systèmes."
+[article_transparency_title]
+other = "Note de transparence"
+[article_transparency_content]
+other = "Le contenu, les idées et la vérification de cet article sont réalisés par Kévin Brunet."
+[article_transparency_ai]
+other = "L'IA est utilisée comme assistance pour l'orthographe, la conjugaison, la grammaire, certaines tournures de phrases et la mise en forme éditoriale."
+[article_citation_title]
+other = "Citer cet article"

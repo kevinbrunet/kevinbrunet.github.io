@@ -1,0 +1,38 @@
+{{ define "main" }}
+{{ $articles := where site.RegularPages "Section" "articles" }}
+<section class="reference-hero">
+  <div class="reference-hero__copy">
+    <h1>{{ i18n "hero_title_line_1" }}<br><em>{{ i18n "hero_title_line_2" }}</em></h1>
+    <p><strong>{{ site.Params.description }}</strong></p>
+    <a class="button" href="#articles">{{ i18n "read_articles" }} <span>→</span></a>
+  </div>
+  <figure class="reference-hero__art">
+    {{ $heroImage := "/images/boucle-systeme-agent-ia-transparent.png?v=20260807-2" }}
+    {{ if eq site.Language.Lang "en" }}{{ $heroImage = "/images/boucle-systeme-agent-ia-en.png?v=20260808-2" }}{{ end }}
+    <img src="{{ $heroImage | relURL }}" alt="{{ i18n "hero_image_alt" }}">
+  </figure>
+</section>
+
+<section class="reference-articles" id="articles">
+  <div class="reference-heading"><h2>{{ i18n "latest_articles" }}</h2><span></span><a href="{{ "articles" | relLangURL }}">{{ i18n "all_articles" }} →</a></div>
+  <div class="article-grid">{{ range first 3 $articles }}{{ partial "article-card.html" . }}{{ end }}</div>
+</section>
+
+<section class="dark-section reference-series">
+  <div class="reference-heading"><h2>{{ i18n "series" }}</h2><span></span><a href="{{ "series" | relLangURL }}">{{ i18n "all_series" }} →</a></div>
+  <div class="series-list">
+    {{ $seriesByWeight := sort site.Taxonomies.series.ByCount "Page.Weight" "asc" }}
+    {{ range $index, $series := $seriesByWeight }}
+      <a class="series-row" href="{{ .Page.RelPermalink }}">
+        <span class="series-row__number" aria-hidden="true">{{ printf "%02d" (add $index 1) }}</span>
+        <span class="series-row__copy">
+          <strong>{{ .Page.LinkTitle }}</strong>
+          <span class="series-row__description">{{ with .Page.Description }}{{ . }}{{ else }}{{ i18n "series_fallback" }}{{ end }}</span>
+          <small>{{ .Count }} {{ i18n "article_count" .Count }}</small>
+        </span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

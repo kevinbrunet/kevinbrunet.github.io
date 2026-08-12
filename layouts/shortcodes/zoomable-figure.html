@@ -1,0 +1,11 @@
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" -}}
+{{- $action := .Get "action" -}}
+{{- $label := .Get "label" -}}
+<figure class="article-zoomable">
+  <a href="{{ $src }}" target="_blank" rel="noopener" aria-label="{{ $label }}">
+    <img src="{{ $src }}" alt="{{ $alt }}" loading="lazy">
+    <span class="article-zoomable__action">{{ $action }} <b aria-hidden="true">↗</b></span>
+  </a>
+  <figcaption>{{ .Inner | plainify }}</figcaption>
+</figure>

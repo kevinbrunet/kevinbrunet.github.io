@@ -1,0 +1,9 @@
+{{- $variant := .Get "variant" -}}
+{{- if not (in (slice "scene" "alert" "key") $variant) -}}
+  {{- errorf "callout: invalid variant %q in %s" $variant .Position -}}
+{{- end -}}
+{{- $label := .Get "label" -}}
+<aside class="article-callout article-callout--{{ $variant }}" aria-label="{{ $label }}">
+  <span class="article-callout__label">{{ $label }}</span>
+  {{ .Inner | markdownify }}
+</aside>

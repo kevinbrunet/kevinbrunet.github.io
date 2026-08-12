@@ -1,0 +1,5 @@
+{{- $label := .Get "label" -}}
+<div class="article-closing-question">
+  <span>{{ $label }}</span>
+  {{ .Inner | markdownify }}
+</div>

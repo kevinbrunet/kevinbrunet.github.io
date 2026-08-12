@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="{{ site.Language.LanguageCode }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; connect-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; media-src 'self'; manifest-src 'self'; upgrade-insecure-requests">
+  <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{ site.Params.author }}{{ end }}</title>
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+  <meta name="theme-color" content="#EADECD">
+  <meta property="og:title" content="{{ .Title }}">
+  <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <link rel="canonical" href="{{ .Permalink }}">
+  {{ range .AllTranslations }}<link rel="alternate" hreflang="{{ .Language.LanguageCode }}" href="{{ .Permalink }}">{{ end }}
+  <link rel="alternate" hreflang="x-default" href="{{ site.BaseURL }}">
+  <link rel="icon" href="{{ "/images/brand-maze-round-transparent.png" | relURL }}" type="image/png">
+  {{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ .RelPermalink }}">{{ end }}
+  {{ $style := resources.Get "css/main.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+  {{ $palette := resources.Get "css/palette.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $palette.RelPermalink }}" integrity="{{ $palette.Data.Integrity }}">
+  {{ $index := resources.Get "css/index.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $index.RelPermalink }}" integrity="{{ $index.Data.Integrity }}">
+  {{ with resources.Get "css/languages.css" }}
+  <link rel="stylesheet" href="{{ .RelPermalink }}">
+  {{ end }}
+  {{ $syntax := resources.Get "css/syntax.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $syntax.RelPermalink }}" integrity="{{ $syntax.Data.Integrity }}">
+</head>
+<body>
+  <a class="skip" href="#contenu">{{ i18n "skip_content" }}</a>
+  <header class="site-header">
+    <a class="brand" href="{{ site.Home.RelPermalink }}" aria-label="{{ i18n "home_label" }}">
+      <span class="brand-mark" aria-hidden="true"><img src="{{ "/images/brand-maze-round-transparent.png" | relURL }}" alt=""></span><i></i><span>KÉVIN BRUNET</span>
+    </a>
+    <button class="menu-button" aria-expanded="false" aria-controls="navigation">{{ i18n "menu" }}</button>
+    <nav id="navigation" aria-label="{{ i18n "main_navigation" }}">
+      <a class="{{ if or .IsHome (eq .Section "articles") }}active{{ end }}" href="{{ "articles" | relLangURL }}">{{ i18n "articles" }}</a>
+      <a class="{{ if eq .Data.Plural "series" }}active{{ end }}" href="{{ "series" | relLangURL }}">{{ i18n "series" }}</a>
+      <a href="{{ if eq site.Language.Lang "fr" }}{{ "a-propos" | relLangURL }}{{ else }}{{ "about" | relLangURL }}{{ end }}">{{ i18n "about" }}</a>
+      <span class="language-switcher" aria-label="{{ i18n "languages" }}">{{ range .AllTranslations }}<a href="{{ .RelPermalink }}" lang="{{ .Language.LanguageCode }}" hreflang="{{ .Language.LanguageCode }}" class="{{ if eq .Language.Lang site.Language.Lang }}active{{ end }}">{{ upper .Language.Lang }}</a>{{ end }}</span>
+    </nav>
+  </header>
+  <main id="contenu">{{ block "main" . }}{{ end }}</main>
+  <footer>
+    <p><strong>KÉVIN BRUNET</strong><br>{{ i18n "footer_topics" }}</p>
+    <p>{{ i18n "footer_signature_before" }} <a class="footer-signature" href="{{ if eq site.Language.Lang "fr" }}{{ "a-propos" | relLangURL }}{{ else }}{{ "about" | relLangURL }}{{ end }}">{{ i18n "footer_signature_link" }}</a><br>© {{ now.Year }}</p>
+  </footer>
+  <script src="{{ "js/main.js" | relURL }}" defer></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+{{ define "main" }}
+{{ $isSeries := eq .Data.Plural "series" }}
+{{ $itemCount := len .Pages }}
+{{ if $isSeries }}{{ $itemCount = len .Data.Terms }}{{ end }}
+<header class="index-header">
+  <div>
+    <p class="eyebrow">{{ if $isSeries }}COLLECTIONS{{ else }}INDEX{{ end }}</p>
+    <h1>{{ .Title }}</h1>
+  </div>
+  <div class="index-header__aside">
+    <strong>{{ printf "%02d" $itemCount }}</strong>
+    <span>{{ if $isSeries }}{{ i18n "series_to_explore" }}{{ else }}{{ i18n "published_articles" }}{{ end }}</span>
+    {{ with .Description }}<p>{{ . }}</p>{{ end }}
+  </div>
+</header>
+
+<section class="index-list" aria-label="{{ .Title }}">
+  {{ if $isSeries }}
+    {{ $terms := sort .Data.Terms.Alphabetical "Page.Weight" "asc" }}
+    {{ range $index, $term := $terms }}
+    <a class="series-index-row" href="{{ .Page.RelPermalink }}">
+      <span class="series-index-row__number">{{ printf "%02d" (add $index 1) }}</span>
+      <span class="series-index-row__content">
+        <span class="series-index-row__title">{{ .Page.Title }}</span>
+        {{ with .Page.Description }}<span class="series-index-row__description">{{ . }}</span>{{ end }}
+      </span>
+      <span class="series-index-row__count">{{ .Count }} {{ i18n "article_count" .Count }}</span>
+      <span class="series-index-row__arrow" aria-hidden="true">→</span>
+    </a>
+    {{ end }}
+  {{ else }}
+    {{ range $index, $page := .Pages.ByDate.Reverse }}
+      {{ .Scratch.Set "list_index" (add $index 1) }}
+      {{ partial "article-row.html" . }}
+    {{ end }}
+  {{ end }}
+</section>
+{{ end }}

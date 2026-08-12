@@ -1,0 +1,26 @@
+.site-header nav {
+  align-items: center;
+}
+
+.language-switcher {
+  display: flex;
+  gap: .35rem;
+  border-left: 1px solid var(--line);
+  padding-left: 1rem;
+}
+
+.language-switcher a {
+  opacity: .55;
+}
+
+.language-switcher a.active {
+  color: var(--blue);
+  opacity: 1;
+}
+
+@media (max-width: 850px) {
+  .language-switcher {
+    border-left: 0;
+    padding-left: 0;
+  }
+}

@@ -1,0 +1,34 @@
+{{ define "main" }}
+{{ $aboutPath := cond (eq site.Language.Lang "fr") "a-propos" "about" }}
+<article itemscope itemtype="https://schema.org/BlogPosting">
+  <meta itemprop="mainEntityOfPage" content="{{ .Permalink }}">
+  <meta itemprop="dateModified" content="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">
+  <header class="article-header {{ if eq .Params.collection "ARCHITECTURE" }}architecture{{ end }}">
+    <div class="article-heading">
+      <p class="eyebrow">{{ with .GetTerms "series" }}{{ (index . 0).LinkTitle }} · {{ printf "%02d" $.Params.series_order }}{{ else }}{{ $.Params.collection }}{{ end }}</p>
+      <h1 itemprop="headline">{{ .Title }}</h1><p class="lede" itemprop="description">{{ .Description }}</p>
+      <div class="meta">
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><a itemprop="url" rel="author" href="{{ $aboutPath | relLangURL }}"><span itemprop="name">{{ site.Params.author }}</span></a></span>
+        <span>·</span><time itemprop="datePublished" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date | time.Format ":date_long" }}</time><span>·</span><span>{{ i18n "reading_time" .ReadingTime }}</span>
+      </div>
+    </div>
+    {{ with .Params.cover }}<figure class="article-cover"><img itemprop="image" src="{{ . | relURL }}" alt="Couverture éditoriale de l'article {{ $.Title }}"></figure>{{ else }}<div class="cover-mechanism" aria-hidden="true"><span></span><span></span><span></span><i></i></div>{{ end }}
+  </header>
+  <div class="article-layout">
+    <aside><p class="eyebrow">CLASSÉ DANS</p>{{ range .GetTerms "categories" }}<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}</aside>
+    <div class="prose" itemprop="articleBody">{{ .Content }}</div>
+  </div>
+  <aside class="article-citation" aria-labelledby="article-citation-title">
+    <p class="article-citation__label" id="article-citation-title">{{ i18n "article_citation_title" }}</p>
+    <p><cite>{{ site.Params.author }}, «&nbsp;{{ .Title }}&nbsp;», <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>, <a href="{{ .Permalink }}">{{ .Permalink }}</a>.</cite></p>
+  </aside>
+  <aside class="article-transparency" aria-labelledby="article-transparency-title">
+    <p class="article-transparency__label" id="article-transparency-title">{{ i18n "article_transparency_title" }}</p>
+    <p>{{ i18n "article_transparency_content" }}</p>
+    <p>{{ i18n "article_transparency_ai" }}</p>
+  </aside>
+  {{ with .GetTerms "series" }}{{ $series := index . 0 }}
+  <section class="series-next"><p class="eyebrow">CONTINUER LA SÉRIE</p><h2>{{ $series.LinkTitle }}</h2>{{ range sort $series.Pages "Params.series_order" }}<a href="{{ .RelPermalink }}"><span>{{ printf "%02d" .Params.series_order }}</span>{{ .Title }}</a>{{ end }}</section>
+  {{ end }}
+</article>
+{{ end }}

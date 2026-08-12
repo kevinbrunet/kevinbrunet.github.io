@@ -1,0 +1,22 @@
+<article class="article-row">
+  <a href="{{ .RelPermalink }}" aria-label="Lire {{ .Title }}">
+    <div class="article-row__index" aria-hidden="true">{{ printf "%02d" (.Scratch.Get "list_index") }}</div>
+    {{ with .Params.cover }}
+      <figure class="article-row__illustration">
+        <img src="{{ . | relURL }}" alt="Illustration de l'article {{ $.Title }}" loading="lazy">
+      </figure>
+    {{ else }}
+      <div class="article-row__illustration article-row__illustration--fallback" aria-hidden="true"><i></i><b></b><span></span></div>
+    {{ end }}
+    <div class="article-row__content">
+      <p class="eyebrow">{{ with .Params.series }}{{ $seriesPage := $.Site.GetPage (printf "/series/%s" (index . 0)) }}{{ with $seriesPage }}{{ .Title }}{{ else }}{{ index . 0 }}{{ end }}{{ else }}{{ .Params.collection }}{{ end }}</p>
+      <h2>{{ .Title }}</h2>
+      {{ with .Description }}<p class="article-row__description">{{ . }}</p>{{ end }}
+    </div>
+    <div class="article-row__meta">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_medium" }}</time>
+      <span>{{ i18n "reading_time" .ReadingTime }}</span>
+      <i aria-hidden="true">→</i>
+    </div>
+  </a>
+</article>

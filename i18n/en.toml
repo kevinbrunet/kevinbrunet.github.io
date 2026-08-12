@@ -1,0 +1,58 @@
+[skip_content]
+other = "Skip to content"
+[home_label]
+other = "Kévin Brunet homepage"
+[menu]
+other = "Menu"
+[main_navigation]
+other = "Main navigation"
+[articles]
+other = "Articles"
+[series]
+other = "Series"
+[about]
+other = "About"
+[languages]
+other = "Languages"
+[footer_signature_before]
+other = "Architecting"
+[footer_signature_link]
+other = "trust."
+[hero_title_line_1]
+other = "Architecting"
+[hero_title_line_2]
+other = "trust."
+[read_articles]
+other = "Read the articles"
+[hero_image_alt]
+other = "AI agent loop connecting identity, goal, context, decision, action, control, outcome, traceability, data and human oversight"
+[latest_articles]
+other = "Latest articles"
+[all_articles]
+other = "All articles"
+[all_series]
+other = "Browse all series"
+[series_fallback]
+other = "A journey into this topic, one article at a time."
+[article_count]
+one = "article"
+other = "articles"
+[series_to_explore]
+other = "series to explore"
+[published_articles]
+other = "published articles"
+[reading_time]
+one = "{{ .Count }} min read"
+other = "{{ .Count }} min read"
+[linkedin_profile]
+other = "View my LinkedIn profile"
+[footer_topics]
+other = "Architecture, AI and systems."
+[article_transparency_title]
+other = "Transparency note"
+[article_transparency_content]
+other = "The content, ideas, and verification of this article are produced by Kévin Brunet."
+[article_transparency_ai]
+other = "AI is used as an assistant for spelling, grammar, selected phrasing, and editorial presentation. The English version was translated by OpenAI Codex."
+[article_citation_title]
+other = "Cite this article"
