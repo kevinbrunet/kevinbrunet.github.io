@@ -3,10 +3,8 @@ on:
   push:
     branches: [main]
   schedule:
-    # GitHub utilise UTC : 05:45 en été et 06:45 en hiver correspondent à 07:45
-    # à Paris. L'étape de filtrage ci-dessous ne conserve que le bon passage.
-    - cron: '45 5 * * *'
-    - cron: '45 6 * * *'
+    # GitHub utilise UTC : publication quotidienne à 06:00 UTC.
+    - cron: '0 6 * * *'
   workflow_dispatch:
 permissions:
   contents: read
@@ -19,43 +17,19 @@ jobs:
       contents: read
       pages: read
     runs-on: ubuntu-latest
-    outputs:
-      should_run: ${{ steps.schedule.outputs.should_run }}
     steps:
-      - name: Sélectionner le passage de 07:45 à Paris
-        id: schedule
-        shell: bash
-        env:
-          EVENT_NAME: ${{ github.event_name }}
-          EVENT_SCHEDULE: ${{ github.event.schedule }}
-        run: |
-          if [[ "$EVENT_NAME" != "schedule" ]]; then
-            echo "should_run=true" >> "$GITHUB_OUTPUT"
-          elif [[ "$(TZ=Europe/Paris date +%z)" == "+0200" && "$EVENT_SCHEDULE" == "45 5 * * *" ]]; then
-            echo "should_run=true" >> "$GITHUB_OUTPUT"
-          elif [[ "$(TZ=Europe/Paris date +%z)" == "+0100" && "$EVENT_SCHEDULE" == "45 6 * * *" ]]; then
-            echo "should_run=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "should_run=false" >> "$GITHUB_OUTPUT"
-          fi
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
-        if: steps.schedule.outputs.should_run == 'true'
       - uses: peaceiris/actions-hugo@6b1ee2dcc06c9b6629a5317fa0146473914d05e1 # v3
-        if: steps.schedule.outputs.should_run == 'true'
         with:
           hugo-version: '0.148.1'
           extended: true
       - id: pages
-        if: steps.schedule.outputs.should_run == 'true'
         uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
-      - if: steps.schedule.outputs.should_run == 'true'
-        run: hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+      - run: hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
       - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
-        if: steps.schedule.outputs.should_run == 'true'
         with:
           path: ./public
   deploy:
-    if: needs.build.outputs.should_run == 'true'
     permissions:
       pages: write
       id-token: write
