@@ -3,8 +3,8 @@ on:
   push:
     branches: [main]
   schedule:
-    # GitHub utilise UTC : publication quotidienne à 06:00 UTC.
-    - cron: '0 6 * * *'
+    # GitHub utilise UTC : publication quotidienne à 01:00 UTC.
+    - cron: '0 1 * * *'
   workflow_dispatch:
 permissions:
   contents: read
