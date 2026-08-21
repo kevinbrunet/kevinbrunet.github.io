@@ -1,5 +1,6 @@
 ---
 title: "Ce qu'une watermark textuelle ne prouve pas"
+seo_title: "Watermark textuelle IA : ce qu'elle prouve et ne prouve pas"
 slug: "watermark-textuelle-ne-prouve-pas-auteur"
 date: 2026-08-12
 description: "Une watermark peut signaler le passage d'un texte par une IA sans prouver qui en est l'auteur, son intention ou le travail réellement fourni."

@@ -1,5 +1,6 @@
 ---
 title: "Le voyant est vert. La mission reste inachevée."
+seo_title: "Loi de Goodhart et agents IA : quand la métrique trompe"
 slug: "goodhart-dans-la-boucle"
 date: 2026-09-22
 description: "Quand la métrique devient la cible, un agent peut optimiser le voyant vert tout en laissant la mission réelle inachevée."
@@ -85,4 +86,3 @@ Le prochain article examine une version plus discrète du même problème : quan
 - Charles Goodhart, principe formulé dans les années 1970 ; formulation courante popularisée par Marilyn Strathern · https://en.wikipedia.org/wiki/Goodhart%27s_law
 - METR, *Recent Frontier Models Are Reward Hacking* (juin 2025), notamment valeurs attendues codées en dur · https://metr.org/blog/2025-06-05-recent-reward-hacking/
 - Anthropic, *Claude 3.7 Sonnet System Card*, cas de special-casing en environnement agentique · https://www.anthropic.com/claude-3-7-sonnet-system-card
-

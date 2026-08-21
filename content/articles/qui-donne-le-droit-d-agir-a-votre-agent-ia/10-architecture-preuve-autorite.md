@@ -1,5 +1,6 @@
 ---
 title: "À la fin, l'agent ne possède plus un rôle. Il construit une preuve d'autorité."
+seo_title: "Architecture de sécurité des agents IA : prouver l'autorité"
 slug: "architecture-preuve-autorite"
 date: 2026-11-05
 description: "Identité, intersection des politiques, capacités et preuves signées composent une autorité progressive, vérifiable et révocable."

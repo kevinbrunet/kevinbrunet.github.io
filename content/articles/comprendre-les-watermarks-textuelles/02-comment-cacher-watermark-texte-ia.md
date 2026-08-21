@@ -1,5 +1,6 @@
 ---
 title: "Comment cacher une watermark dans un texte généré par une IA"
+seo_title: "Watermark textuelle IA : comment le filigrane est caché"
 slug: "comment-cacher-watermark-texte-ia"
 date: 2026-08-13
 description: "Une watermark textuelle se cache dans une succession de choix statistiques orientés, pas dans un caractère invisible. Voici comment ce signal fonctionne."

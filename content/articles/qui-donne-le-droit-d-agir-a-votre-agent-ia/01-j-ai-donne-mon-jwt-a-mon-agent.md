@@ -1,5 +1,6 @@
 ---
 title: "J'ai donné mon JWT à mon agent. J'ai aussi effacé l'agent."
+seo_title: "JWT et agent IA : pourquoi partager le token est dangereux"
 slug: "jwt-agent-efface-agent"
 date: 2026-09-03
 description: "Transmettre le JWT d'un utilisateur à un agent lui donne une identité trop large et rend l'acteur réel invisible dans les journaux."

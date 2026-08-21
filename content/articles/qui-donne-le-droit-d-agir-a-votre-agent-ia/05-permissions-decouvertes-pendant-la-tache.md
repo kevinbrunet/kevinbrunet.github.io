@@ -1,5 +1,6 @@
 ---
 title: "On ne connaît pas toujours les bonnes permissions au début de la tâche"
+seo_title: "Permissions dynamiques d'un agent IA : éviter le passe-partout"
 slug: "permissions-decouvertes-pendant-tache"
 date: 2026-10-01
 description: "Une tâche découvre parfois son périmètre en cours d'exécution : l'autorité doit pouvoir évoluer sans devenir un passe-partout."

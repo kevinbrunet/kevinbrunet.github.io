@@ -1,19 +1,37 @@
 <!doctype html>
 <html lang="{{ site.Language.LanguageCode }}">
 <head>
+  {{- $pageTitle := .Params.seo_title | default .Title -}}
+  {{- $description := .Description | default site.Params.description -}}
+  {{- $socialImage := "/images/brand-maze-round-transparent.png" | absURL -}}
+  {{- with .Params.cover }}{{ $socialImage = . | absURL }}{{ end -}}
+  {{- $defaultTranslation := . -}}
+  {{- range .AllTranslations }}{{ if eq .Language.Lang "fr" }}{{ $defaultTranslation = . }}{{ end }}{{ end -}}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; connect-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; media-src 'self'; manifest-src 'self'; upgrade-insecure-requests">
-  <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{ site.Params.author }}{{ end }}</title>
-  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+  <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ $pageTitle }} | {{ site.Params.author }}{{ end }}</title>
+  <meta name="description" content="{{ $description }}">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="theme-color" content="#EADECD">
-  <meta property="og:title" content="{{ .Title }}">
-  <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+  <meta property="og:title" content="{{ $pageTitle }}">
+  <meta property="og:description" content="{{ $description }}">
   <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
   <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:site_name" content="{{ site.Title }}">
+  <meta property="og:locale" content="{{ replace site.Language.LanguageCode "-" "_" }}">
+  {{ range .Translations }}<meta property="og:locale:alternate" content="{{ replace .Language.LanguageCode "-" "_" }}">{{ end }}
+  <meta property="og:image" content="{{ $socialImage }}">
+  <meta property="og:image:alt" content="{{ if .Params.cover }}{{ $pageTitle }}{{ else }}{{ site.Title }}{{ end }}">
+  {{ with .Params.cover }}<meta property="og:image:type" content="image/png">{{ end }}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ $pageTitle }}">
+  <meta name="twitter:description" content="{{ $description }}">
+  <meta name="twitter:image" content="{{ $socialImage }}">
+  <meta name="twitter:image:alt" content="{{ if .Params.cover }}{{ $pageTitle }}{{ else }}{{ site.Title }}{{ end }}">
   <link rel="canonical" href="{{ .Permalink }}">
   {{ range .AllTranslations }}<link rel="alternate" hreflang="{{ .Language.LanguageCode }}" href="{{ .Permalink }}">{{ end }}
-  <link rel="alternate" hreflang="x-default" href="{{ site.BaseURL }}">
+  <link rel="alternate" hreflang="x-default" href="{{ $defaultTranslation.Permalink }}">
   <link rel="icon" href="{{ "/images/brand-maze-round-transparent.png" | relURL }}" type="image/png">
   {{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ .RelPermalink }}">{{ end }}
   {{ $style := resources.Get "css/main.css" | minify | fingerprint }}
@@ -27,6 +45,7 @@
   {{ end }}
   {{ $syntax := resources.Get "css/syntax.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $syntax.RelPermalink }}" integrity="{{ $syntax.Data.Integrity }}">
+  {{ partial "seo/schema.html" . }}
 </head>
 <body>
   <a class="skip" href="#contenu">{{ i18n "skip_content" }}</a>

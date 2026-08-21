@@ -1,5 +1,6 @@
 ---
 title: "Deux agents. Le même angle mort."
+seo_title: "Validation multi-agent : le risque des angles morts communs"
 slug: "juge-et-partie-agents"
 date: 2026-09-15
 description: "Faire relire un agent par une copie du même système multiplie les avis sans nécessairement réduire leurs angles morts communs."

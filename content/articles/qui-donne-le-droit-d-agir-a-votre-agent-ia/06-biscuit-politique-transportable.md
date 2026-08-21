@@ -1,5 +1,6 @@
 ---
 title: "Biscuit transforme un token en politique transportable"
+seo_title: "Biscuit Token : déléguer des permissions à un agent IA"
 slug: "biscuit-politique-transportable"
 date: 2026-10-08
 description: "Les tokens Biscuit transportent faits, règles et restrictions avec la tâche, tout en laissant à chaque API le dernier mot."

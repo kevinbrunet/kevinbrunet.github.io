@@ -1,5 +1,6 @@
 ---
 title: "Un agent sans harnais n'est pas un système de production"
+seo_title: "Agent IA en production : pourquoi le harnais est indispensable"
 slug: "un-agent-sans-harnais"
 date: 2026-09-01
 description: "Une démonstration réussie ne suffit pas : un agent devient un système de production lorsqu'un harnais rend ses erreurs visibles et ses contrôles répétables."
@@ -73,5 +74,4 @@ C'est le sujet du prochain article.
 - OpenAI, Ryan Lopopolo, *Harness engineering: leveraging Codex in an agent-first world* (11 février 2026) · https://openai.com/index/harness-engineering/
 - Stripe, Alistair Gray, *Minions: Stripe's one-shot, end-to-end coding agents* (9 février 2026) · https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents
 - DORA / Google Cloud, *State of AI-assisted Software Development 2025*, l'IA comme amplificateur des forces et faiblesses existantes · https://dora.dev/research/2025/dora-report/
-
 

@@ -1,5 +1,6 @@
 ---
 title: "Comprendre les watermarks textuelles"
+seo_title: "Watermark textuelle IA : fonctionnement et limites"
 description: "Deux articles pour comprendre ce que les watermarks textuelles signalent, comment elles fonctionnent et pourquoi elles ne suffisent pas à établir l'auteur d'un texte."
 weight: 1
 ---
