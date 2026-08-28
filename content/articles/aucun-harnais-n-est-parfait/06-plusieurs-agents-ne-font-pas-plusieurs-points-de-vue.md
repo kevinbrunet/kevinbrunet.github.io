@@ -2,7 +2,7 @@
 title: "Pourquoi ajouter des agents ne crée pas forcément de diversité"
 seo_title: "Systèmes multi-agents : plusieurs agents, mêmes biais"
 slug: "plusieurs-agents-points-de-vue"
-date: 2026-10-06
+date: 2026-09-01
 description: "Multiplier les agents ne crée pas automatiquement de diversité lorsque leurs modèles, contextes et critères restent corrélés."
 categories: ["Intelligence artificielle", "Ingénierie logicielle"]
 series: ["aucun-harnais-n-est-parfait"]
@@ -84,4 +84,3 @@ Le prochain article traite précisément de cette architecture. Elle ne consiste
 - *The Deliberative Illusion*, sur attrition factuelle et homogénéisation des positions en débat multi-agents · https://arxiv.org/pdf/2606.03032
 - *When Does Delegation Beat Majority?*, limites du vote majoritaire selon la structure des erreurs · https://arxiv.org/pdf/2606.08098
 - Mesure de la diversité par les désaccords utiles : proposition opérationnelle issue du manuscrit BYOAI ~
-

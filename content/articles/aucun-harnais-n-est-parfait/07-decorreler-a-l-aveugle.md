@@ -2,7 +2,7 @@
 title: "Décorréler à l'aveugle"
 seo_title: "Évaluation d'agents IA : préserver des avis indépendants"
 slug: "decorreler-a-l-aveugle"
-date: 2026-10-13
+date: 2026-09-01
 description: "Une évaluation indépendante exige de préserver les désaccords avant de faire dialoguer les agents ou de chercher un consensus."
 categories: ["Intelligence artificielle", "Ingénierie logicielle"]
 series: ["aucun-harnais-n-est-parfait"]
@@ -100,4 +100,3 @@ C'est ce que nous verrons la semaine prochaine.
 - Freund et Schapire, AdaBoost (1997), agrégation pondérée par l'erreur observée
 - Lamport, Shostak et Pease, *The Byzantine Generals Problem* (1982), robustesse face aux défaillances distribuées
 - Architecture précise proposée ici, notamment journalisation et routage du désaccord : proposition à tester empiriquement ~
-

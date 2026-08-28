@@ -1,7 +1,7 @@
 ---
 title: "In the end, the agent no longer has a role. It builds proof of authority."
 slug: "architecture-preuve-autorite"
-date: 2026-11-05
+date: 2026-09-03
 description: "Identity, policy intersection, capabilities, and signed proofs combine to form progressive, verifiable, and revocable authority."
 categories: ["Artificial intelligence", "Security", "Software architecture"]
 series: ["qui-donne-le-droit-d-agir-a-votre-agent-ia"]

@@ -18,6 +18,42 @@
   opacity: 1;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.rss-link {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  color: var(--ink);
+  opacity: .5;
+  transition: color .2s, opacity .2s;
+}
+
+.rss-link svg {
+  width: 17px;
+  height: 17px;
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  fill-rule: evenodd;
+}
+
+.rss-link path {
+  fill: none;
+}
+
+.rss-link:hover,
+.rss-link:focus-visible {
+  color: var(--coral);
+  opacity: 1;
+}
+
 @media (max-width: 850px) {
   .language-switcher {
     border-left: 0;

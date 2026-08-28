@@ -1,7 +1,7 @@
 ---
 title: "Tests from the Same Mind"
 slug: "tests-du-meme-cerveau"
-date: 2026-09-29
+date: 2026-09-01
 description: "Tests generated alongside the code can consistently confirm a flawed understanding of the need."
 categories: ["Artificial intelligence", "Software engineering"]
 series: ["aucun-harnais-n-est-parfait"]

@@ -1,7 +1,7 @@
 ---
 title: "Blind Decorrelation"
 slug: "decorreler-a-l-aveugle"
-date: 2026-10-13
+date: 2026-09-01
 description: "Independent evaluation requires preserving disagreements before allowing agents to interact or seeking consensus."
 categories: ["Artificial intelligence", "Software engineering"]
 series: ["aucun-harnais-n-est-parfait"]

@@ -12,6 +12,8 @@ other = "Articles"
 other = "Series"
 [about]
 other = "About"
+[rss_title]
+other = "Subscribe to the RSS feed"
 [languages]
 other = "Languages"
 [footer_signature_before]
@@ -53,6 +55,12 @@ other = "Transparency note"
 [article_transparency_content]
 other = "The content, ideas, and verification of this article are produced by Kévin Brunet."
 [article_transparency_ai]
-other = "AI is used as an assistant for spelling, grammar, selected phrasing, and editorial presentation. The English version was translated by OpenAI Codex."
+other = "AI is used as an assistant for language corrections, selected phrasing, and editorial presentation. The English version was translated by OpenAI Codex."
 [article_citation_title]
 other = "Cite this article"
+[article_citation_copy]
+other = "Copy citation"
+[article_citation_copied]
+other = "Citation copied"
+[article_citation_copy_failed]
+other = "Unable to copy"

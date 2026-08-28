@@ -1,7 +1,7 @@
 ---
 title: "Sometimes the Right Policy Is: 'This Agent Cannot Call This API'"
 slug: "api-interdite-agent-humain"
-date: 2026-10-29
+date: 2026-09-03
 description: "Delegated human approval and a strictly human-only endpoint create two different security boundaries."
 categories: ["Artificial intelligence", "Security", "Software architecture"]
 series: ["qui-donne-le-droit-d-agir-a-votre-agent-ia"]

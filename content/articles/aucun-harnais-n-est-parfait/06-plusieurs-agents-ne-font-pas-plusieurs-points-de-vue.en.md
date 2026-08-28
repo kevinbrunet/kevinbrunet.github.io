@@ -1,7 +1,7 @@
 ---
 title: "Why Adding Agents Does Not Necessarily Create Diversity"
 slug: "plusieurs-agents-points-de-vue"
-date: 2026-10-06
+date: 2026-09-01
 description: "Multiplying agents does not automatically create diversity when their models, contexts, and criteria remain correlated."
 categories: ["Artificial intelligence", "Software engineering"]
 series: ["aucun-harnais-n-est-parfait"]

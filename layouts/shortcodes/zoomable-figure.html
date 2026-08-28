@@ -2,7 +2,11 @@
 {{- $alt := .Get "alt" -}}
 {{- $action := .Get "action" -}}
 {{- $label := .Get "label" -}}
-<figure class="article-zoomable">
+{{- $size := .Get "size" | default "wide" -}}
+{{- if not (in (slice "wide" "compact") $size) -}}
+  {{- errorf "zoomable-figure: invalid size %q in %s" $size .Position -}}
+{{- end -}}
+<figure class="article-zoomable article-zoomable--{{ $size }}">
   <a href="{{ $src }}" target="_blank" rel="noopener" aria-label="{{ $label }}">
     <img src="{{ $src }}" alt="{{ $alt }}" loading="lazy">
     <span class="article-zoomable__action">{{ $action }} <b aria-hidden="true">↗</b></span>

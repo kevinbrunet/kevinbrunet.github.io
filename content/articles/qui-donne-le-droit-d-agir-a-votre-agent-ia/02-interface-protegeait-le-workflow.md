@@ -2,7 +2,7 @@
 title: "L'interface faisait respecter un workflow sans le dire"
 seo_title: "Agent IA et API : l'interface cachait les règles du workflow"
 slug: "interface-protegeait-workflow"
-date: 2026-09-10
+date: 2026-09-03
 description: "En appelant directement les API, un agent peut contourner l'ordre des actions que l'interface imposait silencieusement à l'utilisateur."
 categories: ["Intelligence artificielle", "Sécurité", "Architecture logicielle"]
 series: ["qui-donne-le-droit-d-agir-a-votre-agent-ia"]

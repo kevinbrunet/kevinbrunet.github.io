@@ -2,7 +2,7 @@
 title: "Le workflow peut devenir une chaîne de preuves"
 seo_title: "Sécurité d'un workflow agent IA : créer une chaîne de preuves"
 slug: "workflow-chaine-de-preuves"
-date: 2026-10-22
+date: 2026-09-03
 description: "Quand chaque appel exige la preuve du précédent, le système impose l'ordre du workflow sans dépendre de l'obéissance de l'agent."
 categories: ["Intelligence artificielle", "Sécurité", "Architecture logicielle"]
 series: ["qui-donne-le-droit-d-agir-a-votre-agent-ia"]

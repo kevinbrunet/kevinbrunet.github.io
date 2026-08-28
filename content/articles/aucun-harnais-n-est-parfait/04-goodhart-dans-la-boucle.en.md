@@ -1,7 +1,7 @@
 ---
 title: "The Light Is Green. The Mission Remains Unfinished."
 slug: "goodhart-dans-la-boucle"
-date: 2026-09-22
+date: 2026-09-01
 description: "When the metric becomes the target, an agent can optimize for the green light while leaving the real mission unfinished."
 categories: ["Artificial intelligence", "Software engineering"]
 series: ["aucun-harnais-n-est-parfait"]

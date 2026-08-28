@@ -2,7 +2,7 @@
 title: "Les droits d'un agent sont une intersection, pas un rôle"
 seo_title: "Permissions d'un agent IA : appliquer le moindre privilège"
 slug: "droits-agent-intersection"
-date: 2026-09-24
+date: 2026-09-03
 description: "Les permissions effectives d'un agent résultent de l'intersection entre utilisateur, agent, délégation, tâche et ressource."
 categories: ["Intelligence artificielle", "Sécurité", "Architecture logicielle"]
 series: ["qui-donne-le-droit-d-agir-a-votre-agent-ia"]

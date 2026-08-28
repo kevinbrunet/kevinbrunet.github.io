@@ -2,7 +2,7 @@
 title: "Les tests du même cerveau"
 seo_title: "Tests générés par IA : le risque du juge et partie"
 slug: "tests-du-meme-cerveau"
-date: 2026-09-29
+date: 2026-09-01
 description: "Des tests générés avec le code peuvent confirmer avec une parfaite cohérence une mauvaise compréhension du besoin."
 categories: ["Intelligence artificielle", "Ingénierie logicielle"]
 series: ["aucun-harnais-n-est-parfait"]
@@ -88,4 +88,3 @@ C'est le sujet du prochain article.
 - Distinction proposée entre tests unitaires, tests d'intégration et tests de qualification : terminologie classique, application au harness issue du manuscrit BYOAI
 - Thoughtworks, *Harness engineering for coding agent users*, distinction entre contrôles computationnels et inférentiels · https://martinfowler.com/articles/harness-engineering.html
 - Principe « cohérence interne ≠ conformité au besoin » : développement conceptuel, à illustrer par des cas réels avant éventuelle publication longue ~
-

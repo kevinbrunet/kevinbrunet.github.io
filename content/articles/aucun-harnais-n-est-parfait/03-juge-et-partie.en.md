@@ -1,7 +1,7 @@
 ---
 title: "Two Agents. The Same Blind Spot."
 slug: "juge-et-partie-agents"
-date: 2026-09-15
+date: 2026-09-01
 description: "Having an agent's work reviewed by a copy of the same system multiplies opinions without necessarily reducing their shared blind spots."
 categories: ["Artificial Intelligence", "Software Engineering"]
 series: ["aucun-harnais-n-est-parfait"]

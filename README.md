@@ -72,9 +72,14 @@ Texte de conclusion.
 {{< zoomable-figure src="/images/articles/schema.png" alt="Description de l'image" action="Agrandir" label="Voir le schéma en grand" >}}
 Légende de l'image.
 {{< /zoomable-figure >}}
+
+{{< zoomable-figure src="/images/articles/schema-vertical.png" alt="Description du diagramme" action="Agrandir" label="Voir le diagramme en grand" size="compact" >}}
+Légende d'un diagramme vertical affiché dans une largeur réduite.
+{{< /zoomable-figure >}}
 ```
 
 Les seules variantes acceptées par `callout` sont `scene`, `alert` et `key`.
+`zoomable-figure` accepte uniquement les tailles `wide` (par défaut) et `compact`.
 Ajouter un nouveau composant visuel nécessite de créer ou d'étendre un shortcode
 dans `layouts/shortcodes/`, sans réactiver `markup.goldmark.renderer.unsafe`.
 

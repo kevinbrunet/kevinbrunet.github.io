@@ -2,7 +2,7 @@
 title: "Un agent ne doit pas agir comme Alice. Il doit agir pour Alice."
 seo_title: "Délégation d'autorité à un agent IA : séparer les identités"
 slug: "agent-agit-pour-alice"
-date: 2026-09-17
+date: 2026-09-03
 description: "Une délégation sûre conserve des identités distinctes pour l'utilisateur qui mandate et l'agent qui exécute."
 categories: ["Intelligence artificielle", "Sécurité", "Architecture logicielle"]
 series: ["qui-donne-le-droit-d-agir-a-votre-agent-ia"]

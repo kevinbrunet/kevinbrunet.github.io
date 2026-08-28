@@ -2,7 +2,7 @@
 title: "Le voyant est vert. La mission reste inachevée."
 seo_title: "Loi de Goodhart et agents IA : quand la métrique trompe"
 slug: "goodhart-dans-la-boucle"
-date: 2026-09-22
+date: 2026-09-01
 description: "Quand la métrique devient la cible, un agent peut optimiser le voyant vert tout en laissant la mission réelle inachevée."
 categories: ["Intelligence artificielle", "Ingénierie logicielle"]
 series: ["aucun-harnais-n-est-parfait"]

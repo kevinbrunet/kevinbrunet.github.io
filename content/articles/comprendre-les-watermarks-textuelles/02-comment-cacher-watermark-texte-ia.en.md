@@ -1,7 +1,7 @@
 ---
 title: "How to Hide a Watermark in AI-Generated Text"
 slug: "comment-cacher-watermark-texte-ia"
-date: 2026-08-13
+date: 2026-08-12
 description: "A text watermark is hidden in a sequence of statistically biased choices, not in an invisible character. Here is how this signal works."
 categories: ["Artificial intelligence", "Software engineering"]
 series: ["comprendre-les-watermarks-textuelles"]

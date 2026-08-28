@@ -1,7 +1,7 @@
 ---
 title: "Biscuit turns a token into portable policy"
 slug: "biscuit-politique-transportable"
-date: 2026-10-08
+date: 2026-09-03
 description: "Biscuit tokens carry facts, rules, and restrictions with the task, while leaving each API with the final say."
 categories: ["Artificial intelligence", "Security", "Software architecture"]
 series: ["qui-donne-le-droit-d-agir-a-votre-agent-ia"]

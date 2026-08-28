@@ -2,7 +2,7 @@
 title: "Une réponse d'API peut ouvrir précisément l'étape suivante"
 seo_title: "Autorisation d'un agent IA : étendre les droits via une API"
 slug: "reponse-api-etend-autorite"
-date: 2026-10-15
+date: 2026-09-03
 description: "Une API peut signer la preuve de son résultat afin d'autoriser exactement les ressources découvertes à l'étape suivante."
 categories: ["Intelligence artificielle", "Sécurité", "Architecture logicielle"]
 series: ["qui-donne-le-droit-d-agir-a-votre-agent-ia"]

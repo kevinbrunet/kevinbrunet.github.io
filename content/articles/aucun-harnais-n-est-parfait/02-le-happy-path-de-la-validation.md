@@ -2,7 +2,7 @@
 title: "Vos tests passent. Le réel peut dévier quand même."
 seo_title: "Harnais d'agent IA : les limites du happy path"
 slug: "happy-path-validation"
-date: 2026-09-08
+date: 2026-09-01
 description: "Un harnais ne teste que les erreurs transformées en contrôles et laisse hors champ les situations que personne n'a encore imaginées."
 categories: ["Intelligence artificielle", "Ingénierie logicielle"]
 series: ["aucun-harnais-n-est-parfait"]
@@ -78,4 +78,3 @@ C'est ce que nous verrons dans le prochain article de cette série.
 - Calcul du parcours composé : 0,9¹⁰ ≈ 34,9 %
 - Huang et al., *Large Language Models Cannot Self-Correct Reasoning Yet*, ICLR 2024, sur les limites de l'auto-correction sans signal externe · https://arxiv.org/abs/2310.01798
 - Principe de taxonomie empirique des angles morts : développement original issu du manuscrit BYOAI, à valider expérimentalement ~
-

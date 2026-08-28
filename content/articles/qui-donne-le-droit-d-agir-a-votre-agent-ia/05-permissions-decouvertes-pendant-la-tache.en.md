@@ -1,7 +1,7 @@
 ---
 title: "You Do Not Always Know the Right Permissions at the Start of a Task"
 slug: "permissions-decouvertes-pendant-tache"
-date: 2026-10-01
+date: 2026-09-03
 description: "A task sometimes discovers its scope while it is running: authority must be able to evolve without becoming a master key."
 categories: ["Artificial intelligence", "Security", "Software architecture"]
 series: ["qui-donne-le-droit-d-agir-a-votre-agent-ia"]

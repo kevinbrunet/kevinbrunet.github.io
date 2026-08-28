@@ -4,6 +4,11 @@
   --line: rgba(18, 28, 43, .19);
 }
 
+/* Échelle typographique globale : réduction de 10 % par rapport à la base navigateur. */
+html {
+  font-size: 90%;
+}
+
 .card {
   background: rgba(246, 239, 222, .5);
 }
@@ -164,6 +169,7 @@
 
 /* Illustration technique contenue dans le fil et consultable en pleine taille. */
 .prose .article-zoomable{width:100%;max-width:100%;margin:2.8rem 0;overflow:hidden}
+.prose .article-zoomable--compact{max-width:620px;margin-right:auto;margin-left:auto}
 .prose .article-zoomable a{position:relative;display:block;width:100%;overflow:hidden;border:1px solid var(--line);background:#fff;cursor:zoom-in}
 .prose .article-zoomable img{display:block;width:100%;max-width:100%;height:auto;transition:transform .3s ease,filter .3s ease}
 .prose .article-zoomable__action{position:absolute;right:1rem;bottom:1rem;padding:.75rem 1rem;background:var(--ink);color:var(--paper);font:800 .72rem/1 Inter,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;transform:translateY(calc(100% + 1.2rem));transition:transform .25s ease}
@@ -212,5 +218,10 @@
 .article-header .meta a{color:inherit;font-weight:800;text-underline-offset:.2em}
 .article-citation{max-width:920px;margin:0 auto 2rem;padding:1.6rem;border-left:5px solid var(--blue);background:rgba(255,255,255,.38);font-family:Inter,Arial,sans-serif;font-size:.84rem;line-height:1.6}
 .article-citation p{margin:.35rem 0}.article-citation cite{font-style:normal}.article-citation a{color:var(--blue);font-weight:700;overflow-wrap:anywhere}
+.article-citation__header{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.45rem}
 .article-citation__label{color:var(--ink);font-size:.68rem;font-weight:850;letter-spacing:.14em;text-transform:uppercase}
+.article-citation__copy{padding:.55rem .8rem;border:1px solid var(--ink);background:transparent;color:var(--ink);font:800 .68rem/1 Inter,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s ease,color .2s ease}
+.article-citation__copy:hover,.article-citation__copy:focus-visible{background:var(--ink);color:var(--paper)}
+.article-citation__copy.is-copied{border-color:var(--blue);background:var(--blue);color:#fff}
 @media(max-width:960px){.article-citation{margin-right:1.25rem;margin-left:1.25rem}}
+@media(max-width:520px){.article-citation__header{align-items:flex-start;flex-direction:column}.article-citation__copy{width:100%}}

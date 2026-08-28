@@ -1,7 +1,7 @@
 ---
 title: "No Harness Is Magic"
 slug: "aucun-harnais-n-est-magique"
-date: 2026-10-20
+date: 2026-09-01
 description: "No harness covers every risk: robustness comes from governance capable of organizing multiple lines of defense."
 categories: ["Artificial intelligence", "Software engineering"]
 series: ["aucun-harnais-n-est-parfait"]

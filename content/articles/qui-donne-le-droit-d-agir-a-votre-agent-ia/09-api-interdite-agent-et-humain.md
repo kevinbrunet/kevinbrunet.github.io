@@ -2,7 +2,7 @@
 title: "Parfois, la bonne politique est : « cet agent ne peut pas appeler cette API »"
 seo_title: "Sécurité API : interdire certains endpoints aux agents IA"
 slug: "api-interdite-agent-humain"
-date: 2026-10-29
+date: 2026-09-03
 description: "Approbation humaine déléguée et endpoint strictement humain constituent deux frontières de sécurité différentes."
 categories: ["Intelligence artificielle", "Sécurité", "Architecture logicielle"]
 series: ["qui-donne-le-droit-d-agir-a-votre-agent-ia"]

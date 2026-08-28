@@ -12,6 +12,8 @@ other = "Articles"
 other = "Séries"
 [about]
 other = "À propos"
+[rss_title]
+other = "S'abonner au flux RSS"
 [languages]
 other = "Langues"
 [footer_signature_before]
@@ -53,6 +55,12 @@ other = "Note de transparence"
 [article_transparency_content]
 other = "Le contenu, les idées et la vérification de cet article sont réalisés par Kévin Brunet."
 [article_transparency_ai]
-other = "L'IA est utilisée comme assistance pour l'orthographe, la conjugaison, la grammaire, certaines tournures de phrases et la mise en forme éditoriale."
+other = "L'IA est utilisée comme assistance pour la correction linguistique, certaines tournures de phrases et la mise en forme éditoriale."
 [article_citation_title]
 other = "Citer cet article"
+[article_citation_copy]
+other = "Copier la citation"
+[article_citation_copied]
+other = "Citation copiée"
+[article_citation_copy_failed]
+other = "Copie impossible"

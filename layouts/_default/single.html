@@ -19,7 +19,10 @@
     <div class="prose" itemprop="articleBody">{{ .Content }}</div>
   </div>
   <aside class="article-citation" aria-labelledby="article-citation-title">
-    <p class="article-citation__label" id="article-citation-title">{{ i18n "article_citation_title" }}</p>
+    <div class="article-citation__header">
+      <p class="article-citation__label" id="article-citation-title">{{ i18n "article_citation_title" }}</p>
+      <button class="article-citation__copy" type="button" data-citation-copy data-copy-label="{{ i18n "article_citation_copy" }}" data-copied-label="{{ i18n "article_citation_copied" }}" data-copy-failed-label="{{ i18n "article_citation_copy_failed" }}">{{ i18n "article_citation_copy" }}</button>
+    </div>
     <p><cite>{{ site.Params.author }}, «&nbsp;{{ .Title }}&nbsp;», <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>, <a href="{{ .Permalink }}">{{ .Permalink }}</a>.</cite></p>
   </aside>
   <aside class="article-transparency" aria-labelledby="article-transparency-title">

@@ -53,13 +53,20 @@
     <a class="brand" href="{{ site.Home.RelPermalink }}" aria-label="{{ i18n "home_label" }}">
       <span class="brand-mark" aria-hidden="true"><img src="{{ "/images/brand-maze-round-transparent.png" | relURL }}" alt=""></span><i></i><span>KÉVIN BRUNET</span>
     </a>
-    <button class="menu-button" aria-expanded="false" aria-controls="navigation">{{ i18n "menu" }}</button>
-    <nav id="navigation" aria-label="{{ i18n "main_navigation" }}">
-      <a class="{{ if or .IsHome (eq .Section "articles") }}active{{ end }}" href="{{ "articles" | relLangURL }}">{{ i18n "articles" }}</a>
-      <a class="{{ if eq .Data.Plural "series" }}active{{ end }}" href="{{ "series" | relLangURL }}">{{ i18n "series" }}</a>
-      <a href="{{ if eq site.Language.Lang "fr" }}{{ "a-propos" | relLangURL }}{{ else }}{{ "about" | relLangURL }}{{ end }}">{{ i18n "about" }}</a>
-      <span class="language-switcher" aria-label="{{ i18n "languages" }}">{{ range .AllTranslations }}<a href="{{ .RelPermalink }}" lang="{{ .Language.LanguageCode }}" hreflang="{{ .Language.LanguageCode }}" class="{{ if eq .Language.Lang site.Language.Lang }}active{{ end }}">{{ upper .Language.Lang }}</a>{{ end }}</span>
-    </nav>
+    <div class="header-actions">
+      <button class="menu-button" aria-expanded="false" aria-controls="navigation">{{ i18n "menu" }}</button>
+      <nav id="navigation" aria-label="{{ i18n "main_navigation" }}">
+        <a class="{{ if or .IsHome (eq .Section "articles") }}active{{ end }}" href="{{ "articles" | relLangURL }}">{{ i18n "articles" }}</a>
+        <a class="{{ if eq .Data.Plural "series" }}active{{ end }}" href="{{ "series" | relLangURL }}">{{ i18n "series" }}</a>
+        <a href="{{ if eq site.Language.Lang "fr" }}{{ "a-propos" | relLangURL }}{{ else }}{{ "about" | relLangURL }}{{ end }}">{{ i18n "about" }}</a>
+        <span class="language-switcher" aria-label="{{ i18n "languages" }}">{{ range .AllTranslations }}<a href="{{ .RelPermalink }}" lang="{{ .Language.LanguageCode }}" hreflang="{{ .Language.LanguageCode }}" class="{{ if eq .Language.Lang site.Language.Lang }}active{{ end }}">{{ upper .Language.Lang }}</a>{{ end }}</span>
+      </nav>
+      {{ with site.Home.OutputFormats.Get "rss" }}
+      <a class="rss-link" href="{{ .RelPermalink }}" type="application/rss+xml" aria-label="{{ i18n "rss_title" }}" title="{{ i18n "rss_title" }}">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="19" r="2"></circle><path d="M3 11a10 10 0 0 1 10 10"></path><path d="M3 4a17 17 0 0 1 17 17"></path></svg>
+      </a>
+      {{ end }}
+    </div>
   </header>
   <main id="contenu">{{ block "main" . }}{{ end }}</main>
   <footer>

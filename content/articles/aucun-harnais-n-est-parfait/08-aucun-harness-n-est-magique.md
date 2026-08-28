@@ -2,7 +2,7 @@
 title: "Aucun harness n'est magique"
 seo_title: "Fiabilité des agents IA : aucun harnais n'est magique"
 slug: "aucun-harnais-n-est-magique"
-date: 2026-10-20
+date: 2026-09-01
 description: "Aucun harnais ne couvre tous les risques : la robustesse vient d'une gouvernance capable d'organiser plusieurs lignes de défense."
 categories: ["Intelligence artificielle", "Ingénierie logicielle"]
 series: ["aucun-harnais-n-est-parfait"]
@@ -96,4 +96,3 @@ Nous avons longtemps traité l'uniformité comme la condition de la maitrise. Av
 - Littérature 2025-2026 sur les limites du vote et du débat multi-agents : synthèse dans *The Deliberative Illusion* et *When Does Delegation Beat Majority?* · https://arxiv.org/pdf/2606.03032 ; https://arxiv.org/pdf/2606.08098
 - Analogie monoculture/diversification : analogie conceptuelle, pas preuve empirique propre aux harness ~
 - Prédiction « les organisations à harness divers détectent davantage d'anomalies » : hypothèse falsifiable proposée par le manuscrit BYOAI, non encore démontrée ⚠
-
