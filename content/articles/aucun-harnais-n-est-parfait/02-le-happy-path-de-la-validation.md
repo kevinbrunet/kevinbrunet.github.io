@@ -75,6 +75,4 @@ C'est ce que nous verrons dans le prochain article de cette série.
 
 ## Sources
 
-- Calcul du parcours composé : 0,9¹⁰ ≈ 34,9 %
 - Huang et al., *Large Language Models Cannot Self-Correct Reasoning Yet*, ICLR 2024, sur les limites de l'auto-correction sans signal externe · https://arxiv.org/abs/2310.01798
-- Principe de taxonomie empirique des angles morts : développement original issu du manuscrit BYOAI, à valider expérimentalement ~

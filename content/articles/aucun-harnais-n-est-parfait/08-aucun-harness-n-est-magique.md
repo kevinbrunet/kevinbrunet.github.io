@@ -94,5 +94,3 @@ Nous avons longtemps traité l'uniformité comme la condition de la maitrise. Av
 
 - Théorème du jury de Condorcet, condition d'indépendance des erreurs
 - Littérature 2025-2026 sur les limites du vote et du débat multi-agents : synthèse dans *The Deliberative Illusion* et *When Does Delegation Beat Majority?* · https://arxiv.org/pdf/2606.03032 ; https://arxiv.org/pdf/2606.08098
-- Analogie monoculture/diversification : analogie conceptuelle, pas preuve empirique propre aux harness ~
-- Prédiction « les organisations à harness divers détectent davantage d'anomalies » : hypothèse falsifiable proposée par le manuscrit BYOAI, non encore démontrée ⚠

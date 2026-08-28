@@ -83,4 +83,3 @@ Le prochain article traite précisément de cette architecture. Elle ne consiste
 - *Multi-Agent Debate for LLM Judges*, NeurIPS 2025 · https://arxiv.org/pdf/2510.12697
 - *The Deliberative Illusion*, sur attrition factuelle et homogénéisation des positions en débat multi-agents · https://arxiv.org/pdf/2606.03032
 - *When Does Delegation Beat Majority?*, limites du vote majoritaire selon la structure des erreurs · https://arxiv.org/pdf/2606.08098
-- Mesure de la diversité par les désaccords utiles : proposition opérationnelle issue du manuscrit BYOAI ~

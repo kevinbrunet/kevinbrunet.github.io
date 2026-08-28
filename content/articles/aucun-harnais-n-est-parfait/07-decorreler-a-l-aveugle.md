@@ -99,4 +99,3 @@ C'est ce que nous verrons la semaine prochaine.
 - Jacobs, Jordan, Nowlan et Hinton, *Adaptive Mixtures of Local Experts* (1991), fonction de gating
 - Freund et Schapire, AdaBoost (1997), agrégation pondérée par l'erreur observée
 - Lamport, Shostak et Pease, *The Byzantine Generals Problem* (1982), robustesse face aux défaillances distribuées
-- Architecture précise proposée ici, notamment journalisation et routage du désaccord : proposition à tester empiriquement ~
