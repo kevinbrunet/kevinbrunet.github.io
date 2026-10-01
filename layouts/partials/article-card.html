@@ -1,4 +1,4 @@
 <article class="card {{ if eq .Params.collection "ARCHITECTURE" }}card-dark{{ end }}">
-  <a href="{{ .RelPermalink }}" aria-label="Lire {{ .Title }}">{{ with .Params.cover }}<div class="card-art card-art-image"><img src="{{ . | relURL }}" alt="" loading="lazy"></div>{{ else }}<div class="card-art" aria-hidden="true"><i></i><b></b><span></span></div>{{ end }}
+  <a href="{{ .RelPermalink }}" aria-label="{{ i18n "read_article" .Title }}">{{ with .Params.cover }}<div class="card-art card-art-image"><img src="{{ . | relURL }}" alt="" loading="lazy"></div>{{ else }}<div class="card-art" aria-hidden="true"><i></i><b></b><span></span></div>{{ end }}
   <div class="card-body"><p class="eyebrow">{{ with .GetTerms "series" }}{{ (index . 0).LinkTitle }} · {{ printf "%02d" $.Params.series_order }}{{ else }}{{ $.Params.collection }}{{ end }}</p><h3>{{ .Title }}</h3><p>{{ .Description }}</p><div class="meta"><time>{{ .Date | time.Format ":date_medium" }}</time><span>•</span><span>{{ .ReadingTime }} min</span></div></div></a>
 </article>

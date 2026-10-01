@@ -64,3 +64,23 @@ other = "Copy citation"
 other = "Citation copied"
 [article_citation_copy_failed]
 other = "Unable to copy"
+[continue_series]
+other = "Continue the series"
+[series_label]
+other = "SERIES"
+[category_label]
+other = "CATEGORY"
+[articles_in_order]
+other = "articles to read, in order"
+[articles_to_read]
+other = "articles to read"
+[articles_of]
+other = "Articles in {{ . }}"
+[filed_under]
+other = "FILED UNDER"
+[read_article]
+other = "Read {{ . }}"
+[article_cover_alt]
+other = "Editorial cover for {{ . }}"
+[article_illustration_alt]
+other = "Illustration for {{ . }}"

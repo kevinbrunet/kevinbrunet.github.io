@@ -2,16 +2,17 @@
 {{ $isSeries := eq .Data.Singular "series" }}
 <header class="index-header">
   <div>
-    <p class="eyebrow">{{ if $isSeries }}SÉRIE{{ else }}CATÉGORIE{{ end }}</p>
+    <p class="eyebrow">{{ if $isSeries }}{{ i18n "series_label" }}{{ else }}{{ i18n "category_label" }}{{ end }}</p>
     <h1>{{ .Title }}</h1>
   </div>
   <div class="index-header__aside">
     <strong>{{ printf "%02d" (len .Pages) }}</strong>
-    <span>articles à lire{{ if $isSeries }}, dans l'ordre{{ end }}</span>
+    <span>{{ if $isSeries }}{{ i18n "articles_in_order" }}{{ else }}{{ i18n "articles_to_read" }}{{ end }}</span>
+    {{ with .Description }}<p>{{ . }}</p>{{ end }}
   </div>
 </header>
 
-<section class="index-list" aria-label="Articles de {{ .Title }}">
+<section class="index-list" aria-label="{{ i18n "articles_of" .Title }}">
 {{ if $isSeries }}
   {{ range $index, $page := sort .Pages "Params.series_order" }}
     {{ .Scratch.Set "list_index" (add $index 1) }}

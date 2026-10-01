@@ -12,10 +12,10 @@
         <span>·</span><time itemprop="datePublished" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date | time.Format ":date_long" }}</time><span>·</span><span>{{ i18n "reading_time" .ReadingTime }}</span>
       </div>
     </div>
-    {{ with .Params.cover }}<figure class="article-cover"><img itemprop="image" src="{{ . | relURL }}" alt="Couverture éditoriale de l'article {{ $.Title }}"></figure>{{ else }}<div class="cover-mechanism" aria-hidden="true"><span></span><span></span><span></span><i></i></div>{{ end }}
+    {{ with .Params.cover }}<figure class="article-cover"><img itemprop="image" src="{{ . | relURL }}" alt="{{ i18n "article_cover_alt" $.Title }}"></figure>{{ else }}<div class="cover-mechanism" aria-hidden="true"><span></span><span></span><span></span><i></i></div>{{ end }}
   </header>
   <div class="article-layout">
-    <aside><p class="eyebrow">CLASSÉ DANS</p>{{ range .GetTerms "categories" }}<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}</aside>
+    <aside><p class="eyebrow">{{ i18n "filed_under" }}</p>{{ range .GetTerms "categories" }}<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}</aside>
     <div class="prose" itemprop="articleBody">{{ .Content }}</div>
   </div>
   <aside class="article-citation" aria-labelledby="article-citation-title">
@@ -31,7 +31,7 @@
     <p>{{ i18n "article_transparency_ai" }}</p>
   </aside>
   {{ with .GetTerms "series" }}{{ $series := index . 0 }}
-  <section class="series-next"><p class="eyebrow">CONTINUER LA SÉRIE</p><h2>{{ $series.LinkTitle }}</h2>{{ range sort $series.Pages "Params.series_order" }}<a href="{{ .RelPermalink }}"><span>{{ printf "%02d" .Params.series_order }}</span>{{ .Title }}</a>{{ end }}</section>
+  <section class="series-next"><p class="eyebrow">{{ i18n "continue_series" }}</p><h2>{{ $series.LinkTitle }}</h2>{{ range sort $series.Pages "Params.series_order" }}<a href="{{ .RelPermalink }}"><span>{{ printf "%02d" .Params.series_order }}</span>{{ .Title }}</a>{{ end }}</section>
   {{ end }}
 </article>
 {{ end }}

@@ -1,9 +1,9 @@
 <article class="article-row">
-  <a href="{{ .RelPermalink }}" aria-label="Lire {{ .Title }}">
+  <a href="{{ .RelPermalink }}" aria-label="{{ i18n "read_article" .Title }}">
     <div class="article-row__index" aria-hidden="true">{{ printf "%02d" (.Scratch.Get "list_index") }}</div>
     {{ with .Params.cover }}
       <figure class="article-row__illustration">
-        <img src="{{ . | relURL }}" alt="Illustration de l'article {{ $.Title }}" loading="lazy">
+        <img src="{{ . | relURL }}" alt="{{ i18n "article_illustration_alt" $.Title }}" loading="lazy">
       </figure>
     {{ else }}
       <div class="article-row__illustration article-row__illustration--fallback" aria-hidden="true"><i></i><b></b><span></span></div>
