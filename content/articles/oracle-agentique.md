@@ -5,6 +5,8 @@ slug: "oracle-game-changer-ia-agentique"
 date: 2026-10-27
 description: "Avec un oracle fiable, plusieurs essais d'un modèle économique peuvent résoudre davantage de tâches qu'un seul essai d'un modèle premium."
 categories: ["Intelligence artificielle", "Architecture logicielle", "Ingénierie logicielle"]
+series: ["l-oracle"]
+series_order: 1
 collection: "SYSTÈMES"
 cover: "/images/articles/oracle-agentique.fr.png"
 draft: false
@@ -145,8 +147,14 @@ La prochaine étape de l'IA agentique ne consistera pas uniquement à produire d
 
 Après la course aux modèles viendra probablement la course aux oracles.
 
-{{< closing-question label="À retenir" >}}
 Ceux qui sauront vérifier automatiquement le travail des agents pourront multiplier les expériences, utiliser des modèles moins coûteux et réserver l'intelligence premium aux véritables cas difficiles.
+
+Une limite subsiste pourtant. Après quatre exécutions, Luna laisse encore 11 tâches sans solution. Réessayer permet donc d'aller beaucoup plus loin, mais pas de supprimer les angles morts d'un modèle.
+
+{{< closing-question label="Dans le prochain article" >}}
+La question suivante n'est plus : combien de fois faut-il réessayer ? C'est : **quel autre modèle voit ce que Luna ne voit pas ?**
+
+Les données de DeepSWE réservent ici une seconde surprise. Le meilleur complément de Luna n'est ni le modèle le mieux classé ni le plus cher.
 {{< /closing-question >}}
 
 ---
