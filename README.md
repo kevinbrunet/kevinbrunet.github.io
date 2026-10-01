@@ -7,12 +7,15 @@ Blog statique Hugo organisé par **séries** et **catégories**, prêt pour GitH
 Installer Hugo Extended, puis lancer :
 
 ```powershell
-hugo server -D -F -E
+hugo server -D -F -E --disableFastRender --renderToMemory
 ```
 
 Cette commande affiche localement tous les articles : brouillons (`-D`),
 publications futures (`-F`) et contenus expirés (`-E`). Ces options ne sont pas
 utilisées par le déploiement GitHub Pages.
+
+L'aperçu est servi en mémoire avec une reconstruction complète. Il ne partage
+ainsi pas les fichiers de sortie de `public/` avec les compilations de vérification.
 
 ## Ajouter un article
 
