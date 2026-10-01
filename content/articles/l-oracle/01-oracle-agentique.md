@@ -2,7 +2,7 @@
 title: "L'oracle, le vrai game changer de l'IA agentique"
 seo_title: "Oracle et IA agentique : pourquoi la vérification change le meilleur modèle"
 slug: "oracle-game-changer-ia-agentique"
-date: 2026-10-27
+date: 2026-10-01
 description: "Avec un oracle fiable, plusieurs essais d'un modèle économique peuvent résoudre davantage de tâches qu'un seul essai d'un modèle premium."
 categories: ["Intelligence artificielle", "Architecture logicielle", "Ingénierie logicielle"]
 series: ["l-oracle"]

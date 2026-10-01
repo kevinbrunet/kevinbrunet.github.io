@@ -2,7 +2,7 @@
 title: "The Most Expensive Model May Be Better Left for Last"
 seo_title: "AI agents: why the most expensive model may be better left for last"
 slug: "most-expensive-model-better-left-last"
-date: 2026-10-27
+date: 2026-10-01
 description: "After one model fails, the best complement is the one with different blind spots—not necessarily the model at the top of the leaderboard."
 categories: ["Artificial intelligence", "Software architecture", "Software engineering"]
 series: ["l-oracle"]

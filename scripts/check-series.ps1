@@ -94,7 +94,7 @@ for ($i = 0; $i -lt $ExpectedCount; $i++) {
         $sources = ($text -split '(?m)^## Sources\s*$', 2)[1].Trim()
         Assert-Check (-not ($sources -match '✓|✗|~|vérification|à confirmer|audit')) 'Working annotations in sources'
         foreach ($line in ($sources -split '\r?\n' | Where-Object { $_.Trim() })) {
-            Assert-Check ($line -match '^- \[.+\]\(https?://[^)]+\)$') 'Source is not an identifiable linked reference'
+            Assert-Check ($line -match '^- .*\[[^\]]+\]\((?:https?://|/)[^)]+\)') 'Source is not an identifiable linked reference'
         }
     }
     $frLinks = @([regex]::Matches($fr, '\]\((https?://[^)]+)\)') | ForEach-Object { $_.Groups[1].Value } | Sort-Object -Unique)

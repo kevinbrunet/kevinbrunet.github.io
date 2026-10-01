@@ -2,7 +2,7 @@
 title: "Le modèle le plus cher devrait peut-être passer en dernier"
 seo_title: "Agents IA : pourquoi le modèle le plus cher peut passer en dernier"
 slug: "meilleur-modele-meilleur-complement"
-date: 2026-10-27
+date: 2026-10-01
 description: "Après l'échec d'un premier modèle, le meilleur complément est celui dont les angles morts sont différents, pas nécessairement celui qui domine le classement."
 categories: ["Intelligence artificielle", "Architecture logicielle", "Ingénierie logicielle"]
 series: ["l-oracle"]
@@ -69,7 +69,7 @@ Deux modèles peuvent produire des réponses différentes tout en échouant sur 
 
 Compter les modèles ne suffit donc pas. Il faut mesurer la complémentarité de leurs erreurs.
 
-Cette idée était au cœur de ma série [« Aucun harness n'est parfait »](/series/aucun-harnais-n-est-parfait/). Dans [« Pourquoi ajouter des agents ne crée pas forcément de diversité »](/articles/plusieurs-agents-ne-font-pas-plusieurs-points-de-vue/), je défendais que la diversité devait devenir une propriété empirique du système, observée à travers les désaccords et les erreurs utiles.
+Cette idée était au cœur de ma série [« Aucun harness n'est parfait »](/series/aucun-harnais-n-est-parfait/). Dans [« Pourquoi ajouter des agents ne crée pas forcément de diversité »](/articles/plusieurs-agents-points-de-vue/), je défendais que la diversité devait devenir une propriété empirique du système, observée à travers les désaccords et les erreurs utiles.
 
 DeepSWE en fournit ici une illustration particulièrement nette. Astra obtient un meilleur score que Luna sur une exécution moyenne. Pourtant, lorsqu'on lui présente uniquement les échecs persistants de Luna, il apporte moins de couverture supplémentaire que GLM-5.3 Flash.
 
@@ -187,5 +187,5 @@ Un modèle économique couvre 102 tâches. Un second modèle Flash récupère 10
 
 - DeepSWE, [classement v1.1, méthodologie et coûts](https://deepswe.datacurve.ai/), 113 tâches issues de 91 dépôts open source et couvrant cinq langages, mise à jour du 22 septembre 2026.
 - DeepSWE, [données détaillées des tâches et des rollouts](https://deepswe.datacurve.ai/data/v1.1), calculs de couverture, de complémentarité et de coût avec arrêt au premier succès.
-- Kévin Brunet, [« Pourquoi ajouter des agents ne crée pas forcément de diversité »](/articles/plusieurs-agents-ne-font-pas-plusieurs-points-de-vue/), diversité mesurée par les désaccords et les erreurs utiles.
+- Kévin Brunet, [« Pourquoi ajouter des agents ne crée pas forcément de diversité »](/articles/plusieurs-agents-points-de-vue/), diversité mesurée par les désaccords et les erreurs utiles.
 - Kévin Brunet, [« Décorréler à l'aveugle »](/articles/decorreler-a-l-aveugle/), routage des désaccords et adaptation du coût de validation à l'information obtenue.
