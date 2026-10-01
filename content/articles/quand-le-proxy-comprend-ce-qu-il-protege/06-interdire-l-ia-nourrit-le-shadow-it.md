@@ -1,7 +1,7 @@
 ---
 title: "Interdire l’IA nourrit le shadow IT"
 slug: "proxy-ia-shadow-it-chemin-officiel"
-date: 2026-10-01
+date: 2026-11-10
 description: "Un chemin officiel utile et explicable aide à limiter les contournements. Le proxy d’API ne couvre toutefois que les usages qui le traversent."
 categories: ["Intelligence artificielle", "Cybersécurité", "Architecture logicielle"]
 series: ["quand-le-proxy-comprend-ce-qu-il-protege"]

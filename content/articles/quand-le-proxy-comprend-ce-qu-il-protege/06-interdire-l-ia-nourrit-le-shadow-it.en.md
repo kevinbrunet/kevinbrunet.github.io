@@ -1,7 +1,7 @@
 ---
 title: "Banning AI fuels shadow IT"
 slug: "ai-proxy-shadow-it-official-path"
-date: 2026-10-01
+date: 2026-11-10
 description: "A useful, explainable official path helps limit workarounds. An API proxy only covers uses that pass through it."
 categories: ["Artificial intelligence", "Cybersecurity", "Software architecture"]
 series: ["quand-le-proxy-comprend-ce-qu-il-protege"]

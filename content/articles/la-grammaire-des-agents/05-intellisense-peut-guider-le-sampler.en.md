@@ -1,7 +1,7 @@
 ---
 title: "Can IntelliSense guide the model?"
 slug: "can-intellisense-guide-the-model"
-date: 2026-10-01
+date: 2026-11-05
 description: "Combine syntax constraints, compiler information and sampler choices to improve code generation."
 categories: ["Artificial intelligence", "Software architecture"]
 series: ["la-grammaire-des-agents"]

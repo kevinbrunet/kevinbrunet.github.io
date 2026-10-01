@@ -1,7 +1,7 @@
 ---
 title: "Un conseil s'oublie. Une grammaire interdit."
 slug: "un-llm-ne-choisit-jamais-une-phrase"
-date: 2026-10-01
+date: 2026-11-05
 description: "Une grammaire retire les tokens interdits avant leur choix et évite les relances liées aux sorties invalides."
 categories: ["Intelligence artificielle", "Architecture logicielle"]
 series: ["la-grammaire-des-agents"]

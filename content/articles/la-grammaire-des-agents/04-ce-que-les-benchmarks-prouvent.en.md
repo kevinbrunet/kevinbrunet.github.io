@@ -1,7 +1,7 @@
 ---
 title: "What grammars actually save"
 slug: "what-grammars-actually-save"
-date: 2026-10-01
+date: 2026-11-05
 description: "Measure the total cost of a usable output and distinguish schema compliance from business correctness."
 categories: ["Artificial intelligence", "Software architecture"]
 series: ["la-grammaire-des-agents"]

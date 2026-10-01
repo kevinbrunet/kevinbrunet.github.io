@@ -1,7 +1,7 @@
 ---
 title: "Dix documents sur onze passent le filtre par motifs"
 slug: "proxy-ia-limites-filtre-motifs"
-date: 2026-10-01
+date: 2026-11-10
 description: "Sur les onze cas initiaux du prototype, le filtre déterministe bloque une clé API et laisse cinq autres contenus sensibles à analyser."
 categories: ["Intelligence artificielle", "Cybersécurité", "Architecture logicielle"]
 series: ["quand-le-proxy-comprend-ce-qu-il-protege"]

@@ -76,9 +76,12 @@ for ($i = 0; $i -lt $ExpectedCount; $i++) {
     $enPath = $frFiles[$i].FullName -replace '\.md$', '.en.md'
     Assert-Check (Test-Path -LiteralPath $enPath) 'Missing translation pair'
     $en = Read-Utf8 $enPath
-    foreach ($name in @('series', 'series_order', 'date', 'draft', 'collection')) {
+    foreach ($name in @('series', 'series_order', 'date', 'draft')) {
         Assert-Check ((Field $fr $name) -eq (Field $en $name)) "Translation metadata differs: $name"
     }
+    $frCollection = (Field $fr 'collection') -replace '^SYSTÈMES$', 'SYSTEMS'
+    $enCollection = (Field $en 'collection') -replace '^SYSTÈMES$', 'SYSTEMS'
+    Assert-Check ($frCollection -eq $enCollection) 'Translation metadata differs: collection'
     Assert-Check ((Field $fr 'series') -eq ('["' + $Series + '"]')) 'Wrong series ID'
     Assert-Check ([int](Field $fr 'series_order') -eq ($i + 1)) 'Non-continuous episode order'
     foreach ($lang in @('fr', 'en')) {
@@ -89,9 +92,11 @@ for ($i = 0; $i -lt $ExpectedCount; $i++) {
         $prefix = if ($lang -eq 'en') { '/en' } else { '' }
         $urls[$lang] += "$prefix/articles/$slug/"
         $cover = Field $text 'cover'
-        Assert-Check ($cover.EndsWith(".$lang.png") -and -not $cover.Contains('.base.')) 'Cover language mismatch'
+        $coverMatchesLanguage = $cover.EndsWith(".$lang.png") -or ($lang -eq 'fr' -and $cover.EndsWith('.png') -and -not ($cover -match '\.[a-z]{2}\.png$'))
+        Assert-Check ($coverMatchesLanguage -and -not $cover.Contains('.base.')) 'Cover language mismatch'
         Assert-Check (Test-Path -LiteralPath (Join-Path $root ('static' + $cover))) 'Missing final cover'
         $sources = ($text -split '(?m)^## Sources\s*$', 2)[1].Trim()
+        $sources = ($sources -split '(?m)^\*\*(?:Pour continuer :|Continue reading:)\*\*', 2)[0].Trim()
         Assert-Check (-not ($sources -match '✓|✗|~|vérification|à confirmer|audit')) 'Working annotations in sources'
         foreach ($line in ($sources -split '\r?\n' | Where-Object { $_.Trim() })) {
             Assert-Check ($line -match '^- .*\[[^\]]+\]\((?:https?://|/)[^)]+\)') 'Source is not an identifiable linked reference'

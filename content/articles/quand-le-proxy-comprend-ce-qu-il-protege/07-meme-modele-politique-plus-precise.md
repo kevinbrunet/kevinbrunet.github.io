@@ -1,7 +1,7 @@
 ---
 title: "Avec le même modèle, le rappel est passé de 67 % à 100 %"
 slug: "shieldstral-politique-rappel-qualification"
-date: 2026-10-01
+date: 2026-11-10
 description: "Sur le jeu exploratoire, préciser la politique corrige deux fuites. Ces résultats demandent encore une évaluation indépendante et représentative."
 categories: ["Intelligence artificielle", "Cybersécurité", "Architecture logicielle"]
 series: ["quand-le-proxy-comprend-ce-qu-il-protege"]

@@ -1,7 +1,7 @@
 ---
 title: "A grammar built for a single request"
 slug: "a-grammar-built-for-a-single-request"
-date: 2026-10-01
+date: 2026-11-05
 description: "Generate context and constraints from the actual schema, permissions and available capabilities."
 categories: ["Artificial intelligence", "Software architecture"]
 series: ["la-grammaire-des-agents"]

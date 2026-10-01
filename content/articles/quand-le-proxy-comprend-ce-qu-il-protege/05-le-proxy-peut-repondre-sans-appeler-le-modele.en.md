@@ -1,7 +1,7 @@
 ---
 title: "The proxy can respond without calling the model"
 slug: "ai-proxy-synthetic-response-user-choice"
-date: 2026-10-01
+date: 2026-11-10
 description: "A synthetic response can explain a decision and offer permitted paths. Its integration depends on the client's protocol."
 categories: ["Artificial intelligence", "Cybersecurity", "Software architecture"]
 series: ["quand-le-proxy-comprend-ce-qu-il-protege"]

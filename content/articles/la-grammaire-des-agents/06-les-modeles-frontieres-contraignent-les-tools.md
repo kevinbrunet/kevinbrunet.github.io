@@ -1,7 +1,7 @@
 ---
 title: "Comment contraindre un modèle frontière"
 slug: "les-modeles-frontieres-contraignent-les-tools"
-date: 2026-10-01
+date: 2026-11-05
 description: "Comparer sorties structurées, tools stricts et grammaires personnalisées dans les API des modèles frontières."
 categories: ["Intelligence artificielle", "Architecture logicielle"]
 series: ["la-grammaire-des-agents"]

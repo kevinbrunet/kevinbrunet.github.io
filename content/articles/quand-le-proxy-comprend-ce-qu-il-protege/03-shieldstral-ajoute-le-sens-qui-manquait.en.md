@@ -1,7 +1,7 @@
 ---
 title: "Shieldstral adds a local classifier driven by business policy"
 slug: "shieldstral-local-business-policy-classifier"
-date: 2026-10-01
+date: 2026-11-10
 description: "A specialized 3-billion-parameter classifier evaluates content locally against a safety question defined by the company."
 categories: ["Artificial intelligence", "Cybersecurity", "Software architecture"]
 series: ["quand-le-proxy-comprend-ce-qu-il-protege"]

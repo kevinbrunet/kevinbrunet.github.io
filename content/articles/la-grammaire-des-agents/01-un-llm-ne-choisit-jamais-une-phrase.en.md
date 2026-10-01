@@ -1,7 +1,7 @@
 ---
 title: "Advice can be forgotten. A grammar forbids."
 slug: "advice-can-be-forgotten-a-grammar-forbids"
-date: 2026-10-01
+date: 2026-11-05
 description: "A grammar removes forbidden tokens before selection, avoiding retries caused by invalid outputs."
 categories: ["Artificial intelligence", "Software architecture"]
 series: ["la-grammaire-des-agents"]

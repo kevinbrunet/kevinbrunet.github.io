@@ -2,7 +2,7 @@
 title: "The Oracle, the Real Game Changer in Agentic AI"
 seo_title: "Oracles and agentic AI: why verification changes the best model"
 slug: "oracle-real-game-changer-agentic-ai"
-date: 2026-10-01
+date: 2026-10-27
 description: "With a reliable oracle, several attempts from an economical model can solve more tasks than one attempt from a premium model."
 categories: ["Artificial intelligence", "Software architecture", "Software engineering"]
 series: ["l-oracle"]

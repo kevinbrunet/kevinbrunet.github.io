@@ -1,7 +1,7 @@
 ---
 title: "Le proxy peut répondre sans appeler le modèle"
 slug: "proxy-ia-reponse-synthetique-choix-utilisateur"
-date: 2026-10-01
+date: 2026-11-10
 description: "Une réponse synthétique peut expliquer une décision et proposer les chemins autorisés. Son intégration dépend du protocole du client."
 categories: ["Intelligence artificielle", "Cybersécurité", "Architecture logicielle"]
 series: ["quand-le-proxy-comprend-ce-qu-il-protege"]

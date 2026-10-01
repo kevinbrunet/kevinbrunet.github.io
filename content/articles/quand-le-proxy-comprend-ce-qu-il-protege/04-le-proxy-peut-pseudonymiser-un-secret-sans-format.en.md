@@ -1,7 +1,7 @@
 ---
 title: "Redacting a secret without a fixed format: does the proxy still preserve the task?"
 slug: "shieldstral-business-secret-redaction"
-date: 2026-10-01
+date: 2026-11-10
 description: "The prototype locates sensitive areas by chunk and rechecks them after redaction, but still removes almost the entire document."
 categories: ["Artificial intelligence", "Cybersecurity", "Software architecture"]
 series: ["quand-le-proxy-comprend-ce-qu-il-protege"]

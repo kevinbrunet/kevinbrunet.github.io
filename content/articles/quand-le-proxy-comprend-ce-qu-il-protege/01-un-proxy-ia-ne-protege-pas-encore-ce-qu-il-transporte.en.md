@@ -1,7 +1,7 @@
 ---
 title: "An AI proxy only protects what it is configured to check"
 slug: "ai-proxy-content-controls"
-date: 2026-10-01
+date: 2026-11-10
 description: "The proxy centralizes access to models. Content protection depends on the controls enabled and how they are evaluated."
 categories: ["Artificial intelligence", "Cybersecurity", "Software architecture"]
 series: ["quand-le-proxy-comprend-ce-qu-il-protege"]

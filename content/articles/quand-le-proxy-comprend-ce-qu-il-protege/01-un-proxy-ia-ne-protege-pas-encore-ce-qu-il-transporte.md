@@ -1,7 +1,7 @@
 ---
 title: "Un proxy IA ne protège que ce qu’on lui apprend à contrôler"
 slug: "proxy-ia-controles-contenu"
-date: 2026-10-01
+date: 2026-11-10
 description: "Le proxy centralise les accès aux modèles. La protection du contenu dépend des contrôles activés et de leur qualification."
 categories: ["Intelligence artificielle", "Cybersécurité", "Architecture logicielle"]
 series: ["quand-le-proxy-comprend-ce-qu-il-protege"]

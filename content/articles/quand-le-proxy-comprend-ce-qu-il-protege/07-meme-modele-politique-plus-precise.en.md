@@ -1,7 +1,7 @@
 ---
 title: "With the same model, recall increased from 67% to 100%"
 slug: "shieldstral-policy-recall-evaluation"
-date: 2026-10-01
+date: 2026-11-10
 description: "On the exploratory set, clarifying the policy fixes two leaks. These results still require an independent, representative evaluation."
 categories: ["Artificial intelligence", "Cybersecurity", "Software architecture"]
 series: ["quand-le-proxy-comprend-ce-qu-il-protege"]

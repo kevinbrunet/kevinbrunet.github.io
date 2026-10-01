@@ -2,7 +2,7 @@
 title: "Le modèle le plus cher devrait peut-être passer en dernier"
 seo_title: "Agents IA : pourquoi le modèle le plus cher peut passer en dernier"
 slug: "meilleur-modele-meilleur-complement"
-date: 2026-10-01
+date: 2026-10-27
 description: "Après l'échec d'un premier modèle, le meilleur complément est celui dont les angles morts sont différents, pas nécessairement celui qui domine le classement."
 categories: ["Intelligence artificielle", "Architecture logicielle", "Ingénierie logicielle"]
 series: ["l-oracle"]
