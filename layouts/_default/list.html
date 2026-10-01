@@ -1,5 +1,6 @@
 {{ define "main" }}
 {{ $isSeries := eq .Data.Plural "series" }}
+{{ $isArticles := and (eq .Kind "section") (eq .Section "articles") }}
 {{ $itemCount := len .Pages }}
 {{ if $isSeries }}{{ $itemCount = len .Data.Terms }}{{ end }}
 <header class="index-header">
@@ -27,6 +28,38 @@
       <span class="series-index-row__count">{{ .Count }} {{ i18n "article_count" .Count }}</span>
       <span class="series-index-row__arrow" aria-hidden="true">→</span>
     </a>
+    {{ end }}
+  {{ else if $isArticles }}
+    {{/*
+      Treat a series as one chronological block on the global article index.
+      Blocks are ordered by their most recent article; episodes remain in
+      their explicit editorial order. Standalone articles form one-item blocks.
+    */}}
+    {{ $blocks := slice }}
+    {{ $seenSeries := newScratch }}
+    {{ range $page := .Pages }}
+      {{ $seriesTerms := $page.GetTerms "series" }}
+      {{ if $seriesTerms }}
+        {{ $series := index $seriesTerms 0 }}
+        {{ $seriesKey := $series.RelPermalink }}
+        {{ if not ($seenSeries.Get $seriesKey) }}
+          {{ $seriesPages := sort $series.Pages "Params.series_order" "asc" }}
+          {{ $latestPage := index $series.Pages.ByDate.Reverse 0 }}
+          {{ $blocks = $blocks | append (dict "date" $latestPage.Date "pages" $seriesPages) }}
+          {{ $seenSeries.Set $seriesKey true }}
+        {{ end }}
+      {{ else }}
+        {{ $blocks = $blocks | append (dict "date" $page.Date "pages" (slice $page)) }}
+      {{ end }}
+    {{ end }}
+
+    {{ $listIndex := 0 }}
+    {{ range sort $blocks "date" "desc" }}
+      {{ range .pages }}
+        {{ $listIndex = add $listIndex 1 }}
+        {{ .Scratch.Set "list_index" $listIndex }}
+        {{ partial "article-row.html" . }}
+      {{ end }}
     {{ end }}
   {{ else }}
     {{ range $index, $page := .Pages.ByDate.Reverse }}

@@ -196,9 +196,18 @@ html {
 .prose pre{max-width:100%;margin:2rem 0;padding:1.5rem;overflow-x:auto;background:var(--ink);color:var(--paper);border-left:5px solid var(--coral);box-shadow:9px 9px 0 rgba(36,87,245,.16);font: .9rem/1.65 Consolas,"Courier New",monospace}
 .prose code:not(pre code){padding:.12em .38em;background:rgba(36,87,245,.1);color:#173ba8;font: .88em/1.4 Consolas,"Courier New",monospace}
 .prose hr{height:1px;margin:3.5rem 0;border:0;background:linear-gradient(90deg,var(--coral) 0 5rem,var(--line) 5rem 100%)}
-.prose table{display:block;width:100%;margin:2rem 0;overflow-x:auto;border-collapse:collapse;font-family:Inter,Arial,sans-serif;font-size:.92rem}
-.prose th,.prose td{padding:.8rem 1rem;border:1px solid var(--line);text-align:left}
-.prose th{background:var(--ink);color:var(--paper);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+.prose table{display:block;width:100%;min-width:0;margin:2.5rem 0 3rem;overflow-x:auto;border:1px solid var(--ink);border-collapse:separate;border-spacing:0;background:rgba(255,255,255,.45);box-shadow:10px 10px 0 rgba(36,87,245,.16);font-family:Inter,Arial,sans-serif;font-size:.9rem;line-height:1.4;-webkit-overflow-scrolling:touch}
+.prose thead,.prose tbody{display:table;width:100%;min-width:780px;table-layout:fixed}
+.prose tr{display:table-row}
+.prose th,.prose td{display:table-cell;padding:1rem 1.1rem;border:0;border-right:1px solid var(--line);border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
+.prose th:last-child,.prose td:last-child{border-right:0}
+.prose tbody tr:last-child td{border-bottom:0}
+.prose th{background:var(--ink);color:var(--paper);font-size:.68rem;letter-spacing:.09em;text-transform:uppercase}
+.prose th:first-child,.prose td:first-child{width:25%;font-weight:800}
+.prose th:not(:first-child),.prose td:not(:first-child){text-align:right}
+.prose tbody tr:nth-child(even){background:rgba(223,226,214,.55)}
+.prose td:has(>strong:only-child){color:var(--blue)}
+.prose td strong{display:inline-block;padding-bottom:.08rem;border-bottom:2px solid currentColor;font-weight:850}
 .prose>p>strong:first-child:last-child{font-family:"Arial Narrow",Arial,sans-serif;font-size:1.12em}
 @media(max-width:650px){.prose h2{margin-top:2.7rem}.prose>blockquote{padding:1.4rem 1.4rem 1.4rem 2rem;font-size:1.1rem;box-shadow:6px 6px 0 rgba(36,87,245,.09)}.prose ul,.prose ol{padding-left:2.4rem}.prose pre{margin-left:-.25rem;margin-right:-.25rem;padding:1.1rem;font-size:.78rem;box-shadow:5px 5px 0 rgba(36,87,245,.16)}}
 
