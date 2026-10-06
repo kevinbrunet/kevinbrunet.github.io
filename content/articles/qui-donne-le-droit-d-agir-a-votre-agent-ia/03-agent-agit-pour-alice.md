@@ -5,6 +5,7 @@ slug: "agent-agit-pour-alice"
 date: 2026-09-03
 description: "Une délégation sûre conserve des identités distinctes pour l'utilisateur qui mandate et l'agent qui exécute."
 categories: ["Intelligence artificielle", "Sécurité", "Architecture logicielle"]
+tags: ["ai-security"]
 series: ["qui-donne-le-droit-d-agir-a-votre-agent-ia"]
 series_order: 3
 collection: "ARCHITECTURE"

@@ -5,6 +5,7 @@ slug: "model-is-not-the-agent"
 date: 2026-09-28
 description: "The model is only one component: the durable value of an enterprise agent lies in the harness around it."
 categories: ["Artificial intelligence", "Software architecture"]
+tags: ["ai-systems-harness-engineering", "agent-protocols"]
 series: ["acp-interface-manquante-des-agents"]
 series_order: 2
 collection: "ARCHITECTURE"

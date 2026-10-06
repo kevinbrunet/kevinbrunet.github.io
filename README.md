@@ -86,6 +86,34 @@ Les seules variantes acceptées par `callout` sont `scene`, `alert` et `key`.
 Ajouter un nouveau composant visuel nécessite de créer ou d'étendre un shortcode
 dans `layouts/shortcodes/`, sans réactiver `markup.goldmark.renderer.unsafe`.
 
+## Classer un article par sujet
+
+Les mots-clés de recrutement sont regroupés dans la taxonomie `tags`, accessible
+depuis **Sujets** (`/sujets/`) et **Topics** (`/en/topics/`). Retenir un ou deux
+sujets correspondant à la question principale et à la démonstration de l'article.
+Une technologie citée, un exemple ou une conséquence secondaire ne justifie pas
+un classement. Ne pas recopier les sujets d'une série sur tous ses épisodes et
+ne pas ajouter un sujet général lorsque seul un sujet spécialisé est central.
+Si aucun sujet ne correspond au cœur de l'article, utiliser `tags: []`.
+Par exemple, pour un article consacré aux limites d'une méthode d'évaluation :
+
+```yaml
+tags: ["ai-evaluation-evals", "ai-reliability"]
+```
+
+Les identifiants autorisés sont `agentic-ai`, `ai-systems-harness-engineering`,
+`ai-evaluation-evals`, `ai-reliability`, `ai-observability`, `llmops-agentops`,
+`ai-platform-engineering`, `agent-protocols`, `ai-security`,
+`ai-risk-governance` et `software-architecture`.
+
+Conserver les mêmes identifiants sur l'article français et sa traduction anglaise.
+Les titres, descriptions, URL et ordre des sujets sont définis dans
+`content/tags/<identifiant>/_index.md` et `_index.en.md`. Les sujets sans article
+publié ne sont pas affichés dans l'index. Les pages thématiques regroupent les
+articles par série, de la série la plus récente à la plus ancienne, puis dans
+l'ordre des épisodes. Seuls les épisodes portant le mot-clé sont inclus.
+Les articles hors série sont classés par date dans le même parcours.
+
 ## Publier en anglais
 
 Le français reste disponible aux URL historiques et l'anglais est publié sous `/en/`.

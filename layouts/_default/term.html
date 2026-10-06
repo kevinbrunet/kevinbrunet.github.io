@@ -2,7 +2,7 @@
 {{ $isSeries := eq .Data.Singular "series" }}
 <header class="index-header">
   <div>
-    <p class="eyebrow">{{ if $isSeries }}{{ i18n "series_label" }}{{ else }}{{ i18n "category_label" }}{{ end }}</p>
+    <p class="eyebrow">{{ if $isSeries }}{{ i18n "series_label" }}{{ else if eq .Data.Singular "tag" }}{{ i18n "topic_label" }}{{ else }}{{ i18n "category_label" }}{{ end }}</p>
     <h1>{{ .Title }}</h1>
   </div>
   <div class="index-header__aside">
@@ -15,13 +15,13 @@
 <section class="index-list" aria-label="{{ i18n "articles_of" .Title }}">
 {{ if $isSeries }}
   {{ range $index, $page := sort .Pages "Params.series_order" }}
-    {{ .Scratch.Set "list_index" (add $index 1) }}
-    {{ partial "article-row.html" . }}
+    {{ partial "article-row.html" (dict "page" . "index" (add $index 1)) }}
   {{ end }}
+{{ else if eq .Data.Singular "tag" }}
+  {{ partial "chronological-article-list.html" .Pages }}
 {{ else }}
   {{ range $index, $page := .Pages.ByDate.Reverse }}
-    {{ .Scratch.Set "list_index" (add $index 1) }}
-    {{ partial "article-row.html" . }}
+    {{ partial "article-row.html" (dict "page" . "index" (add $index 1)) }}
   {{ end }}
 {{ end }}
 </section>

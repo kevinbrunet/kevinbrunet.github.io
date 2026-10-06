@@ -5,6 +5,7 @@ slug: "tests-du-meme-cerveau"
 date: 2026-09-01
 description: "Des tests générés avec le code peuvent confirmer avec une parfaite cohérence une mauvaise compréhension du besoin."
 categories: ["Intelligence artificielle", "Ingénierie logicielle"]
+tags: ["ai-evaluation-evals", "ai-reliability"]
 series: ["aucun-harnais-n-est-parfait"]
 series_order: 5
 collection: "ARCHITECTURE"

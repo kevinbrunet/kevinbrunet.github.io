@@ -4,6 +4,7 @@ slug: "un-llm-ne-choisit-jamais-une-phrase"
 date: 2026-11-05
 description: "Une grammaire retire les tokens interdits avant leur choix et évite les relances liées aux sorties invalides."
 categories: ["Intelligence artificielle", "Architecture logicielle"]
+tags: ["ai-systems-harness-engineering", "ai-reliability"]
 series: ["la-grammaire-des-agents"]
 series_order: 1
 collection: "ARCHITECTURE"

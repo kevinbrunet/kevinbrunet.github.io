@@ -4,6 +4,7 @@ slug: "ai-proxy-shadow-it-official-path"
 date: 2026-11-10
 description: "A useful, explainable official path helps limit workarounds. An API proxy only covers uses that pass through it."
 categories: ["Artificial intelligence", "Cybersecurity", "Software architecture"]
+tags: ["ai-security", "ai-risk-governance"]
 series: ["quand-le-proxy-comprend-ce-qu-il-protege"]
 series_order: 6
 collection: "SYSTEMS"

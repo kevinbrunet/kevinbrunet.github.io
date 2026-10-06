@@ -1,7 +1,7 @@
 baseURL = "https://kevinbrunet.github.io/"
 defaultContentLanguage = "fr"
 defaultContentLanguageInSubdir = false
-title = "Kévin Brunet | Architecturer la confiance"
+title = "Kévin Brunet | Software Architect · Agentic AI & AI Reliability"
 enableRobotsTXT = true
 summaryLength = 28
 
@@ -15,7 +15,7 @@ summaryLength = 28
     languageCode = "fr-FR"
     languageName = "Français"
     weight = 1
-    title = "Kévin Brunet | Architecturer la confiance"
+    title = "Kévin Brunet | Software Architect · Agentic AI & AI Reliability"
     [languages.fr.params]
       description = "Sécuriser et fiabiliser les systèmes d'information et les agents IA pour que les organisations puissent réellement s'appuyer sur eux."
       author = "Kévin Brunet"
@@ -23,7 +23,7 @@ summaryLength = 28
     languageCode = "en"
     languageName = "English"
     weight = 2
-    title = "Kévin Brunet | Architecting trust"
+    title = "Kévin Brunet | Software Architect · Agentic AI & AI Reliability"
     [languages.en.params]
       description = "Securing and strengthening information systems and AI agents so organizations can genuinely rely on them."
       author = "Kévin Brunet"
@@ -31,6 +31,7 @@ summaryLength = 28
 [taxonomies]
   category = "categories"
   series = "series"
+  tag = "tags"
 
 [permalinks]
   articles = "/articles/:slug/"

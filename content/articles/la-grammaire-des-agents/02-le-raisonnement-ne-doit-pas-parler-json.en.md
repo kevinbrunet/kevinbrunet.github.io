@@ -4,6 +4,7 @@ slug: "reasoning-should-not-have-to-speak-json"
 date: 2026-11-05
 description: "Keep reasoning free and constrain only the message the software needs to consume."
 categories: ["Artificial intelligence", "Software architecture"]
+tags: ["ai-systems-harness-engineering"]
 series: ["la-grammaire-des-agents"]
 series_order: 2
 collection: "ARCHITECTURE"

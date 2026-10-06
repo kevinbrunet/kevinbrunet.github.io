@@ -5,6 +5,7 @@ slug: "api-interdite-agent-humain"
 date: 2026-09-03
 description: "Approbation humaine déléguée et endpoint strictement humain constituent deux frontières de sécurité différentes."
 categories: ["Intelligence artificielle", "Sécurité", "Architecture logicielle"]
+tags: ["ai-security", "ai-risk-governance"]
 series: ["qui-donne-le-droit-d-agir-a-votre-agent-ia"]
 series_order: 9
 collection: "ARCHITECTURE"

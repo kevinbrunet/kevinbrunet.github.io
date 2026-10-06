@@ -3,8 +3,9 @@ title: "The Most Expensive Model May Be Better Left for Last"
 seo_title: "AI agents: why the most expensive model may be better left for last"
 slug: "most-expensive-model-better-left-last"
 date: 2026-10-27
-description: "After one model fails, the best complement is the one with different blind spots—not necessarily the model at the top of the leaderboard."
+description: "After one model fails, the best complement is the one that recovers its observed failures, not necessarily the model at the top of the leaderboard."
 categories: ["Artificial intelligence", "Software architecture", "Software engineering"]
+tags: ["ai-evaluation-evals", "llmops-agentops"]
 series: ["l-oracle"]
 series_order: 2
 collection: "SYSTÈMES"
@@ -15,7 +16,7 @@ draft: false
 {{< callout variant="scene" label="Eleven blind spots" >}}
 After four attempts, GPT-5.6 Luna solves 102 of the 113 tasks in the DeepSWE benchmark.
 
-Eleven blind spots remain.
+Eleven tasks remain without a recorded success.
 
 The obvious next step might be to escalate to the most powerful model on the leaderboard. Yet GPT-6 Astra recovers only 5 of those 11 tasks.
 
@@ -32,23 +33,27 @@ This metric answers a useful question: if I can run only one attempt, which mode
 
 It does not answer another question that is essential to agentic architecture: when a first model fails, which model is most likely to succeed specifically on those failures?
 
-The detailed [DeepSWE 1.1](https://deepswe.datacurve.ai/) data lets us examine this. Each configuration was run up to four times on 113 software engineering tasks. Luna `[max]` solves 102 of them at least once. Eleven tasks resist all four attempts.
+The detailed [DeepSWE 1.1](https://deepswe.datacurve.ai/) data lets us examine this. Each configuration was run up to four times on 113 software engineering tasks. Luna `[max]` solves 102 of them at least once. Eleven tasks have no recorded success across its available runs. These are its observed “blind spots” here, not a demonstrated inability.
 
-Among the 70 configurations in the dataset, GLM-5.3 Flash `[max]` complements Luna best: it succeeds at least once on 10 of those 11 tasks.
+As in the first article, a “solved” task means a positive grader verdict. All results compared here use the same harness, `mini-swe-agent`, with the stated effort levels.
 
-This result must be read as an escalation. GLM Flash does not start over with all 113 tasks. It receives only the 11 tasks that Luna failed to solve in any of its four runs. We then identify the first GLM Flash attempt that succeeds on each task.
+Among the 70 configurations in the dataset, GLM-5.3 Flash `[max]` complements Luna best on this task set: it succeeds at least once on 10 of those 11 tasks.
+
+The models were actually run separately on the benchmark. We retrospectively simulate an escalation: retain GLM Flash attempts only for the 11 tasks without a Luna success, then stop at the first positive verdict.
+
+To make the calculation reproducible, attempts for each configuration on each task are ordered by start time, then by identifier to break ties. This is a replay of published results, not an adaptive chain that was actually executed.
 
 | Stage | New tasks recovered on this attempt | Luna failures recovered in total | Tasks still unresolved | Combined Luna + GLM Flash coverage |
 |---|---:|---:|---:|---:|
 | Before GLM Flash | — | 0 of 11 | 11 | 102 of 113, or 90.3% |
-| **Attempt 1** | **5** | **5 of 11** | 6 | 107 of 113, or 94.7% |
-| **Attempt 2** | **2** | **7 of 11** | 4 | 109 of 113, or 96.5% |
-| **Attempt 3** | **1** | **8 of 11** | 3 | 110 of 113, or 97.3% |
-| **Attempt 4** | **2** | **10 of 11** | **1** | **112 of 113, or 99.1%** |
+| **Attempt 1** | **3** | **3 of 11** | 8 | 105 of 113, or 92.9% |
+| **Attempt 2** | **7** | **10 of 11** | 1 | 112 of 113, or 99.1% |
+| **Attempt 3** | 0 | 10 of 11 | 1 | 112 of 113, or 99.1% |
+| **Attempt 4** | 0 | **10 of 11** | **1** | **112 of 113, or 99.1%** |
 
-On its first attempt, GLM Flash clears 5 of Luna's 11 persistent blockers. A second attempt recovers 2 more. The third adds 1, and the fourth produces the final 2 observed successes. Only one task remains unresolved by this pair of models.
+In this replay order, GLM Flash’s first attempt recovers 3 of Luna’s 11 failures. The second adds 7. Later attempts add no further success. Attempt ordering changes this progression and the cost of early stopping; it does not change the final union of available successes.
 
-The table does not show four independent scores. It shows the cumulative progress enabled by the oracle: after each failure, another attempt is launched only for the tasks that still resist.
+The table does not show four independent scores. It shows the cumulative progress of a policy that stops at the first positive verdict: another attempt would be launched only for tasks still rejected.
 
 | Model added after Luna | Luna failures recovered | Combined coverage |
 |---|---:|---:|
@@ -58,7 +63,7 @@ The table does not show four independent scores. It shows the cumulative progres
 | GPT-6 Astra [xhigh] | 5 of 11 | 107 of 113, or 94.7% |
 
 {{< thesis >}}
-These figures do not mean that GLM-5.3 Flash is better than Astra in absolute terms. They show that its strengths land far more often in Luna's blind spots.
+These figures do not mean that GLM-5.3 Flash is better than Astra in absolute terms. They show that its recorded successes overlap more with Luna’s observed failures.
 
 **This is another definition of diversity.**
 {{< /thesis >}}
@@ -71,12 +76,12 @@ Counting models is not enough. We must measure the complementarity of their erro
 
 This idea was central to my series [“No Harness Is Perfect”](/en/series/aucun-harnais-n-est-parfait/). In [“Why Adding Agents Does Not Necessarily Create Diversity”](/en/articles/plusieurs-agents-points-de-vue/), I argued that diversity should become an empirical property of the system, observed through disagreements and useful errors.
 
-DeepSWE provides an especially clear illustration. Astra achieves a higher average score than Luna on a single run. Yet when it is given only Luna's persistent failures, it adds less coverage than GLM-5.3 Flash.
+DeepSWE provides an especially clear illustration. Astra achieves a higher average score than Luna on a single run. Yet when we examine only Luna’s persistent failures, it adds less coverage than GLM-5.3 Flash.
 
 The right question is no longer: which model is best?
 
 {{< pullquote >}}
-Which model best reduces the risk that remains after the previous one?
+Which model best recovers the failures that remain after the previous one?
 {{< /pullquote >}}
 
 ## The oracle turns diversity into routing
@@ -87,7 +92,7 @@ Without an oracle, we would have to run several models and then ask a person to 
 
 With tests that can automatically accept or reject a result, the harness can stop at the first success and escalate only the tasks that resist.
 
-The system therefore does not have to pay for four additional attempts every time. As the progression above shows, the oracle stops GLM Flash as soon as a task is validated and reserves later attempts for the cases that are still failing.
+The system therefore does not have to pay for four additional attempts every time. As the progression above shows, such a policy would stop GLM Flash as soon as a task is accepted and reserves later attempts for the cases that are still failing.
 
 ```text
 Luna, up to four attempts
@@ -107,28 +112,30 @@ Luna has the better individual coverage of the two, but GLM-5.3 Flash is cheaper
 
 Using the rollouts published by DeepSWE and stopping at the first success, the following retrospective chain produces these results:
 
-| Stage | Tasks received | Tasks solved at this stage | Attempts executed | Observed cost |
+| Stage | Tasks received | Tasks solved at this stage | Attempts executed | Estimated cost |
 |---|---:|---:|---:|---:|
-| GLM-5.3 Flash [max] | 113 | 96 | 206 | $47.70 |
-| Luna [max] on the failures | 17 | 16 | 30 | $20.15 |
+| GLM-5.3 Flash [max] | 113 | 96 | 204 | $49.74 |
+| Luna [max] on the failures | 17 | 16 | 34 | $20.71 |
 | GLM-5.2 [max] on the final case | 1 | 1 | 1 | $6.02 |
-| **Retrospective total** | **113** | **113** | **237** | **$73.87** |
+| **Retrospective total** | **113** | **113** | **239** | **$76.46** |
 
-That is approximately $0.65 per submitted task. The chain's value does not come from making fewer calls: it executes an average of 2.10 attempts per task.
+These costs are estimated from rollout consumption, using the prices applied by the DeepSWE interface on October 6, 2026. They exclude the full cost of the oracle and its operation.
+
+That is approximately $0.68 per submitted task and 2.12 attempts per task. An attempt is an agent execution, which can make several model calls.
 
 {{< callout variant="key" label="The cost shifts tiers" >}}
-The value comes from the fact that **236 of its 237 calls go to the two economical models**.
+The value comes from the fact that **238 of its 239 attempts go to the two economical models**.
 {{< /callout >}}
 
-The reverse order—Luna followed by GLM Flash—uses fewer attempts but costs $123.05. Starting with GLM Flash therefore saves about 40%, at the price of 26 additional calls and potentially higher latency.
+The reverse order, Luna → GLM Flash → GLM-5.2, uses fewer attempts but costs $119.31. Starting with GLM Flash therefore saves about 36%, at the price of 30 additional attempts and potentially higher latency.
 
-The best order depends on the compass we choose: cost, latency, compute consumption, or accepted risk.
+The best order depends on our chosen objective: cost, latency, compute consumption, or accepted risk.
 
 ## The 113 out of 113 to be wary of
 
 In the observed data, the GLM Flash → Luna → GLM-5.2 chain covers all 113 benchmark tasks.
 
-That result is spectacular. It is not a promise of perfect success.
+These 113 successes are grader verdicts, and that grader has documented flaws. The [third article](/en/articles/who-checks-oracle/) will examine what they mean. They are not a promise of perfect success.
 
 The models, their configurations, and their order were selected after examining their results on those same 113 tasks. The chain therefore benefits from *a posteriori* optimization. It may have learned the peculiarities of the benchmark rather than a strategy that will generalize.
 
@@ -178,14 +185,14 @@ We are no longer merely looking for the best model. We are building a portfolio 
 The next frontier may not be won by the model at the top of a public leaderboard. It may be won by the system that can learn from its real scenarios, measure its errors, buy the right diversity, and route each failure to the most useful complement.
 
 {{< closing-question label="Key takeaway" >}}
-One economical model covers 102 tasks. A second Flash model recovers 10 of its 11 blind spots. Thanks to the oracle, their combined coverage reaches 99.1%.
+One economical model covers 102 tasks. A second Flash model recovers 10 of its 11 observed failures. Their combined coverage, according to grader verdicts, reaches 99.1%.
+
+The next question becomes decisive: **who checks the oracle?**
 {{< /closing-question >}}
 
 ---
 
 ## Sources
 
-- DeepSWE, [v1.1 leaderboard, methodology, and costs](https://deepswe.datacurve.ai/), 113 tasks from 91 open-source repositories across five languages, updated September 22, 2026.
+- DeepSWE, [v1.1 leaderboard, methodology, and costs](https://deepswe.datacurve.ai/), 113 tasks from 91 open-source repositories across five languages, accessed October 6, 2026.
 - DeepSWE, [detailed task and rollout data](https://deepswe.datacurve.ai/data/v1.1), coverage, complementarity, and early-stopping cost calculations.
-- Kévin Brunet, [“Why Adding Agents Does Not Necessarily Create Diversity”](/en/articles/plusieurs-agents-points-de-vue/), diversity measured through disagreements and useful errors.
-- Kévin Brunet, [“Blind Decorrelation”](/en/articles/decorreler-a-l-aveugle/), routing disagreements and adapting validation cost to the information obtained.

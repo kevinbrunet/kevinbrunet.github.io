@@ -4,6 +4,7 @@ slug: "a-grammar-built-for-a-single-request"
 date: 2026-11-05
 description: "Generate context and constraints from the actual schema, permissions and available capabilities."
 categories: ["Artificial intelligence", "Software architecture"]
+tags: ["ai-systems-harness-engineering"]
 series: ["la-grammaire-des-agents"]
 series_order: 3
 collection: "ARCHITECTURE"

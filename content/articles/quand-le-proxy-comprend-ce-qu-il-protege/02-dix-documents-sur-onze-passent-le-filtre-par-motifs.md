@@ -4,6 +4,7 @@ slug: "proxy-ia-limites-filtre-motifs"
 date: 2026-11-10
 description: "Sur les onze cas initiaux du prototype, le filtre déterministe bloque une clé API et laisse cinq autres contenus sensibles à analyser."
 categories: ["Intelligence artificielle", "Cybersécurité", "Architecture logicielle"]
+tags: ["ai-security"]
 series: ["quand-le-proxy-comprend-ce-qu-il-protege"]
 series_order: 2
 collection: "SYSTÈMES"

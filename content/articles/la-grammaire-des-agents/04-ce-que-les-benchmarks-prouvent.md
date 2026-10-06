@@ -4,6 +4,7 @@ slug: "ce-que-les-benchmarks-prouvent"
 date: 2026-11-05
 description: "Mesurer le coût total d'une sortie exploitable et distinguer conformité du schéma et justesse métier."
 categories: ["Intelligence artificielle", "Architecture logicielle"]
+tags: ["ai-evaluation-evals"]
 series: ["la-grammaire-des-agents"]
 series_order: 4
 collection: "ARCHITECTURE"

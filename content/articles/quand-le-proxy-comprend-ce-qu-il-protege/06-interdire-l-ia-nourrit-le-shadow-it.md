@@ -4,6 +4,7 @@ slug: "proxy-ia-shadow-it-chemin-officiel"
 date: 2026-11-10
 description: "Un chemin officiel utile et explicable aide à limiter les contournements. Le proxy d’API ne couvre toutefois que les usages qui le traversent."
 categories: ["Intelligence artificielle", "Cybersécurité", "Architecture logicielle"]
+tags: ["ai-security", "ai-risk-governance"]
 series: ["quand-le-proxy-comprend-ce-qu-il-protege"]
 series_order: 6
 collection: "SYSTÈMES"

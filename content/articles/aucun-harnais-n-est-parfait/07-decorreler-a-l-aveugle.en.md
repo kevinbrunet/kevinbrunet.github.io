@@ -4,6 +4,7 @@ slug: "decorreler-a-l-aveugle"
 date: 2026-09-01
 description: "Independent evaluation requires preserving disagreements before allowing agents to interact or seeking consensus."
 categories: ["Artificial intelligence", "Software engineering"]
+tags: ["ai-evaluation-evals", "ai-reliability"]
 series: ["aucun-harnais-n-est-parfait"]
 series_order: 7
 collection: "ARCHITECTURE"

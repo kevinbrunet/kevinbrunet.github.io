@@ -1,26 +1,31 @@
 {{ define "main" }}
 {{ $isSeries := eq .Data.Plural "series" }}
+{{ $isTopics := eq .Data.Plural "tags" }}
 {{ $isArticles := and (eq .Kind "section") (eq .Section "articles") }}
 {{ $itemCount := len .Pages }}
 {{ if $isSeries }}{{ $itemCount = len .Data.Terms }}{{ end }}
+{{ if $isTopics }}{{ $itemCount = 0 }}{{ range .Data.Terms }}{{ if gt .Count 0 }}{{ $itemCount = add $itemCount 1 }}{{ end }}{{ end }}{{ end }}
 <header class="index-header">
   <div>
-    <p class="eyebrow">{{ if $isSeries }}COLLECTIONS{{ else }}INDEX{{ end }}</p>
+    <p class="eyebrow">{{ if $isTopics }}{{ i18n "topics_label" }}{{ else if $isSeries }}COLLECTIONS{{ else }}INDEX{{ end }}</p>
     <h1>{{ .Title }}</h1>
   </div>
   <div class="index-header__aside">
     <strong>{{ printf "%02d" $itemCount }}</strong>
-    <span>{{ if $isSeries }}{{ i18n "series_to_explore" }}{{ else }}{{ i18n "published_articles" }}{{ end }}</span>
+    <span>{{ if $isTopics }}{{ i18n "topics_to_explore" }}{{ else if $isSeries }}{{ i18n "series_to_explore" }}{{ else }}{{ i18n "published_articles" }}{{ end }}</span>
     {{ with .Description }}<p>{{ . }}</p>{{ end }}
   </div>
 </header>
 
 <section class="index-list" aria-label="{{ .Title }}">
-  {{ if $isSeries }}
+  {{ if or $isSeries $isTopics }}
     {{ $terms := sort .Data.Terms.Alphabetical "Page.Weight" "asc" }}
-    {{ range $index, $term := $terms }}
+    {{ $termIndex := 0 }}
+    {{ range $term := $terms }}
+    {{ if gt .Count 0 }}
+    {{ $termIndex = add $termIndex 1 }}
     <a class="series-index-row" href="{{ .Page.RelPermalink }}">
-      <span class="series-index-row__number">{{ printf "%02d" (add $index 1) }}</span>
+      <span class="series-index-row__number">{{ printf "%02d" $termIndex }}</span>
       <span class="series-index-row__content">
         <span class="series-index-row__title">{{ .Page.Title }}</span>
         {{ with .Page.Description }}<span class="series-index-row__description">{{ . }}</span>{{ end }}
@@ -28,6 +33,7 @@
       <span class="series-index-row__count">{{ .Count }} {{ i18n "article_count" .Count }}</span>
       <span class="series-index-row__arrow" aria-hidden="true">→</span>
     </a>
+    {{ end }}
     {{ end }}
   {{ else if $isArticles }}
     {{/*
@@ -57,14 +63,12 @@
     {{ range sort $blocks "date" "desc" }}
       {{ range .pages }}
         {{ $listIndex = add $listIndex 1 }}
-        {{ .Scratch.Set "list_index" $listIndex }}
-        {{ partial "article-row.html" . }}
+        {{ partial "article-row.html" (dict "page" . "index" $listIndex) }}
       {{ end }}
     {{ end }}
   {{ else }}
     {{ range $index, $page := .Pages.ByDate.Reverse }}
-      {{ .Scratch.Set "list_index" (add $index 1) }}
-      {{ partial "article-row.html" . }}
+      {{ partial "article-row.html" (dict "page" . "index" (add $index 1)) }}
     {{ end }}
   {{ end }}
 </section>

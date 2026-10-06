@@ -4,6 +4,7 @@ slug: "intellisense-peut-guider-le-sampler"
 date: 2026-11-05
 description: "Combiner contraintes syntaxiques, informations du compilateur et choix du sampler pour mieux générer du code."
 categories: ["Intelligence artificielle", "Architecture logicielle"]
+tags: ["ai-systems-harness-engineering"]
 series: ["la-grammaire-des-agents"]
 series_order: 5
 collection: "ARCHITECTURE"

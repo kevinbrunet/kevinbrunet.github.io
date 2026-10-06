@@ -1,0 +1,12 @@
+task_id,flagged_by_epoch,flash_passed,astra_passed
+bandit-structured-nosec-directives,False,True,False
+clack-async-autocomplete-options,False,True,True
+gql-incremental-graphql-delivery,False,False,False
+happy-dom-deterministic-intersectionobserver,False,True,False
+helm-array-merge-strategies,False,True,False
+kea-atomic-signal-selectors,False,True,True
+koota-query-predicates,False,True,True
+obsidian-linter-auto-table-of-contents,True,True,False
+obsidian-linter-scoped-ignore-markers,False,True,True
+pest-character-class-coalescing,False,True,False
+textual-kitty-key-phases,False,True,True

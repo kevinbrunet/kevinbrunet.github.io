@@ -5,6 +5,7 @@ slug: "biscuit-politique-transportable"
 date: 2026-09-03
 description: "Les tokens Biscuit transportent faits, règles et restrictions avec la tâche, tout en laissant à chaque API le dernier mot."
 categories: ["Intelligence artificielle", "Sécurité", "Architecture logicielle"]
+tags: ["ai-security"]
 series: ["qui-donne-le-droit-d-agir-a-votre-agent-ia"]
 series_order: 6
 collection: "ARCHITECTURE"

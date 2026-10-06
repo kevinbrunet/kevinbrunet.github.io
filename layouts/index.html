@@ -2,9 +2,12 @@
 {{ $articles := where site.RegularPages "Section" "articles" }}
 <section class="reference-hero">
   <div class="reference-hero__copy">
+    <p class="eyebrow hero-positioning">{{ i18n "hero_positioning" }}</p>
     <h1>{{ i18n "hero_title_line_1" }}<br><em>{{ i18n "hero_title_line_2" }}</em></h1>
     <p><strong>{{ site.Params.description }}</strong></p>
+    <p class="hero-focus">{{ i18n "hero_focus" }}</p>
     <a class="button" href="#articles">{{ i18n "read_articles" }} <span>→</span></a>
+    {{ with site.GetPage "a-propos" }}<a class="hero-about" href="{{ .RelPermalink }}">{{ i18n "my_approach" }} →</a>{{ end }}
   </div>
   <figure class="reference-hero__art">
     {{ $heroImage := "/images/boucle-systeme-agent-ia-transparent.png?v=20260807-2" }}

@@ -4,6 +4,7 @@ slug: "une-grammaire-pour-une-seule-requete"
 date: 2026-11-05
 description: "Produire le contexte et la contrainte depuis le schéma réel, les droits et les capacités disponibles."
 categories: ["Intelligence artificielle", "Architecture logicielle"]
+tags: ["ai-systems-harness-engineering"]
 series: ["la-grammaire-des-agents"]
 series_order: 3
 collection: "ARCHITECTURE"

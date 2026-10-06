@@ -4,6 +4,7 @@ slug: "le-raisonnement-ne-doit-pas-parler-json"
 date: 2026-11-05
 description: "Laisser le raisonnement libre et contraindre uniquement le message que le logiciel doit consommer."
 categories: ["Intelligence artificielle", "Architecture logicielle"]
+tags: ["ai-systems-harness-engineering"]
 series: ["la-grammaire-des-agents"]
 series_order: 2
 collection: "ARCHITECTURE"

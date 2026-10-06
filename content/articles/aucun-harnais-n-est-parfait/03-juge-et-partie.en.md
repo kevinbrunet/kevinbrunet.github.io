@@ -4,6 +4,7 @@ slug: "juge-et-partie-agents"
 date: 2026-09-01
 description: "Having an agent's work reviewed by a copy of the same system multiplies opinions without necessarily reducing their shared blind spots."
 categories: ["Artificial Intelligence", "Software Engineering"]
+tags: ["ai-evaluation-evals", "ai-reliability"]
 series: ["aucun-harnais-n-est-parfait"]
 series_order: 3
 collection: "ARCHITECTURE"

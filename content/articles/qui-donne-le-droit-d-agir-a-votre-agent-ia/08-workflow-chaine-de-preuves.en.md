@@ -4,6 +4,7 @@ slug: "workflow-chaine-de-preuves"
 date: 2026-09-03
 description: "When every call requires evidence from the previous one, the system enforces the workflow order without relying on the agent's compliance."
 categories: ["Artificial intelligence", "Security", "Software architecture"]
+tags: ["ai-security", "software-architecture"]
 series: ["qui-donne-le-droit-d-agir-a-votre-agent-ia"]
 series_order: 8
 collection: "ARCHITECTURE"

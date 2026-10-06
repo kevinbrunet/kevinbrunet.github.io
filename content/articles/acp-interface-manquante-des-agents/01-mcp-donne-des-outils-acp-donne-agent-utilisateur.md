@@ -5,6 +5,7 @@ slug: "mcp-outils-acp-agent-utilisateur"
 date: 2026-09-28
 description: "MCP relie l'agent aux outils ; ACP relie l'agent à son utilisateur et permet de conserver la même interface quand l'agent change."
 categories: ["Intelligence artificielle", "Architecture logicielle"]
+tags: ["agent-protocols"]
 series: ["acp-interface-manquante-des-agents"]
 series_order: 1
 collection: "ARCHITECTURE"

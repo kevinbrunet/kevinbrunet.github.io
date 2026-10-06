@@ -4,6 +4,7 @@ slug: "advice-can-be-forgotten-a-grammar-forbids"
 date: 2026-11-05
 description: "A grammar removes forbidden tokens before selection, avoiding retries caused by invalid outputs."
 categories: ["Artificial intelligence", "Software architecture"]
+tags: ["ai-systems-harness-engineering", "ai-reliability"]
 series: ["la-grammaire-des-agents"]
 series_order: 1
 collection: "ARCHITECTURE"

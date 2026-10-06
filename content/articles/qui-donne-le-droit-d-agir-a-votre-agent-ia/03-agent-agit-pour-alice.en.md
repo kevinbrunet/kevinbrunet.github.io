@@ -4,6 +4,7 @@ slug: "agent-agit-pour-alice"
 date: 2026-09-03
 description: "Safe delegation maintains distinct identities for the user granting the mandate and the agent executing it."
 categories: ["Artificial intelligence", "Security", "Software architecture"]
+tags: ["ai-security"]
 series: ["qui-donne-le-droit-d-agir-a-votre-agent-ia"]
 series_order: 3
 collection: "ARCHITECTURE"

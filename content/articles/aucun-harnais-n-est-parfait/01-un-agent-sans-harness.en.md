@@ -4,6 +4,7 @@ slug: "un-agent-sans-harnais"
 date: 2026-09-01
 description: "A successful demonstration is not enough: an agent becomes a production system when a harness makes its errors visible and its checks repeatable."
 categories: ["Artificial Intelligence", "Software Engineering"]
+tags: ["ai-systems-harness-engineering"]
 series: ["aucun-harnais-n-est-parfait"]
 series_order: 1
 collection: "ARCHITECTURE"

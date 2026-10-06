@@ -5,6 +5,7 @@ slug: "changer-modele-sans-changer-application"
 date: 2026-09-28
 description: "Découpler le client, le harness et le modèle facilite leur évolution indépendante sans promettre une interchangeabilité magique."
 categories: ["Intelligence artificielle", "Architecture logicielle"]
+tags: ["llmops-agentops", "agent-protocols"]
 series: ["acp-interface-manquante-des-agents"]
 series_order: 5
 collection: "ARCHITECTURE"

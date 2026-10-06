@@ -1,0 +1,10 @@
+run_id,model,harness,effort,open_weight,success_alone,qwen_recovered,union,gain,gain_percentage_points
+gpt-6-astra,GPT-6 Astra,Codex,max,False,60,33,68,33,27.73109243697479
+opus,Claude-Opus-5,Claude Code,max,False,57,28,63,28,23.529411764705884
+deepseek-pro,DeepSeek-V4-Pro,Claude Code,max,True,50,23,58,23,19.327731092436974
+gpt,GPT-5.6-sol,Codex,max,False,48,21,56,21,17.647058823529413
+glm,GLM-5.2,Codex,max,True,38,15,50,15,12.605042016806722
+kimi,Kimi-K3,Kimi Code,max,True,42,14,49,14,11.764705882352942
+nex,Nex N2,Codex,default,True,29,9,44,9,7.563025210084033
+deepseek-max,DeepSeek-V4-flash,Claude Code,max,True,28,6,41,6,5.042016806722689
+intern-s2-preview-397b,Intern-S2-Preview-397B,Claude Code,max,True,25,5,40,5,4.201680672268908

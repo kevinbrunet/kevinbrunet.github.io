@@ -4,6 +4,7 @@ slug: "what-grammars-actually-save"
 date: 2026-11-05
 description: "Measure the total cost of a usable output and distinguish schema compliance from business correctness."
 categories: ["Artificial intelligence", "Software architecture"]
+tags: ["ai-evaluation-evals"]
 series: ["la-grammaire-des-agents"]
 series_order: 4
 collection: "ARCHITECTURE"

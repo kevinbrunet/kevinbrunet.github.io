@@ -4,6 +4,7 @@ slug: "aucun-harnais-n-est-magique"
 date: 2026-09-01
 description: "No harness covers every risk: robustness comes from governance capable of organizing multiple lines of defense."
 categories: ["Artificial intelligence", "Software engineering"]
+tags: ["ai-systems-harness-engineering", "ai-risk-governance"]
 series: ["aucun-harnais-n-est-parfait"]
 series_order: 8
 collection: "ARCHITECTURE"

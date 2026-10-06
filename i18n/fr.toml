@@ -12,6 +12,22 @@ other = "Articles"
 other = "Séries"
 [about]
 other = "À propos"
+[topics]
+other = "Sujets"
+[topics_label]
+other = "DOMAINES"
+[topic_label]
+other = "SUJET"
+[topics_to_explore]
+other = "sujets à explorer"
+[portrait_alt]
+other = "Portrait de Kévin Brunet"
+[hero_positioning]
+other = "Architecture logicielle · Systèmes IA agentiques · Fiabilité"
+[hero_focus]
+other = "Harnesses, évaluations, observabilité et maîtrise du risque : construire le système autour du modèle, du prototype à la production."
+[my_approach]
+other = "Mon approche"
 [rss_title]
 other = "S'abonner au flux RSS"
 [languages]

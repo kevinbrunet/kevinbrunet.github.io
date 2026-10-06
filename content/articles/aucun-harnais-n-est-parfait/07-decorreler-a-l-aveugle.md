@@ -5,6 +5,7 @@ slug: "decorreler-a-l-aveugle"
 date: 2026-09-01
 description: "Une évaluation indépendante exige de préserver les désaccords avant de faire dialoguer les agents ou de chercher un consensus."
 categories: ["Intelligence artificielle", "Ingénierie logicielle"]
+tags: ["ai-evaluation-evals", "ai-reliability"]
 series: ["aucun-harnais-n-est-parfait"]
 series_order: 7
 collection: "ARCHITECTURE"

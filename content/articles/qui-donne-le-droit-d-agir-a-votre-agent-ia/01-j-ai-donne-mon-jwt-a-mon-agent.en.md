@@ -4,6 +4,7 @@ slug: "jwt-agent-efface-agent"
 date: 2026-09-03
 description: "Passing a user's JWT to an agent gives it an identity that is too broad and makes the real actor invisible in the logs."
 categories: ["Artificial intelligence", "Security", "Software architecture"]
+tags: ["ai-security"]
 series: ["qui-donne-le-droit-d-agir-a-votre-agent-ia"]
 series_order: 1
 collection: "ARCHITECTURE"

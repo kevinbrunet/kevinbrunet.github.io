@@ -4,6 +4,7 @@ slug: "shieldstral-expurgation-secret-metier"
 date: 2026-11-10
 description: "Le prototype localise les zones sensibles par tronçons et les recontrôle après expurgation, mais retire encore presque tout le document."
 categories: ["Intelligence artificielle", "Cybersécurité", "Architecture logicielle"]
+tags: ["ai-security"]
 series: ["quand-le-proxy-comprend-ce-qu-il-protege"]
 series_order: 4
 collection: "SYSTÈMES"

@@ -5,6 +5,7 @@ slug: "un-agent-sans-harnais"
 date: 2026-09-01
 description: "Une démonstration réussie ne suffit pas : un agent devient un système de production lorsqu'un harnais rend ses erreurs visibles et ses contrôles répétables."
 categories: ["Intelligence artificielle", "Ingénierie logicielle"]
+tags: ["ai-systems-harness-engineering"]
 series: ["aucun-harnais-n-est-parfait"]
 series_order: 1
 collection: "ARCHITECTURE"

@@ -15,7 +15,7 @@
     {{ with .Params.cover }}<figure class="article-cover"><img itemprop="image" src="{{ . | relURL }}" alt="{{ i18n "article_cover_alt" $.Title }}"></figure>{{ else }}<div class="cover-mechanism" aria-hidden="true"><span></span><span></span><span></span><i></i></div>{{ end }}
   </header>
   <div class="article-layout">
-    <aside><p class="eyebrow">{{ i18n "filed_under" }}</p>{{ range .GetTerms "categories" }}<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}</aside>
+    <aside><p class="eyebrow">{{ i18n "filed_under" }}</p>{{ range .GetTerms "categories" }}<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}{{ with .GetTerms "tags" }}<p class="eyebrow article-topics-label">{{ i18n "topics" }}</p>{{ range . }}<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}{{ end }}</aside>
     <div class="prose" itemprop="articleBody">{{ .Content }}</div>
   </div>
   <aside class="article-citation" aria-labelledby="article-citation-title">

@@ -4,6 +4,7 @@ slug: "shieldstral-business-secret-redaction"
 date: 2026-11-10
 description: "The prototype locates sensitive areas by chunk and rechecks them after redaction, but still removes almost the entire document."
 categories: ["Artificial intelligence", "Cybersecurity", "Software architecture"]
+tags: ["ai-security"]
 series: ["quand-le-proxy-comprend-ce-qu-il-protege"]
 series_order: 4
 collection: "SYSTEMS"

@@ -4,6 +4,7 @@ slug: "api-interdite-agent-humain"
 date: 2026-09-03
 description: "Delegated human approval and a strictly human-only endpoint create two different security boundaries."
 categories: ["Artificial intelligence", "Security", "Software architecture"]
+tags: ["ai-security", "ai-risk-governance"]
 series: ["qui-donne-le-droit-d-agir-a-votre-agent-ia"]
 series_order: 9
 collection: "ARCHITECTURE"

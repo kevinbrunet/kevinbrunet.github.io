@@ -1,0 +1,31 @@
+{
+  "retrieved_at": "2026-10-06",
+  "sources": {
+    "trials.json": "https://deepswe.datacurve.ai/data/v1.1",
+    "tasks.json": "https://deepswe.datacurve.ai/data/v1.1",
+    "epoch.html": "https://epoch.ai/benchmarks/deepswe/review",
+    "critiques-v1.json": "https://deepswe.datacurve.ai/artifacts/v1/critiques.json"
+  },
+  "files": {
+    "trials.json": {
+      "sha256_uncompressed": "310cb428fe8914cff21b8edcb0b17256884efca55666bd6d6646d223c77d2ce6",
+      "bytes_uncompressed": 51023870,
+      "snapshot": "trials.json.gz"
+    },
+    "tasks.json": {
+      "sha256_uncompressed": "bae967f6472943564c3fc5232fba3c8e0ac465c1be5ccf9dd4895d4ee9df6242",
+      "bytes_uncompressed": 57634,
+      "snapshot": "tasks.json.gz"
+    },
+    "epoch.html": {
+      "sha256_uncompressed": "6e0f011e3b9029557a2bf9e198763b25fc0de6ffc5b9f1498726927d496e97c9",
+      "bytes_uncompressed": 139179,
+      "snapshot": "epoch.html.gz"
+    },
+    "critiques-v1.json": {
+      "sha256_uncompressed": "4f26c16863f63d17e9698f6edd8d3a0eba9627fadb8a97f28315122babdaccce",
+      "bytes_uncompressed": 12900,
+      "snapshot": "critiques-v1.json.gz"
+    }
+  }
+}

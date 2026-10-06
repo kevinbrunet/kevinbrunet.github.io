@@ -5,6 +5,7 @@ slug: "modele-n-est-pas-agent"
 date: 2026-09-28
 description: "Le modèle n'est qu'un composant : la valeur durable d'un agent d'entreprise réside dans le harness qui l'entoure."
 categories: ["Intelligence artificielle", "Architecture logicielle"]
+tags: ["ai-systems-harness-engineering", "agent-protocols"]
 series: ["acp-interface-manquante-des-agents"]
 series_order: 2
 collection: "ARCHITECTURE"

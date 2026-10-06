@@ -4,6 +4,7 @@ slug: "can-intellisense-guide-the-model"
 date: 2026-11-05
 description: "Combine syntax constraints, compiler information and sampler choices to improve code generation."
 categories: ["Artificial intelligence", "Software architecture"]
+tags: ["ai-systems-harness-engineering"]
 series: ["la-grammaire-des-agents"]
 series_order: 5
 collection: "ARCHITECTURE"

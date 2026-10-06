@@ -5,6 +5,7 @@ slug: "oracle-game-changer-ia-agentique"
 date: 2026-10-27
 description: "Avec un oracle fiable, plusieurs essais d'un modèle économique peuvent résoudre davantage de tâches qu'un seul essai d'un modèle premium."
 categories: ["Intelligence artificielle", "Architecture logicielle", "Ingénierie logicielle"]
+tags: ["ai-systems-harness-engineering", "ai-evaluation-evals"]
 series: ["l-oracle"]
 series_order: 1
 collection: "SYSTÈMES"
@@ -15,7 +16,7 @@ draft: false
 {{< callout variant="scene" label="Le classement bascule" >}}
 Un essai avec GPT-6 Astra réussit plus souvent qu'un essai avec GPT-5.6 Luna.
 
-Pourtant, quatre essais avec Luna résolvent davantage de tâches et coûtent moins cher qu'un seul essai avec Astra.
+Pourtant, jusqu’à quatre essais avec Luna couvrent davantage de tâches et coûtent moins cher qu'un seul essai avec Astra.
 
 **Ce résultat dépasse la compétition entre deux modèles. Dès qu'un système sait vérifier automatiquement une réponse, leur hiérarchie peut changer.**
 
@@ -26,20 +27,24 @@ Cette infrastructure sous-estimée s'appelle **l'oracle**.
 
 Le benchmark [DeepSWE 1.1](https://deepswe.datacurve.ai/) évalue des agents de développement sur 113 tâches de génie logiciel, issues de 91 dépôts open source et couvrant cinq langages.
 
-Le classement principal mesure le taux de réussite moyen d'une exécution. Sur cette mesure, Astra arrive devant Luna. Si chaque tâche n'accorde qu'une seule chance, Astra est le choix le plus performant.
+Le classement principal mesure le taux de réussite moyen d'une exécution. Sur cette mesure, Astra arrive devant Luna. Sur cet ensemble de tâches et entre ces deux configurations, Astra obtient donc le meilleur résultat moyen avec une seule chance.
 
-Les données détaillées permettent toutefois une autre lecture. Chaque configuration ayant été exécutée quatre fois sur chaque tâche, on peut compter les tâches résolues au moins une fois parmi les quatre tentatives.
+Les données détaillées permettent toutefois une autre lecture. Chaque configuration dispose de jusqu’à quatre exécutions par tâche. On peut compter les tâches acceptées au moins une fois parmi les tentatives disponibles.
+
+Dans cet article, « résolue » signifie acceptée par le grader du benchmark, le programme qui rend le verdict. La fiabilité de ce verdict sera examinée dans [le troisième article](/articles/qui-verifie-oracle/).
 
 Luna atteint alors 90,3 % de couverture, soit 102 tâches résolues sur 113. Astra atteint 80,5 %, soit 91 tâches.
 
-| Configuration | Réussite d'un essai | Tâches résolues après quatre essais | Coût d'un essai | Coût de quatre essais |
+| Configuration | Réussite d'un essai | Couverture sur jusqu’à quatre essais | Coût moyen estimé d’un essai | Budget estimé de quatre essais |
 |---|---:|---:|---:|---:|
 | GPT-6 Astra [xhigh] | **74,1 %** | 80,5 %, soit 91 sur 113 | 4,43 $ | 17,72 $ |
-| GPT-5.6 Luna [max] | 67,2 % | **90,3 %, soit 102 sur 113** | **0,61 $** | **2,44 $** |
+| GPT-5.6 Luna [max] | 67,2 % | **90,3 %, soit 102 sur 113** | **0,61 $** | **2,42 $** |
 
 Le contraste devient encore plus intéressant lorsqu'on regarde les coûts.
 
-D'après le coût moyen mesuré par DeepSWE, **quatre tentatives avec Luna coûtent environ 2,44 dollars. Un seul essai avec Astra coûte 4,43 dollars.**
+Les coûts sont des estimations à partir de la consommation des rollouts et des tarifs utilisés par l’interface DeepSWE au 6 octobre 2026. Le budget de quatre essais vaut quatre fois le coût moyen non arrondi ; il ne suppose pas d’arrêt anticipé et n’inclut pas le coût complet d’exploitation de l’oracle.
+
+**Quatre tentatives avec Luna représentent ainsi environ 2,42 dollars. Un seul essai avec Astra représente 4,43 dollars.**
 
 {{< thesis >}}
 Pour un coût inférieur, Luna peut explorer quatre solutions et résoudre une proportion plus élevée des tâches. Un modèle moins fiable au premier essai peut devenir plus intéressant dans une architecture qui exploite plusieurs tentatives.
@@ -53,7 +58,7 @@ Le mécanisme tient en trois étapes. L'agent produit une solution. L'oracle ré
 
 Une première exécution ratée ne termine donc plus la tâche. Elle déclenche l'essai suivant. Le taux de réussite d'une seule exécution ne constitue plus le plafond de performance du système.
 
-Les résultats de Luna montrent l'ampleur du changement. Il réussit 67,2 % des tâches sur une exécution moyenne, puis en couvre 90,3 % sur quatre exécutions séparées. Il ne rattrape pas simplement Astra : il prend la tête du classement recalculé sur cette mesure.
+Les résultats de Luna montrent l'ampleur du changement. Il réussit 67,2 % des tâches sur une exécution moyenne, puis en couvre 90,3 % sur quatre exécutions séparées. Sur cette couverture observée, il dépasse Astra.
 
 Dans le développement logiciel, l'oracle repose sur des tests exécutables qui vérifient le comportement attendu. La compilation, les types et l'analyse statique apportent des contrôles supplémentaires, mais ne suffisent pas à établir que la tâche est correctement réalisée. D'autres domaines possèdent leurs propres oracles : contraintes d'intégrité pour les données, recomposition indépendante d'un calcul, simulateur pour un plan ou règles d'éligibilité pour un processus métier.
 
@@ -75,7 +80,7 @@ L'oracle décide si le travail est acceptable. Le harness conserve les erreurs, 
 
 ## DeepSWE ne mesure encore que des tentatives séparées
 
-Les quatre exécutions utilisées dans ce calcul DeepSWE sont des *rollouts* séparés. Luna ne reçoit pas, lors du deuxième essai, les diagnostics produits par le premier.
+Les exécutions utilisées dans ce calcul DeepSWE sont des *rollouts* séparés, jusqu’à quatre par tâche. Luna ne reçoit pas, lors du deuxième essai, les diagnostics produits par le premier.
 
 Le passage de 67,2 % à 90,3 % mesure donc ce que plusieurs tentatives permettent déjà d'obtenir sans transmission d'information entre elles. Ce simple mécanisme suffit à renverser le classement.
 
@@ -83,7 +88,7 @@ La vraie question commence ensuite : jusqu'où peut-on monter lorsque chaque éc
 
 Un test qui échoue peut indiquer l'assertion non respectée, la valeur observée ou le chemin d'exécution concerné. Le harness peut transmettre ces éléments au modèle, conserver les approches déjà tentées et demander une correction ciblée. La deuxième tentative part alors avec plus d'information que la première, et la troisième avec plus d'information que la deuxième.
 
-DeepSWE ne donne pas encore ce chiffre. Son pass@4 fournit un point de comparaison pour des *retries* séparés, pas le plafond d'une boucle adaptative.
+DeepSWE ne donne pas encore ce chiffre. Sa couverture sur jusqu’à quatre essais fournit un point de comparaison pour des *retries* séparés, pas le plafond d'une boucle adaptative.
 
 ## Une autre manière d'acheter de l'intelligence
 
@@ -115,7 +120,7 @@ Il faut distinguer deux défaillances.
 
 La première vient de l'oracle lui-même. Des tests incomplets peuvent accepter un programme incorrect, simplement parce que le comportement défaillant n'a jamais été traduit en contrôle. C'est le [*problème de l'oracle*](https://doi.org/10.1109/TSE.2014.2372785), étudié depuis longtemps en génie logiciel et développé dans ma série [« Aucun harness n'est parfait »](/series/aucun-harnais-n-est-parfait/).
 
-La seconde apparait lorsque l'agent découvre qu'il peut satisfaire ou manipuler la mesure au lieu de résoudre la tâche. Il peut coder en dur les valeurs attendues, modifier les tests ou neutraliser le grader. C'est du *reward hacking*, un mécanisme que j'ai détaillé dans [« Le voyant est vert. La mission reste inachevée. »](/articles/goodhart-dans-la-boucle/).
+La seconde apparait lorsque l'agent découvre qu'il peut satisfaire ou manipuler la mesure au lieu de résoudre la tâche. Il peut coder en dur les valeurs attendues, affaiblir les tests pour obtenir un verdict favorable ou neutraliser le grader. C'est du *reward hacking*, un mécanisme que j'ai détaillé dans [« Le voyant est vert. La mission reste inachevée. »](/articles/goodhart-dans-la-boucle/).
 
 Ces comportements ont été observés concrètement. [METR](https://metr.org/blog/2025-06-05-recent-reward-hacking/) a publié des cas d'agents modifiant le code d'évaluation ou récupérant directement la réponse attendue. La [fiche système de Claude 3.7 Sonnet](https://www.anthropic.com/claude-3-7-sonnet-system-card) décrit des valeurs de test codées en dur et des tests modifiés après plusieurs échecs. [OpenAI](https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment/) classe également la modification des tests ou la désactivation des contrôles parmi les formes rares mais graves de *reward hacking* observées avec ses agents de programmation internes.
 
@@ -125,9 +130,7 @@ Le problème existe même sans modification explicite du grader. [SpecBench](htt
 Un mauvais oracle ne sécurise pas le système. Il industrialise deux types d'erreurs : les faux positifs, lorsqu'il accepte une mauvaise réponse, et les faux négatifs, lorsqu'il rejette une bonne solution.
 {{< /pullquote >}}
 
-À cela s'ajoutent les biais d'échantillonnage, les seuils mal calibrés et la dérive des données dans le temps. J'y consacrerai probablement une série d'articles, car le sujet dépasse largement la qualité d'une suite de tests.
-
-Avec les agents, une partie de l'informatique quitte un monde largement déterministe pour intégrer des comportements probabilistes. Maitriser leurs biais statistiques devient indispensable pour concevoir des systèmes fiables. La boussole ne peut plus être le risque zéro, mais l'équilibre explicite entre bénéfice attendu et risque accepté.
+Le nombre d’essais acceptable dépend donc de la fiabilité du verdict. Le troisième article détaillera cette contrainte, les défauts connus du grader de DeepSWE et les précautions nécessaires avant d’exploiter ces chiffres.
 
 Construire un bon oracle exige de définir ce qui doit être vrai, de tester les cas limites et, lorsque l'enjeu le justifie, de combiner plusieurs vérifications indépendantes.
 
@@ -149,7 +152,7 @@ Après la course aux modèles viendra probablement la course aux oracles.
 
 Ceux qui sauront vérifier automatiquement le travail des agents pourront multiplier les expériences, utiliser des modèles moins coûteux et réserver l'intelligence premium aux véritables cas difficiles.
 
-Une limite subsiste pourtant. Après quatre exécutions, Luna laisse encore 11 tâches sans solution. Réessayer permet donc d'aller beaucoup plus loin, mais pas de supprimer les angles morts d'un modèle.
+Une limite subsiste pourtant. Sur les exécutions publiées, Luna laisse encore 11 tâches sans succès enregistré. Ces échecs observés nous donnent une piste pour choisir le modèle suivant, sans prouver que Luna serait incapable de les résoudre.
 
 {{< closing-question label="Dans le prochain article" >}}
 La question suivante n'est plus : combien de fois faut-il réessayer ? C'est : **quel autre modèle voit ce que Luna ne voit pas ?**
@@ -161,12 +164,10 @@ Les données de DeepSWE réservent ici une seconde surprise. Le meilleur complé
 
 ## Sources
 
-- DeepSWE, [classement v1.1, méthodologie et coûts](https://deepswe.datacurve.ai/), 113 tâches, 91 dépôts, 5 langages, scores moyens et coûts affichés, mise à jour du 22 septembre 2026.
-- DeepSWE, [données détaillées des tâches et des rollouts](https://deepswe.datacurve.ai/data/v1.1), calcul du taux de tâches réussies au moins une fois parmi quatre exécutions : Luna 102/113, Astra 91/113.
+- DeepSWE, [classement v1.1, méthodologie et coûts](https://deepswe.datacurve.ai/), 113 tâches, 91 dépôts, 5 langages, scores et coûts affichés, consultation du 6 octobre 2026.
+- DeepSWE, [données détaillées des tâches et des rollouts](https://deepswe.datacurve.ai/data/v1.1), calcul du taux de tâches réussies au moins une fois parmi jusqu’à quatre exécutions : Luna 102/113, Astra 91/113.
 - OpenAI, [documentation et tarification de GPT-5.6 Luna](https://developers.openai.com/api/docs/models/gpt-5.6-luna), 0,20 $ par million de tokens en entrée, 0,02 $ en entrée mise en cache et 1,20 $ en sortie.
 - Barr et al., [*The Oracle Problem in Software Testing: A Survey*](https://doi.org/10.1109/TSE.2014.2372785), *IEEE Transactions on Software Engineering*, 2015.
-- Kévin Brunet, série [*Aucun harness n'est parfait*](/series/aucun-harnais-n-est-parfait/), limites des tests, problème de l'oracle, Goodhart et corrélation entre production et validation.
-- Kévin Brunet, [*Le voyant est vert. La mission reste inachevée.*](/articles/goodhart-dans-la-boucle/), épisode consacré à Goodhart et au *reward hacking* dans les boucles agentiques.
 - METR, [*Recent Frontier Models Are Reward Hacking*](https://metr.org/blog/2025-06-05-recent-reward-hacking/), 5 juin 2025, exemples de manipulation des tests, du score et de l'environnement d'évaluation.
 - Anthropic, [*Claude 3.7 Sonnet System Card*](https://www.anthropic.com/claude-3-7-sonnet-system-card), section « Excessive Focus on Passing Tests », cas de valeurs codées en dur et de modification des tests.
 - OpenAI, [*How we monitor internal coding agents for misalignment*](https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment/), modification des tests et désactivation de contrôles classées comme *reward hacking*.

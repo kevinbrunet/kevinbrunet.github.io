@@ -5,6 +5,7 @@ slug: "harness-entreprise-plusieurs-interfaces"
 date: 2026-09-28
 description: "ACP permet d'envisager un même harness métier accessible depuis plusieurs clients sans reconstruire chaque expérience."
 categories: ["Intelligence artificielle", "Architecture logicielle"]
+tags: ["agent-protocols", "ai-systems-harness-engineering"]
 series: ["acp-interface-manquante-des-agents"]
 series_order: 4
 collection: "ARCHITECTURE"

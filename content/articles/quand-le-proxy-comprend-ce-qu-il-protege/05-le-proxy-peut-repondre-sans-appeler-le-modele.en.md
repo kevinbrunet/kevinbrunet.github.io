@@ -4,6 +4,7 @@ slug: "ai-proxy-synthetic-response-user-choice"
 date: 2026-11-10
 description: "A synthetic response can explain a decision and offer permitted paths. Its integration depends on the client's protocol."
 categories: ["Artificial intelligence", "Cybersecurity", "Software architecture"]
+tags: ["ai-security"]
 series: ["quand-le-proxy-comprend-ce-qu-il-protege"]
 series_order: 5
 collection: "SYSTEMS"

@@ -4,6 +4,7 @@ slug: "watermark-textuelle-ne-prouve-pas-auteur"
 date: 2026-08-12
 description: "A watermark can indicate that a text has passed through an AI system without proving who wrote it, what their intent was, or how much work they actually did."
 categories: ["Artificial intelligence", "Society"]
+tags: ["ai-risk-governance"]
 series: ["comprendre-les-watermarks-textuelles"]
 series_order: 1
 collection: "SYSTÈMES"

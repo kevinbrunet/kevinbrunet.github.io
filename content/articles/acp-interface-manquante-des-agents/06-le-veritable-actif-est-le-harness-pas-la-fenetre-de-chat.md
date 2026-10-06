@@ -5,6 +5,7 @@ slug: "harness-actif-pas-fenetre-chat"
 date: 2026-09-28
 description: "L'actif durable d'une stratégie agentique est le harness d'entreprise et ses contrats ouverts, pas l'interface d'un fournisseur."
 categories: ["Intelligence artificielle", "Architecture logicielle"]
+tags: ["ai-systems-harness-engineering", "software-architecture", "agent-protocols"]
 series: ["acp-interface-manquante-des-agents"]
 series_order: 6
 collection: "ARCHITECTURE"

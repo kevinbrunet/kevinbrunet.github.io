@@ -5,6 +5,7 @@ slug: "permissions-decouvertes-pendant-tache"
 date: 2026-09-03
 description: "Une tâche découvre parfois son périmètre en cours d'exécution : l'autorité doit pouvoir évoluer sans devenir un passe-partout."
 categories: ["Intelligence artificielle", "Sécurité", "Architecture logicielle"]
+tags: ["ai-security"]
 series: ["qui-donne-le-droit-d-agir-a-votre-agent-ia"]
 series_order: 5
 collection: "ARCHITECTURE"

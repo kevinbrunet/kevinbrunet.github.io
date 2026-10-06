@@ -4,6 +4,7 @@ slug: "shieldstral-policy-recall-evaluation"
 date: 2026-11-10
 description: "On the exploratory set, clarifying the policy fixes two leaks. These results still require an independent, representative evaluation."
 categories: ["Artificial intelligence", "Cybersecurity", "Software architecture"]
+tags: ["ai-security", "ai-evaluation-evals"]
 series: ["quand-le-proxy-comprend-ce-qu-il-protege"]
 series_order: 7
 collection: "SYSTEMS"

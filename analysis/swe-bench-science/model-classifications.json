@@ -1,0 +1,12 @@
+{
+  "qwen-3-8-27b": {"open_weight": true, "source": "https://huggingface.co/Qwen/Qwen3.8-27B"},
+  "deepseek-pro": {"open_weight": true, "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"},
+  "deepseek-max": {"open_weight": true, "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash"},
+  "kimi": {"open_weight": true, "source": "https://huggingface.co/moonshotai/Kimi-K3"},
+  "glm": {"open_weight": true, "source": "https://huggingface.co/zai-org/GLM-5.2"},
+  "nex": {"open_weight": true, "source": "https://github.com/nex-agi/Nex-N2", "note": "Published label Nex N2; website identifies historical run as Nex-N2-Pro. Exact checkpoint revision unpublished."},
+  "intern-s2-preview-397b": {"open_weight": true, "source": "https://huggingface.co/internlm/Intern-S2-Preview-397B"},
+  "opus": {"open_weight": false, "source": "https://swescience.github.io/"},
+  "gpt": {"open_weight": false, "source": "https://swescience.github.io/"},
+  "gpt-6-astra": {"open_weight": false, "source": "https://swescience.github.io/"}
+}

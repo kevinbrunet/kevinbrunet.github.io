@@ -4,6 +4,7 @@ slug: "happy-path-validation"
 date: 2026-09-01
 description: "A harness only tests errors that have been turned into checks, leaving out situations that no one has imagined yet."
 categories: ["Artificial intelligence", "Software engineering"]
+tags: ["ai-evaluation-evals", "ai-reliability"]
 series: ["aucun-harnais-n-est-parfait"]
 series_order: 2
 collection: "ARCHITECTURE"

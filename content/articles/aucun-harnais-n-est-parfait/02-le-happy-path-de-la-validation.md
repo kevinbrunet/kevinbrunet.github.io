@@ -5,6 +5,7 @@ slug: "happy-path-validation"
 date: 2026-09-01
 description: "Un harnais ne teste que les erreurs transformées en contrôles et laisse hors champ les situations que personne n'a encore imaginées."
 categories: ["Intelligence artificielle", "Ingénierie logicielle"]
+tags: ["ai-evaluation-evals", "ai-reliability"]
 series: ["aucun-harnais-n-est-parfait"]
 series_order: 2
 collection: "ARCHITECTURE"

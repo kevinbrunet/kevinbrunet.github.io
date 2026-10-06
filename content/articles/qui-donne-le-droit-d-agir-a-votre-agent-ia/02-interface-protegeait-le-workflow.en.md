@@ -4,6 +4,7 @@ slug: "interface-protegeait-workflow"
 date: 2026-09-03
 description: "By calling APIs directly, an agent can bypass the order of actions that the interface silently imposed on the user."
 categories: ["Artificial intelligence", "Security", "Software architecture"]
+tags: ["ai-security", "software-architecture"]
 series: ["qui-donne-le-droit-d-agir-a-votre-agent-ia"]
 series_order: 2
 collection: "ARCHITECTURE"

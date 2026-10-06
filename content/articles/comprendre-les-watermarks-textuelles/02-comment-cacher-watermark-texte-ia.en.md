@@ -4,6 +4,7 @@ slug: "comment-cacher-watermark-texte-ia"
 date: 2026-08-12
 description: "A text watermark is hidden in a sequence of statistically biased choices, not in an invisible character. Here is how this signal works."
 categories: ["Artificial intelligence", "Software engineering"]
+tags: []
 series: ["comprendre-les-watermarks-textuelles"]
 series_order: 2
 collection: "ARCHITECTURE"

@@ -5,6 +5,7 @@ slug: "enterprise-harness-several-interfaces"
 date: 2026-09-28
 description: "ACP makes it possible to expose one business harness through several clients without rebuilding every experience."
 categories: ["Artificial intelligence", "Software architecture"]
+tags: ["agent-protocols", "ai-systems-harness-engineering"]
 series: ["acp-interface-manquante-des-agents"]
 series_order: 4
 collection: "ARCHITECTURE"

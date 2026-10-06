@@ -4,6 +4,7 @@ slug: "shieldstral-politique-rappel-qualification"
 date: 2026-11-10
 description: "Sur le jeu exploratoire, préciser la politique corrige deux fuites. Ces résultats demandent encore une évaluation indépendante et représentative."
 categories: ["Intelligence artificielle", "Cybersécurité", "Architecture logicielle"]
+tags: ["ai-security", "ai-evaluation-evals"]
 series: ["quand-le-proxy-comprend-ce-qu-il-protege"]
 series_order: 7
 collection: "SYSTÈMES"

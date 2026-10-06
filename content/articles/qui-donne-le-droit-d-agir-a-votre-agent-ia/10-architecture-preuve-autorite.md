@@ -5,6 +5,7 @@ slug: "architecture-preuve-autorite"
 date: 2026-09-03
 description: "Identité, intersection des politiques, capacités et preuves signées composent une autorité progressive, vérifiable et révocable."
 categories: ["Intelligence artificielle", "Sécurité", "Architecture logicielle"]
+tags: ["ai-security", "software-architecture"]
 series: ["qui-donne-le-droit-d-agir-a-votre-agent-ia"]
 series_order: 10
 collection: "ARCHITECTURE"

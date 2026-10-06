@@ -4,6 +4,7 @@ slug: "tests-du-meme-cerveau"
 date: 2026-09-01
 description: "Tests generated alongside the code can consistently confirm a flawed understanding of the need."
 categories: ["Artificial intelligence", "Software engineering"]
+tags: ["ai-evaluation-evals", "ai-reliability"]
 series: ["aucun-harnais-n-est-parfait"]
 series_order: 5
 collection: "ARCHITECTURE"

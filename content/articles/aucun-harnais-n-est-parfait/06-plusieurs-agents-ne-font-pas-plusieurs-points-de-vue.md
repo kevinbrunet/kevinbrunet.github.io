@@ -5,6 +5,7 @@ slug: "plusieurs-agents-points-de-vue"
 date: 2026-09-01
 description: "Multiplier les agents ne crée pas automatiquement de diversité lorsque leurs modèles, contextes et critères restent corrélés."
 categories: ["Intelligence artificielle", "Ingénierie logicielle"]
+tags: ["ai-reliability"]
 series: ["aucun-harnais-n-est-parfait"]
 series_order: 6
 collection: "ARCHITECTURE"

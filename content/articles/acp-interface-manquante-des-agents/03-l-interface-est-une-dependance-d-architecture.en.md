@@ -5,6 +5,7 @@ slug: "interface-agent-architecture-dependency"
 date: 2026-09-28
 description: "Plans, permissions, tool calls, and sessions form an interface contract that can lock an agent into one vendor."
 categories: ["Artificial intelligence", "Software architecture"]
+tags: ["agent-protocols", "software-architecture"]
 series: ["acp-interface-manquante-des-agents"]
 series_order: 3
 collection: "ARCHITECTURE"

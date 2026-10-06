@@ -5,6 +5,7 @@ slug: "mcp-tools-acp-agent-user"
 date: 2026-09-28
 description: "MCP connects the agent to tools; ACP connects the agent to its user and preserves the interface when the agent changes."
 categories: ["Artificial intelligence", "Software architecture"]
+tags: ["agent-protocols"]
 series: ["acp-interface-manquante-des-agents"]
 series_order: 1
 collection: "ARCHITECTURE"

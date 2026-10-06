@@ -5,6 +5,7 @@ slug: "droits-agent-intersection"
 date: 2026-09-03
 description: "Les permissions effectives d'un agent résultent de l'intersection entre utilisateur, agent, délégation, tâche et ressource."
 categories: ["Intelligence artificielle", "Sécurité", "Architecture logicielle"]
+tags: ["ai-security"]
 series: ["qui-donne-le-droit-d-agir-a-votre-agent-ia"]
 series_order: 4
 collection: "ARCHITECTURE"

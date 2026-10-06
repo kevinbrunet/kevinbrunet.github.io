@@ -58,6 +58,7 @@
       <nav id="navigation" aria-label="{{ i18n "main_navigation" }}">
         <a class="{{ if or .IsHome (eq .Section "articles") }}active{{ end }}" href="{{ "articles" | relLangURL }}">{{ i18n "articles" }}</a>
         <a class="{{ if eq .Data.Plural "series" }}active{{ end }}" href="{{ "series" | relLangURL }}">{{ i18n "series" }}</a>
+        {{ with site.GetPage "/tags" }}<a class="{{ if eq $.Data.Plural "tags" }}active{{ end }}" href="{{ .RelPermalink }}">{{ i18n "topics" }}</a>{{ end }}
         <a href="{{ if eq site.Language.Lang "fr" }}{{ "a-propos" | relLangURL }}{{ else }}{{ "about" | relLangURL }}{{ end }}">{{ i18n "about" }}</a>
         <span class="language-switcher" aria-label="{{ i18n "languages" }}">{{ range .AllTranslations }}<a href="{{ .RelPermalink }}" lang="{{ .Language.LanguageCode }}" hreflang="{{ .Language.LanguageCode }}" class="{{ if eq .Language.Lang site.Language.Lang }}active{{ end }}">{{ upper .Language.Lang }}</a>{{ end }}</span>
       </nav>

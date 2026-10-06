@@ -4,6 +4,7 @@ slug: "how-to-constrain-a-frontier-model"
 date: 2026-11-05
 description: "Compare structured outputs, strict tools and custom grammars in frontier model APIs."
 categories: ["Artificial intelligence", "Software architecture"]
+tags: ["ai-systems-harness-engineering", "ai-reliability"]
 series: ["la-grammaire-des-agents"]
 series_order: 6
 collection: "ARCHITECTURE"

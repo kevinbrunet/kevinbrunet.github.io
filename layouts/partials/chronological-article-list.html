@@ -1,0 +1,23 @@
+{{/* Keep only the supplied pages: a topic must not pull in an entire series. */}}
+{{ $groups := newScratch }}
+{{ $keys := slice }}
+{{ range $page := . }}
+  {{ $key := printf "article:%s" $page.TranslationKey }}
+  {{ with $page.Params.series }}{{ $key = printf "series:%s" (index . 0) }}{{ end }}
+  {{ if not ($groups.Get $key) }}{{ $keys = $keys | append $key }}{{ end }}
+  {{ $groups.Add $key (slice $page) }}
+{{ end }}
+{{ $blocks := slice }}
+{{ range $key := $keys }}
+  {{ $pages := $groups.Get $key }}
+  {{ $latest := index (sort $pages "Date" "desc") 0 }}
+  {{ $pages = sort $pages "Params.series_order" "asc" }}
+  {{ $blocks = $blocks | append (dict "sortKey" (printf "%s|%s" ($latest.Date.Format "20060102150405") $key) "pages" $pages) }}
+{{ end }}
+{{ $rowIndex := 0 }}
+{{ range sort $blocks "sortKey" "desc" }}
+  {{ range .pages }}
+    {{ $rowIndex = add $rowIndex 1 }}
+    {{ partial "article-row.html" (dict "page" . "index" $rowIndex) }}
+  {{ end }}
+{{ end }}

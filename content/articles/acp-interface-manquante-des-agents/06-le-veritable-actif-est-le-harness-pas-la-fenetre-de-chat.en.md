@@ -5,6 +5,7 @@ slug: "harness-asset-not-chat-window"
 date: 2026-09-28
 description: "The durable asset in an agent strategy is the enterprise harness and its open contracts, not a vendor's interface."
 categories: ["Artificial intelligence", "Software architecture"]
+tags: ["ai-systems-harness-engineering", "software-architecture", "agent-protocols"]
 series: ["acp-interface-manquante-des-agents"]
 series_order: 6
 collection: "ARCHITECTURE"

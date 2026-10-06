@@ -1,4 +1,5 @@
 ---
 title: "Architecting trust"
-description: "Securing and strengthening information systems and AI agents so organizations can genuinely rely on them."
+seo_title: "Kévin Brunet — Software Architect, Agentic AI & AI Reliability"
+description: "Software architect: agentic AI systems, harnesses, evals and observability. Production engineering grounded in reliability and risk."
 ---

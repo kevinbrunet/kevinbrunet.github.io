@@ -5,6 +5,7 @@ slug: "change-model-without-changing-application"
 date: 2026-09-28
 description: "Separating client, harness, and model lets them evolve independently without promising magical interchangeability."
 categories: ["Artificial intelligence", "Software architecture"]
+tags: ["llmops-agentops", "agent-protocols"]
 series: ["acp-interface-manquante-des-agents"]
 series_order: 5
 collection: "ARCHITECTURE"

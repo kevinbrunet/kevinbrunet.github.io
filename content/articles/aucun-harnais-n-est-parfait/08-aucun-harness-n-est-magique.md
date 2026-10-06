@@ -5,6 +5,7 @@ slug: "aucun-harnais-n-est-magique"
 date: 2026-09-01
 description: "Aucun harnais ne couvre tous les risques : la robustesse vient d'une gouvernance capable d'organiser plusieurs lignes de défense."
 categories: ["Intelligence artificielle", "Ingénierie logicielle"]
+tags: ["ai-systems-harness-engineering", "ai-risk-governance"]
 series: ["aucun-harnais-n-est-parfait"]
 series_order: 8
 collection: "ARCHITECTURE"

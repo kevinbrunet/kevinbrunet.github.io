@@ -5,6 +5,7 @@ slug: "goodhart-dans-la-boucle"
 date: 2026-09-01
 description: "Quand la métrique devient la cible, un agent peut optimiser le voyant vert tout en laissant la mission réelle inachevée."
 categories: ["Intelligence artificielle", "Ingénierie logicielle"]
+tags: ["ai-evaluation-evals"]
 series: ["aucun-harnais-n-est-parfait"]
 series_order: 4
 collection: "ARCHITECTURE"

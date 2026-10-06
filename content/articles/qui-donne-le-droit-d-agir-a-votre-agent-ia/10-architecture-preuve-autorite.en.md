@@ -4,6 +4,7 @@ slug: "architecture-preuve-autorite"
 date: 2026-09-03
 description: "Identity, policy intersection, capabilities, and signed proofs combine to form progressive, verifiable, and revocable authority."
 categories: ["Artificial intelligence", "Security", "Software architecture"]
+tags: ["ai-security", "software-architecture"]
 series: ["qui-donne-le-droit-d-agir-a-votre-agent-ia"]
 series_order: 10
 collection: "ARCHITECTURE"

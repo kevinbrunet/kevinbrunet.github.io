@@ -5,6 +5,7 @@ slug: "juge-et-partie-agents"
 date: 2026-09-01
 description: "Faire relire un agent par une copie du même système multiplie les avis sans nécessairement réduire leurs angles morts communs."
 categories: ["Intelligence artificielle", "Ingénierie logicielle"]
+tags: ["ai-evaluation-evals", "ai-reliability"]
 series: ["aucun-harnais-n-est-parfait"]
 series_order: 3
 collection: "ARCHITECTURE"

@@ -5,6 +5,7 @@ slug: "interface-protegeait-workflow"
 date: 2026-09-03
 description: "En appelant directement les API, un agent peut contourner l'ordre des actions que l'interface imposait silencieusement à l'utilisateur."
 categories: ["Intelligence artificielle", "Sécurité", "Architecture logicielle"]
+tags: ["ai-security", "software-architecture"]
 series: ["qui-donne-le-droit-d-agir-a-votre-agent-ia"]
 series_order: 2
 collection: "ARCHITECTURE"

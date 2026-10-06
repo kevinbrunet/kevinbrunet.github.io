@@ -4,6 +4,7 @@ slug: "shieldstral-classifieur-local-politique-metier"
 date: 2026-11-10
 description: "Un classifieur spécialisé de 3 milliards de paramètres évalue localement le contenu selon une question de sécurité définie par l’entreprise."
 categories: ["Intelligence artificielle", "Cybersécurité", "Architecture logicielle"]
+tags: ["ai-security"]
 series: ["quand-le-proxy-comprend-ce-qu-il-protege"]
 series_order: 3
 collection: "SYSTÈMES"

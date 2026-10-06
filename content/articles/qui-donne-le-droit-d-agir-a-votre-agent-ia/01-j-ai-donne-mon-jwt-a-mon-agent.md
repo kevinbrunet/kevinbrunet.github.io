@@ -5,6 +5,7 @@ slug: "jwt-agent-efface-agent"
 date: 2026-09-03
 description: "Transmettre le JWT d'un utilisateur à un agent lui donne une identité trop large et rend l'acteur réel invisible dans les journaux."
 categories: ["Intelligence artificielle", "Sécurité", "Architecture logicielle"]
+tags: ["ai-security"]
 series: ["qui-donne-le-droit-d-agir-a-votre-agent-ia"]
 series_order: 1
 collection: "ARCHITECTURE"

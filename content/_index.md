@@ -1,4 +1,5 @@
 ---
 title: "Architecturer la confiance"
-description: "Sécuriser et fiabiliser les systèmes d'information et les agents IA pour que les organisations puissent réellement s'appuyer sur eux."
+seo_title: "Kévin Brunet — Software Architect, Agentic AI & AI Reliability"
+description: "Architecte logiciel : systèmes IA agentiques, harnesses, evals et observabilité. Une approche de la production guidée par la fiabilité et le risque."
 ---

@@ -4,6 +4,7 @@ slug: "ai-proxy-pattern-filter-limits"
 date: 2026-11-10
 description: "On the prototype's initial eleven cases, the deterministic filter blocks an API key and leaves five other sensitive documents for further analysis."
 categories: ["Artificial intelligence", "Cybersecurity", "Software architecture"]
+tags: ["ai-security"]
 series: ["quand-le-proxy-comprend-ce-qu-il-protege"]
 series_order: 2
 collection: "SYSTEMS"

@@ -4,6 +4,7 @@ slug: "reponse-api-etend-autorite"
 date: 2026-09-03
 description: "An API can sign proof of its result to authorize exactly the resources discovered in the next step."
 categories: ["Artificial intelligence", "Security", "Software architecture"]
+tags: ["ai-security"]
 series: ["qui-donne-le-droit-d-agir-a-votre-agent-ia"]
 series_order: 7
 collection: "ARCHITECTURE"

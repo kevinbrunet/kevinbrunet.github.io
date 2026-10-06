@@ -5,6 +5,7 @@ slug: "interface-dependance-architecture-agent"
 date: 2026-09-28
 description: "Plans, permissions, appels d'outils et sessions forment un contrat d'interface qui peut enfermer un agent chez un fournisseur."
 categories: ["Intelligence artificielle", "Architecture logicielle"]
+tags: ["agent-protocols", "software-architecture"]
 series: ["acp-interface-manquante-des-agents"]
 series_order: 3
 collection: "ARCHITECTURE"

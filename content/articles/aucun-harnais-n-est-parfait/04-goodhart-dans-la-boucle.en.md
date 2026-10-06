@@ -4,6 +4,7 @@ slug: "goodhart-dans-la-boucle"
 date: 2026-09-01
 description: "When the metric becomes the target, an agent can optimize for the green light while leaving the real mission unfinished."
 categories: ["Artificial intelligence", "Software engineering"]
+tags: ["ai-evaluation-evals"]
 series: ["aucun-harnais-n-est-parfait"]
 series_order: 4
 collection: "ARCHITECTURE"

@@ -4,6 +4,7 @@ slug: "ai-proxy-content-controls"
 date: 2026-11-10
 description: "The proxy centralizes access to models. Content protection depends on the controls enabled and how they are evaluated."
 categories: ["Artificial intelligence", "Cybersecurity", "Software architecture"]
+tags: ["ai-platform-engineering", "llmops-agentops"]
 series: ["quand-le-proxy-comprend-ce-qu-il-protege"]
 series_order: 1
 collection: "SYSTEMS"

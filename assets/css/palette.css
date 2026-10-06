@@ -163,6 +163,7 @@ html {
 .prose .article-thesis p,.prose .article-pullquote p,.prose .article-closing-question p{margin:0;font:inherit}
 .prose .article-thesis strong{color:var(--blue)}
 .prose .article-pullquote{margin:3rem -3rem;padding:2.4rem 3rem;background:var(--coral);font-family:"Arial Narrow",Arial,sans-serif;font-size:clamp(1.65rem,3vw,2.35rem);line-height:1.12;text-transform:uppercase;transform:rotate(-1deg)}
+@media(min-width:851px) and (max-width:1100px){.prose .article-pullquote{margin-left:0;margin-right:0}}
 .prose .article-closing-question{margin:3.5rem 0;padding:2.5rem;border:3px solid var(--ink);font-family:"Arial Narrow",Arial,sans-serif;font-size:clamp(1.65rem,3vw,2.5rem);font-weight:800;line-height:1.12;text-transform:uppercase;box-shadow:14px 14px 0 var(--blue)}
 .prose .article-closing-question span{display:block;margin-bottom:1rem;color:var(--coral);font:850 .68rem/1 Inter,Arial,sans-serif;letter-spacing:.15em}
 @media(max-width:850px){.prose .article-pullquote{margin:2.5rem 0;padding:2rem;transform:none}.prose .article-callout,.prose .article-closing-question{padding:1.6rem}.prose .article-closing-question{box-shadow:8px 8px 0 var(--blue)}}

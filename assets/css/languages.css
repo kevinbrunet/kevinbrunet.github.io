@@ -2,6 +2,28 @@
   align-items: center;
 }
 
+.article-topics-label {
+  margin-top: 2rem;
+}
+
+.reference-hero__copy .hero-positioning {
+  font-size: .72rem;
+  line-height: 1.6;
+  letter-spacing: .08em;
+  color: var(--blue);
+}
+
+.reference-hero__copy .hero-focus {
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.hero-about {
+  display: inline-block;
+  margin: 1rem 0 0 1.25rem;
+  color: var(--ink);
+}
+
 .language-switcher {
   display: flex;
   gap: .35rem;

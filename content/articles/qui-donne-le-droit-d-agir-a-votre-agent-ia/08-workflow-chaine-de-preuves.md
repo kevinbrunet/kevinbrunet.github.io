@@ -5,6 +5,7 @@ slug: "workflow-chaine-de-preuves"
 date: 2026-09-03
 description: "Quand chaque appel exige la preuve du précédent, le système impose l'ordre du workflow sans dépendre de l'obéissance de l'agent."
 categories: ["Intelligence artificielle", "Sécurité", "Architecture logicielle"]
+tags: ["ai-security", "software-architecture"]
 series: ["qui-donne-le-droit-d-agir-a-votre-agent-ia"]
 series_order: 8
 collection: "ARCHITECTURE"
