@@ -1,0 +1,23 @@
+{
+  "source": "analysis/deepswe-oracle/analysis.json",
+  "retrieved_at": "2026-10-06",
+  "point_count": 2,
+  "routes": [
+    {
+      "id": "luna-four",
+      "label_fr": "Luna, quatre essais",
+      "label_en": "Luna, four attempts",
+      "cost": 2.422493,
+      "coverage": 90.3,
+      "attempts": 4
+    },
+    {
+      "id": "astra-one",
+      "label_fr": "Astra, un essai",
+      "label_en": "Astra, one attempt",
+      "cost": 4.429117,
+      "coverage": 74.1,
+      "attempts": 1
+    }
+  ]
+}

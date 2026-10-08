@@ -141,6 +141,12 @@ Oracle quality determines the search budget the system can exploit at a constant
 
 This constraint reinforces the argument of the first two articles. Reducing verification errors can make more economical attempts available. However, the cost of building, running, and maintaining the oracle belongs in the calculation.
 
+{{< callout variant="key" label="Gross savings are not net gains" >}}
+In the previous example, the simulated chain costs approximately **$2,848 less across 113 tasks** than one attempt with the most expensive Claude configuration. That amount is the gross budget available to fund verification.
+
+Net gains must still subtract oracle execution and maintenance, human revalidation, and the expected cost of accepted errors. If those charges exceed that gross saving at a comparable volume, the architecture may improve coverage, but **it does not save money**.
+{{< /callout >}}
+
 ## Escalation concentrates difficult cases
 
 A chain of three models, each allowed four attempts, can submit up to twelve proposals for a task that passes through every tier.

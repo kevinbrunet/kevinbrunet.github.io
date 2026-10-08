@@ -1,0 +1,23 @@
+{
+  "source": "analysis/deepswe-oracle/analysis.json",
+  "retrieved_at": "2026-10-06",
+  "point_count": 2,
+  "routes": [
+    {
+      "id": "glm-first",
+      "label_fr": "GLM Flash en premier",
+      "label_en": "GLM Flash first",
+      "cost": 76.463382,
+      "coverage": 113,
+      "attempts": 239
+    },
+    {
+      "id": "luna-first",
+      "label_fr": "Luna en premier",
+      "label_en": "Luna first",
+      "cost": 119.306073,
+      "coverage": 113,
+      "attempts": 209
+    }
+  ]
+}

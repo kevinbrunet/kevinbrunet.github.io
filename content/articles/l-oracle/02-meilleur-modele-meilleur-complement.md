@@ -3,7 +3,7 @@ title: "Le modèle le plus cher devrait peut-être passer en dernier"
 seo_title: "Agents IA : pourquoi le modèle le plus cher peut passer en dernier"
 slug: "meilleur-modele-meilleur-complement"
 date: 2026-10-27
-description: "Après l'échec d'un premier modèle, le meilleur complément est celui qui récupère ses échecs observés, pas nécessairement celui qui domine le classement."
+description: "Sur 113 tâches DeepSWE, inverser l’ordre des mêmes modèles réduit le coût simulé de 36 %, sans perdre un seul verdict positif."
 categories: ["Intelligence artificielle", "Architecture logicielle", "Ingénierie logicielle"]
 tags: ["ai-evaluation-evals", "llmops-agentops"]
 series: ["l-oracle"]
@@ -13,17 +13,15 @@ cover: "/images/articles/meilleur-complement.fr.png"
 draft: false
 ---
 
-{{< callout variant="scene" label="Onze angles morts" >}}
-Après quatre tentatives, GPT-5.6 Luna résout 102 des 113 tâches du benchmark DeepSWE.
+{{< callout variant="scene" label="De la variance à la complémentarité" >}}
+Dans le premier article, nous avons vu qu’un oracle permettait de donner plusieurs chances à Luna. Avec jusqu’à quatre essais, le modèle résout au moins une fois **102 tâches sur 113**.
 
-Il lui reste 11 tâches sans succès enregistré.
+Mais comment aller chercher la réussite sur les 11 tâches restantes ?
 
-On pourrait alors escalader vers le modèle le plus puissant du classement. Pourtant, GPT-6 Astra ne récupère que 5 de ces 11 tâches.
-
-Un modèle beaucoup moins cher fait nettement mieux : **GLM-5.3 Flash en récupère 10**.
-
-**Le meilleur modèle n'est donc pas nécessairement le meilleur complément. Pour construire un système agentique fiable, il faut regarder non seulement le score de chaque modèle, mais aussi la manière dont leurs erreurs se recouvrent.**
+**En cherchant son complément : non pas le meilleur modèle dans l’absolu, mais celui qui réussit précisément là où Luna échoue.**
 {{< /callout >}}
+
+Pour le trouver, il faut changer de classement : ne plus mesurer seulement la performance moyenne de chaque modèle, mais comparer les profils d’erreurs.
 
 ## Un classement cache les profils d'erreurs
 
@@ -33,15 +31,37 @@ Cette mesure répond à une question utile : si je ne peux lancer qu'une seule e
 
 Elle ne répond pas à une autre question, pourtant essentielle pour une architecture agentique : lorsqu'un premier modèle échoue, lequel a le plus de chances de réussir précisément sur ses échecs ?
 
-Les données détaillées de [DeepSWE 1.1](https://deepswe.datacurve.ai/) permettent de l'observer. Chaque configuration a été exécutée jusqu'à quatre fois sur 113 tâches de génie logiciel. Luna `[max]` en résout au moins une fois 102. Onze tâches n’ont aucun succès enregistré dans ses exécutions disponibles. Ce sont ici ses « angles morts » observés, pas une incapacité démontrée.
+Les données détaillées de [**DeepSWE 1.1**](https://deepswe.datacurve.ai/) permettent de suivre, tâche par tâche, jusqu’à quatre exécutions de chaque configuration. Nous nous concentrons sur les 11 tâches où Luna n’obtient aucun verdict positif. Elles constituent ses « angles morts » observés sur ce benchmark (pas une incapacité absolue).
 
 Comme dans le premier article, une tâche « résolue » désigne un verdict positif du grader. Tous les résultats comparés ici utilisent le même harness, `mini-swe-agent`, avec les niveaux d’effort indiqués.
 
-Parmi les 70 configurations présentes dans les données, GLM-5.3 Flash `[max]` est celle qui complète le mieux Luna sur cet ensemble : il réussit au moins une fois 10 de ces 11 tâches.
+Pour trouver ce complément, nous pouvons comparer chaque configuration sur deux axes : le nombre d’échecs de Luna qu’elle récupère et le coût de cette escalade. Quatre configurations dont le coût d’un essai manque sont exclues. Les 66 autres apparaissent dans le graphique.
 
-Les modèles ont en réalité été exécutés séparément sur le benchmark. Nous simulons rétrospectivement une escalade : ne retenir les tentatives de GLM Flash que pour les 11 tâches sans succès chez Luna, puis s’arrêter au premier verdict positif.
+{{< scatter-chart
+  dataset="deepswe-luna-cost-recovery"
+  title="Quel modèle complète Luna au meilleur coût ?"
+  description="Chaque point représente une configuration appliquée aux 11 échecs de Luna. Plus il est haut, plus il récupère de tâches. Plus il est à gauche, moins cette escalade coûte."
+  x-label="Coût estimé de l’escalade sur les 11 échecs ($)"
+  y-label="Échecs de Luna récupérés, sur 11"
+  x-min="0.5" x-max="500"
+  y-min="0" y-max="11"
+  regression="none"
+  primary="mini_swe_agent_glm_5_3_flash_max"
+  count-label="configurations aux coûts complets"
+  y-total="11"
+  x-format="currency"
+  x-scale="log"
+  tooltip-x="Coût de l’escalade"
+  tooltip-y="Échecs récupérés"
+  tooltip-ratio="Coût par échec récupéré"
+  tooltip-attempts="Essais exécutés"
+  attempts-label="Essais exécutés"
+  details-label="Consulter les 66 configurations"
+>}}
+GLM-5.3 Flash [max], en bleu, offre ici le meilleur rapport entre le nombre d’échecs récupérés et le coût de l’escalade. L’axe des coûts est logarithmique afin de rendre lisibles les modèles bon marché comme les plus coûteux. Les coûts simulent un arrêt au premier succès sur les 11 échecs de Luna. La convention tarifaire est celle de l’analyse au 6 octobre 2026.
+{{< /scatter-chart >}}
 
-Pour rendre le calcul reproductible, les tentatives de chaque configuration sur chaque tâche sont ordonnées par leur date de démarrage, puis par leur identifiant en cas d’égalité. Il s’agit d’un rejeu de résultats publiés, pas d’une chaîne adaptative réellement exécutée.
+En simulant une reprise par GLM Flash sur les 11 tâches non résolues par Luna, on peut enchaîner jusqu’à quatre essais supplémentaires et s’arrêter dès le premier verdict positif.
 
 | Étape | Nouvelles tâches récupérées à cet essai | Échecs de Luna récupérés au total | Tâches encore non résolues | Couverture combinée Luna + GLM Flash |
 |---|---:|---:|---:|---:|
@@ -51,16 +71,7 @@ Pour rendre le calcul reproductible, les tentatives de chaque configuration sur 
 | **Essai 3** | 0 | 10 sur 11 | 1 | 112 sur 113, soit 99,1 % |
 | **Essai 4** | 0 | **10 sur 11** | **1** | **112 sur 113, soit 99,1 %** |
 
-Dans cet ordre de rejeu, la première tentative de GLM Flash récupère 3 des 11 échecs de Luna. La deuxième en ajoute 7. Les suivantes n’apportent aucun succès supplémentaire. L’ordre des essais change cette progression et le coût de l’arrêt anticipé ; il ne change pas l’union finale des succès disponibles.
-
-Ce tableau ne donne donc pas quatre scores indépendants. Il montre la progression cumulative d’une politique d’arrêt au premier verdict positif : une nouvelle tentative serait lancée uniquement pour les tâches encore rejetées.
-
-| Modèle ajouté après Luna | Échecs de Luna récupérés | Couverture combinée |
-|---|---:|---:|
-| **GLM-5.3 Flash [max]** | **10 sur 11** | **112 sur 113, soit 99,1 %** |
-| Claude Opus 5 [medium] | 9 sur 11 | 111 sur 113, soit 98,2 % |
-| Claude Sonnet 5 [max] | 8 sur 11 | 110 sur 113, soit 97,3 % |
-| GPT-6 Astra [xhigh] | 5 sur 11 | 107 sur 113, soit 94,7 % |
+Dans cet ordre de rejeu, la première tentative de GLM Flash récupère 3 des 11 échecs de Luna. La deuxième en ajoute 7. Les suivantes n’apportent aucun succès supplémentaire.
 
 {{< thesis >}}
 Ces chiffres ne disent pas que GLM-5.3 Flash est meilleur qu'Astra dans l'absolu. Ils montrent que ses succès enregistrés recouvrent davantage les échecs observés de Luna.
@@ -92,8 +103,6 @@ Sans oracle, il faudrait lancer plusieurs modèles puis demander à une personne
 
 Avec des tests capables d'accepter ou de rejeter automatiquement le résultat, le harness peut s'arrêter au premier succès et n'escalader que les tâches qui résistent.
 
-Le système n'a donc pas besoin de payer systématiquement quatre nouvelles tentatives. Comme le montre la progression précédente, une telle politique arrêterait GLM Flash dès qu’une tâche est acceptée et réserve les essais suivants aux seuls cas encore en échec.
-
 ```text
 Luna, jusqu'à quatre tentatives
         ↓ échec vérifié
@@ -104,13 +113,33 @@ Dernier niveau de secours
 
 L'architecture n'oppose plus un modèle économique à un modèle premium. Elle compose plusieurs profils d'erreurs et réserve chaque étage aux cas que le précédent n'a pas résolus.
 
-## Le modèle le moins cher peut passer en premier
+## Une fois le complément trouvé, il faut encore choisir l’ordre
 
 Une fois cette logique admise, une autre question apparaît : dans quel ordre faut-il appeler les modèles ?
 
 Luna possède la meilleure couverture individuelle des deux, mais GLM-5.3 Flash coûte moins cher. Il peut donc être économiquement préférable de commencer par GLM Flash, puis d'envoyer uniquement ses échecs à Luna.
 
-À partir des rollouts publiés par DeepSWE, avec arrêt au premier succès, la chaîne rétrospective suivante donne :
+Sur une exécution moyenne, GLM Flash réussit 63,4 % des tâches pour environ 0,24 dollar, contre 67,2 % pour 0,61 dollar avec Luna. Le système abandonne seulement 3,8 points de réussite moyenne au premier passage, mais réduit d’environ 60 % le coût moyen d’un essai. L’oracle permet de récupérer ensuite les échecs au lieu de payer Luna sur toutes les tâches.
+
+{{< cost-comparison
+  dataset="deepswe-routing-orders"
+  title="Même couverture, 36 % de coût en moins"
+  description="Les deux chaînes obtiennent 113 verdicts positifs. Changer uniquement l’ordre de GLM Flash et Luna fait passer le coût estimé de 119,31 à 76,46 dollars."
+  x-label="Coût estimé sur 113 tâches ($)"
+  primary="glm-first"
+  cost-label="Coût estimé"
+  coverage-label="Verdicts positifs"
+  attempts-label="Tentatives exécutées"
+  scenario-label="Ordre de routage"
+  count-label="ordres comparés"
+  details-label="Consulter les deux scénarios"
+>}}
+Chaque barre représente le coût total d’un rejeu avec arrêt au premier succès. Les deux ordres utilisent les mêmes trois configurations et atteignent la même couverture observée. Seule leur séquence change.
+{{< /cost-comparison >}}
+
+Après le passage de GLM Flash puis de Luna, une seule tâche reste sans verdict positif. Pour ce dernier cas, on peut accepter de payer un modèle plus premium. Dans cet exemple, j’ai choisi GLM-5.2 [max].
+
+Comme toujours, à partir des rollouts publiés par DeepSWE, avec arrêt au premier succès, la chaîne rétrospective suivante donne :
 
 | Étape | Tâches reçues | Tâches résolues à cette étape | Tentatives exécutées | Coût estimé |
 |---|---:|---:|---:|---:|
@@ -123,30 +152,15 @@ Ces coûts sont estimés à partir de la consommation des rollouts, avec les tar
 
 Cela représente environ 0,68 dollar par tâche soumise et 2,12 tentatives par tâche. Une tentative correspond à une exécution de l’agent, qui peut effectuer plusieurs appels au modèle.
 
-{{< callout variant="key" label="Le coût change d'étage" >}}
-La valeur vient du fait que **238 des 239 tentatives sont confiés aux deux modèles économiques**.
+{{< callout variant="key" label="42,85 dollars économisés sur 113 tâches" >}}
+L’ordre inverse coûte 119,31 dollars. Commencer par GLM Flash ramène la facture estimée à 76,46 dollars : **42,85 dollars de moins, soit environ 36 % d’économie**, avec la même couverture observée.
+
+À volume et répartition comparables, cet écart représenterait environ **3 792 dollars d’économie brute pour 10 000 tâches**, avant le coût de l’oracle. La valeur vient du fait que **238 des 239 tentatives sont confiées aux deux modèles économiques**.
 {{< /callout >}}
 
-L'ordre inverse, Luna → GLM Flash → GLM-5.2, consomme moins de tentatives mais coûte 119,31 dollars. Commencer par GLM Flash économise ainsi environ 36 %, au prix de 30 tentatives supplémentaires et d'une latence potentiellement supérieure.
+L’ordre GLM Flash → Luna → GLM-5.2 exige toutefois 30 tentatives supplémentaires et peut augmenter la latence.
 
 Le meilleur ordre dépend donc de l’objectif choisi : coût, latence, consommation de calcul ou niveau de risque accepté.
-
-## Le 113 sur 113 dont il faut se méfier
-
-La chaîne GLM Flash → Luna → GLM-5.2 couvre les 113 tâches du benchmark dans les données observées.
-
-Ces 113 succès sont des verdicts du grader, dont des défauts sont documentés. Le [troisième article](/articles/qui-verifie-oracle/) examinera leur portée. Ils ne constituent pas une promesse de réussite parfaite.
-
-Les modèles, leur configuration et leur ordre ont été choisis après avoir examiné leurs résultats sur ces mêmes 113 tâches. La chaîne bénéficie donc d'une optimisation *a posteriori*. Elle peut avoir appris les particularités du benchmark plutôt qu'une stratégie qui se généralisera.
-
-Le résultat défendable est double :
-
-- l'union observée de Luna et GLM-5.3 Flash atteint 99,1 % ;
-- leurs profils d'erreurs sont suffisamment différents pour qu'un routage avec oracle mérite d'être testé prospectivement.
-
-Pour estimer la performance réelle, il faudrait choisir la politique sur un premier ensemble de tâches, puis la rejouer sans modification sur un échantillon inédit provenant du trafic visé. On mesurerait alors sa couverture, son coût, sa latence, ses faux positifs et ses faux négatifs.
-
-Cette précaution n'est pas un détail statistique. Une architecture agentique est elle-même une hypothèse qu'il faut soumettre à un oracle extérieur.
 
 ## Le benchmark le plus utile peut venir de votre production
 
@@ -154,25 +168,25 @@ DeepSWE constitue ici un exemple public. Il ne représente évidemment pas les t
 
 Mais un système agentique en production génère précisément la matière nécessaire pour construire un benchmark interne : demandes réelles, contexte disponible, résultats produits, verdicts de l'oracle, corrections humaines, coûts, latence et motifs d'escalade.
 
-En collectant ces scénarios, puis en les anonymisant et en les rendant rejouables, une équipe peut progressivement constituer un jeu de qualification représentatif de son utilisation. Les cas fréquents y conservent leur poids réel. Les incidents, les cas limites et les tâches à fort impact peuvent y être surreprésentés volontairement pour refléter le risque qu'ils portent.
+En collectant ces scénarios, puis en les anonymisant et en les rendant rejouables, une équipe peut progressivement constituer un jeu de qualification représentatif de son utilisation. Les cas fréquents y conservent leur poids réel. Les incidents, les cas limites et les tâches à fort impact peuvent y être surreprésentés volontairement pour refléter le risque qu'ils portent. Cette démarche relève des **AI Evals** et, plus largement, de l’**AI Reliability**.
 
 Il devient alors possible de reproduire la même analyse que sur DeepSWE :
 
-- exécuter plusieurs modèles et configurations sur les mêmes scénarios ;
-- observer non seulement leur score moyen, mais aussi leurs angles morts respectifs ;
-- mesurer quels modèles récupèrent réellement les échecs des autres ;
-- simuler plusieurs ordres de routage avec arrêt au premier succès ;
+- exécuter plusieurs modèles et configurations sur les mêmes scénarios
+- observer non seulement leur score moyen, mais aussi leurs angles morts respectifs
+- mesurer quels modèles récupèrent réellement les échecs des autres
+- simuler plusieurs ordres de routage avec arrêt au premier succès
 - comparer la couverture obtenue au coût, à la latence et au risque résiduel.
 
 L'optimisation ne porte plus sur « le meilleur modèle du marché ». Elle porte sur **la meilleure combinaison de modèles pour une utilisation précise**.
 
-Ce benchmark doit rester vivant. Les nouveaux scénarios, les reprises humaines et les incidents enrichissent continuellement la carte des erreurs. Une partie des données peut servir à choisir la stratégie ; une autre doit rester à l'écart pour vérifier qu'elle fonctionne encore sur des cas qu'elle n'a pas utilisés pour s'optimiser.
+Ce benchmark doit rester vivant. Les nouveaux scénarios, les reprises humaines et les incidents enrichissent continuellement la carte des erreurs. Une partie des données peut servir à choisir la stratégie. Une autre doit rester à l'écart pour vérifier qu'elle fonctionne encore sur des cas qu'elle n'a pas utilisés pour s'optimiser.
 
 Le trafic de production ne fournit donc pas seulement des tâches à traiter. Bien instrumenté, il fournit aussi le banc d'essai qui permet d'améliorer le système à partir de sa propre réalité.
 
 ## Après le choix du modèle, le choix du portefeuille
 
-DeepSWE n'est donc pas une recette universelle. Il montre une méthode que chaque organisation peut appliquer à ses propres scénarios.
+La méthode appliquée à DeepSWE n’est donc pas une recette universelle. Elle montre une méthodologie que chaque organisation peut appliquer à ses propres scénarios.
 
 Nous comparons encore souvent les modèles comme s'il fallait élire un vainqueur unique.
 
@@ -185,7 +199,7 @@ On ne cherche plus seulement le meilleur modèle. On construit un portefeuille d
 La prochaine frontière ne sera peut-être pas gagnée par le modèle placé en tête d'un classement public. Elle pourrait l'être par le système qui saura apprendre de ses scénarios réels, mesurer ses erreurs, acheter la bonne diversité et router chaque échec vers le complément le plus utile.
 
 {{< closing-question label="À retenir" >}}
-Un modèle économique couvre 102 tâches. Un second modèle Flash récupère 10 de ses 11 échecs observés. Leur couverture combinée, selon les verdicts du grader, atteint 99,1 %.
+Un modèle économique couvre 102 tâches. Un second modèle Flash récupère 10 de ses 11 échecs observés. En plaçant le modèle le moins cher en premier, la chaîne simulée conserve sa couverture et coûte **36 % de moins**, soit 42,85 dollars économisés sur ces 113 tâches.
 
 La question suivante devient alors décisive : **qui vérifie l’oracle ?**
 {{< /closing-question >}}

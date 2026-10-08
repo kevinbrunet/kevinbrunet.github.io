@@ -3,7 +3,7 @@ title: "The Most Expensive Model May Be Better Left for Last"
 seo_title: "AI agents: why the most expensive model may be better left for last"
 slug: "most-expensive-model-better-left-last"
 date: 2026-10-27
-description: "After one model fails, the best complement is the one that recovers its observed failures, not necessarily the model at the top of the leaderboard."
+description: "Across 113 DeepSWE tasks, reversing the order of the same models cuts the simulated cost by 36% without losing a single positive verdict."
 categories: ["Artificial intelligence", "Software architecture", "Software engineering"]
 tags: ["ai-evaluation-evals", "llmops-agentops"]
 series: ["l-oracle"]
@@ -13,17 +13,15 @@ cover: "/images/articles/meilleur-complement.en.png"
 draft: false
 ---
 
-{{< callout variant="scene" label="Eleven blind spots" >}}
-After four attempts, GPT-5.6 Luna solves 102 of the 113 tasks in the DeepSWE benchmark.
+{{< callout variant="scene" label="From variance to complementarity" >}}
+In the first article, we saw that an oracle could give Luna several chances. Across up to four attempts, the model solves at least once **102 tasks out of 113**.
 
-Eleven tasks remain without a recorded success.
+But how can we recover successful outcomes on the remaining 11 tasks?
 
-The obvious next step might be to escalate to the most powerful model on the leaderboard. Yet GPT-6 Astra recovers only 5 of those 11 tasks.
-
-A far cheaper model does much better: **GLM-5.3 Flash recovers 10**.
-
-**The best model is not necessarily the best complement. To build a reliable agentic system, we must examine not only each model's score, but also how their errors overlap.**
+**By looking for its complement: not the best model in absolute terms, but the one that succeeds precisely where Luna fails.**
 {{< /callout >}}
+
+To find it, we need a different ranking: instead of measuring only each model’s average performance, we must compare their error profiles.
 
 ## A leaderboard hides error profiles
 
@@ -33,15 +31,37 @@ This metric answers a useful question: if I can run only one attempt, which mode
 
 It does not answer another question that is essential to agentic architecture: when a first model fails, which model is most likely to succeed specifically on those failures?
 
-The detailed [DeepSWE 1.1](https://deepswe.datacurve.ai/) data lets us examine this. Each configuration was run up to four times on 113 software engineering tasks. Luna `[max]` solves 102 of them at least once. Eleven tasks have no recorded success across its available runs. These are its observed “blind spots” here, not a demonstrated inability.
+The detailed [**DeepSWE 1.1**](https://deepswe.datacurve.ai/) data lets us follow up to four runs of each configuration, task by task. We focus on the 11 tasks where Luna receives no positive verdict. They constitute its observed “blind spots” on this benchmark (not an absolute inability).
 
 As in the first article, a “solved” task means a positive grader verdict. All results compared here use the same harness, `mini-swe-agent`, with the stated effort levels.
 
-Among the 70 configurations in the dataset, GLM-5.3 Flash `[max]` complements Luna best on this task set: it succeeds at least once on 10 of those 11 tasks.
+To find that complement, we can compare every configuration along two axes: the number of Luna failures it recovers and the cost of that escalation. Four configurations with one missing attempt cost are excluded. The other 66 appear in the chart.
 
-The models were actually run separately on the benchmark. We retrospectively simulate an escalation: retain GLM Flash attempts only for the 11 tasks without a Luna success, then stop at the first positive verdict.
+{{< scatter-chart
+  dataset="deepswe-luna-cost-recovery"
+  title="Which model complements Luna at the best cost?"
+  description="Each point represents one configuration applied to Luna's 11 failures. The higher it is, the more tasks it recovers. The farther left it is, the less that escalation costs."
+  x-label="Estimated escalation cost on Luna's 11 failures ($)"
+  y-label="Luna failures recovered, out of 11"
+  x-min="0.5" x-max="500"
+  y-min="0" y-max="11"
+  regression="none"
+  primary="mini_swe_agent_glm_5_3_flash_max"
+  count-label="configurations with complete costs"
+  y-total="11"
+  x-format="currency"
+  x-scale="log"
+  tooltip-x="Escalation cost"
+  tooltip-y="Failures recovered"
+  tooltip-ratio="Cost per recovered failure"
+  tooltip-attempts="Attempts executed"
+  attempts-label="Attempts executed"
+  details-label="View all 66 configurations"
+>}}
+GLM-5.3 Flash [max], shown in blue, offers the best balance here between recovered failures and escalation cost. The cost axis is logarithmic so that inexpensive and costly models remain readable. Costs simulate stopping at the first success on Luna's 11 failures. The pricing convention is the one used by the analysis on October 6, 2026.
+{{< /scatter-chart >}}
 
-To make the calculation reproducible, attempts for each configuration on each task are ordered by start time, then by identifier to break ties. This is a replay of published results, not an adaptive chain that was actually executed.
+By simulating a GLM Flash retry on the 11 tasks Luna did not solve, we can chain up to four additional attempts and stop at the first positive verdict.
 
 | Stage | New tasks recovered on this attempt | Luna failures recovered in total | Tasks still unresolved | Combined Luna + GLM Flash coverage |
 |---|---:|---:|---:|---:|
@@ -51,16 +71,7 @@ To make the calculation reproducible, attempts for each configuration on each ta
 | **Attempt 3** | 0 | 10 of 11 | 1 | 112 of 113, or 99.1% |
 | **Attempt 4** | 0 | **10 of 11** | **1** | **112 of 113, or 99.1%** |
 
-In this replay order, GLM Flash’s first attempt recovers 3 of Luna’s 11 failures. The second adds 7. Later attempts add no further success. Attempt ordering changes this progression and the cost of early stopping; it does not change the final union of available successes.
-
-The table does not show four independent scores. It shows the cumulative progress of a policy that stops at the first positive verdict: another attempt would be launched only for tasks still rejected.
-
-| Model added after Luna | Luna failures recovered | Combined coverage |
-|---|---:|---:|
-| **GLM-5.3 Flash [max]** | **10 of 11** | **112 of 113, or 99.1%** |
-| Claude Opus 5 [medium] | 9 of 11 | 111 of 113, or 98.2% |
-| Claude Sonnet 5 [max] | 8 of 11 | 110 of 113, or 97.3% |
-| GPT-6 Astra [xhigh] | 5 of 11 | 107 of 113, or 94.7% |
+In this replay order, GLM Flash’s first attempt recovers 3 of Luna’s 11 failures. The second adds 7. Later attempts add no further success.
 
 {{< thesis >}}
 These figures do not mean that GLM-5.3 Flash is better than Astra in absolute terms. They show that its recorded successes overlap more with Luna’s observed failures.
@@ -92,8 +103,6 @@ Without an oracle, we would have to run several models and then ask a person to 
 
 With tests that can automatically accept or reject a result, the harness can stop at the first success and escalate only the tasks that resist.
 
-The system therefore does not have to pay for four additional attempts every time. As the progression above shows, such a policy would stop GLM Flash as soon as a task is accepted and reserves later attempts for the cases that are still failing.
-
 ```text
 Luna, up to four attempts
         ↓ verified failure
@@ -104,13 +113,33 @@ Final fallback tier
 
 The architecture no longer pits an economical model against a premium model. It composes several error profiles and reserves each tier for the cases the previous one could not solve.
 
-## The cheapest model can go first
+## Once the complement is known, order still matters
 
 Once we accept this logic, another question appears: in what order should the models be called?
 
 Luna has the better individual coverage of the two, but GLM-5.3 Flash is cheaper. It can therefore make economic sense to begin with GLM Flash, then send only its failures to Luna.
 
-Using the rollouts published by DeepSWE and stopping at the first success, the following retrospective chain produces these results:
+On an average run, GLM Flash succeeds on 63.4% of tasks for approximately $0.24, compared with 67.2% for $0.61 with Luna. The system gives up only 3.8 percentage points of average first-pass success while cutting the mean cost of an attempt by about 60%. The oracle can then recover the failures instead of paying for Luna on every task.
+
+{{< cost-comparison
+  dataset="deepswe-routing-orders"
+  title="The same coverage at 36% lower cost"
+  description="Both chains earn 113 positive verdicts. Changing only the order of GLM Flash and Luna lowers estimated cost from $119.31 to $76.46."
+  x-label="Estimated cost across 113 tasks ($)"
+  primary="glm-first"
+  cost-label="Estimated cost"
+  coverage-label="Positive verdicts"
+  attempts-label="Attempts executed"
+  scenario-label="Routing order"
+  count-label="orders compared"
+  details-label="View both scenarios"
+>}}
+Each bar represents the total cost of a replay that stops at the first success. Both orders use the same three configurations and reach the same observed coverage. Only their sequence changes.
+{{< /cost-comparison >}}
+
+After GLM Flash and Luna have run, only one task remains without a positive verdict. For this final case, it can make sense to pay for a more premium model. In this example, I chose GLM-5.2 [max].
+
+As always, using the rollouts published by DeepSWE and stopping at the first success, the following retrospective chain produces these results:
 
 | Stage | Tasks received | Tasks solved at this stage | Attempts executed | Estimated cost |
 |---|---:|---:|---:|---:|
@@ -123,30 +152,15 @@ These costs are estimated from rollout consumption, using the prices applied by 
 
 That is approximately $0.68 per submitted task and 2.12 attempts per task. An attempt is an agent execution, which can make several model calls.
 
-{{< callout variant="key" label="The cost shifts tiers" >}}
-The value comes from the fact that **238 of its 239 attempts go to the two economical models**.
+{{< callout variant="key" label="$42.85 saved across 113 tasks" >}}
+The reverse order costs $119.31. Starting with GLM Flash brings the estimated bill down to $76.46: **$42.85 less, or about 36% in savings**, with the same observed coverage.
+
+At a comparable volume and workload distribution, that gap would represent approximately **$3,792 in gross savings per 10,000 tasks**, before the cost of the oracle. The value comes from the fact that **238 of its 239 attempts go to the two economical models**.
 {{< /callout >}}
 
-The reverse order, Luna → GLM Flash → GLM-5.2, uses fewer attempts but costs $119.31. Starting with GLM Flash therefore saves about 36%, at the price of 30 additional attempts and potentially higher latency.
+The GLM Flash → Luna → GLM-5.2 order does, however, require 30 additional attempts and may increase latency.
 
 The best order depends on our chosen objective: cost, latency, compute consumption, or accepted risk.
-
-## The 113 out of 113 to be wary of
-
-In the observed data, the GLM Flash → Luna → GLM-5.2 chain covers all 113 benchmark tasks.
-
-These 113 successes are grader verdicts, and that grader has documented flaws. The [third article](/en/articles/who-checks-oracle/) will examine what they mean. They are not a promise of perfect success.
-
-The models, their configurations, and their order were selected after examining their results on those same 113 tasks. The chain therefore benefits from *a posteriori* optimization. It may have learned the peculiarities of the benchmark rather than a strategy that will generalize.
-
-Two claims remain defensible:
-
-- the observed union of Luna and GLM-5.3 Flash reaches 99.1%;
-- their error profiles differ enough for oracle-based routing to deserve prospective testing.
-
-To estimate real-world performance, we would need to choose the policy on one set of tasks, then replay it unchanged on a fresh sample from the target workload. We could then measure its coverage, cost, latency, false positives, and false negatives.
-
-This precaution is not a statistical footnote. An agentic architecture is itself a hypothesis that must be tested against an external oracle.
 
 ## The most useful benchmark may come from your production traffic
 
@@ -154,25 +168,25 @@ DeepSWE is a public example. It obviously does not represent the tasks, constrai
 
 But an agentic system in production generates exactly the raw material needed to build an internal benchmark: real requests, available context, produced results, oracle verdicts, human corrections, costs, latency, and escalation reasons.
 
-By collecting these scenarios, anonymizing them, and making them replayable, a team can gradually build a qualification set that represents its actual use. Frequent cases retain their real weight. Incidents, edge cases, and high-impact tasks can deliberately be overrepresented to reflect the risk they carry.
+By collecting these scenarios, anonymizing them, and making them replayable, a team can gradually build a qualification set that represents its actual use. Frequent cases retain their real weight. Incidents, edge cases, and high-impact tasks can deliberately be overrepresented to reflect the risk they carry. This practice belongs to **AI Evals** and, more broadly, **AI Reliability**.
 
 The team can then reproduce the same analysis performed on DeepSWE:
 
-- run several models and configurations on the same scenarios;
-- observe not only their average score, but also their respective blind spots;
-- measure which models actually recover the failures of the others;
-- simulate several routing orders with early stopping;
+- run several models and configurations on the same scenarios
+- observe not only their average score, but also their respective blind spots
+- measure which models actually recover the failures of the others
+- simulate several routing orders with early stopping
 - compare achieved coverage with cost, latency, and residual risk.
 
 Optimization is no longer about “the best model on the market.” It is about **the best combination of models for a specific use case**.
 
-This benchmark must remain alive. New scenarios, human rework, and incidents continuously enrich the error map. Some of the data can be used to choose the strategy; another portion must remain held out to verify that the strategy still works on cases it did not use for optimization.
+This benchmark must remain alive. New scenarios, human rework, and incidents continuously enrich the error map. Some of the data can be used to choose the strategy. Another portion must remain held out to verify that the strategy still works on cases it did not use for optimization.
 
 Production traffic therefore supplies more than tasks to process. Properly instrumented, it also supplies the test bench that lets the system improve from its own reality.
 
 ## After model selection comes portfolio selection
 
-DeepSWE is therefore not a universal recipe. It demonstrates a method that each organization can apply to its own scenarios.
+The method applied to DeepSWE is therefore not a universal recipe. It demonstrates an approach that each organization can apply to its own scenarios.
 
 We still often compare models as though we had to elect a single winner.
 
@@ -185,7 +199,7 @@ We are no longer merely looking for the best model. We are building a portfolio 
 The next frontier may not be won by the model at the top of a public leaderboard. It may be won by the system that can learn from its real scenarios, measure its errors, buy the right diversity, and route each failure to the most useful complement.
 
 {{< closing-question label="Key takeaway" >}}
-One economical model covers 102 tasks. A second Flash model recovers 10 of its 11 observed failures. Their combined coverage, according to grader verdicts, reaches 99.1%.
+One economical model covers 102 tasks. A second Flash model recovers 10 of its 11 observed failures. By putting the cheapest model first, the simulated chain preserves its coverage and costs **36% less**, saving $42.85 across these 113 tasks.
 
 The next question becomes decisive: **who checks the oracle?**
 {{< /closing-question >}}

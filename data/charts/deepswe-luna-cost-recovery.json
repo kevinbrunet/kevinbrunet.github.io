@@ -1,0 +1,545 @@
+{
+  "source": [
+    "analysis/deepswe-oracle/analysis.json",
+    "analysis/deepswe-oracle/inputs/trials.json.gz"
+  ],
+  "retrieved_at": "2026-10-06",
+  "point_count": 66,
+  "excluded_incomplete_costs": [
+    "mini_swe_agent_claude_fable_5_high",
+    "mini_swe_agent_gemini_3_6_flash_high",
+    "mini_swe_agent_claude_fable_5_max",
+    "mini_swe_agent_claude_fable_5_medium"
+  ],
+  "cost_policy": "Raw costs retained; Luna multiplied by 0.2, GLM Flash by 0.5, reproducing the official UI proportional tariff updates on 2026-10-06. Other models retain raw prices; the saved frontier is not a fully repriced current-market frontier.",
+  "points": [
+    {
+      "id": "mini_swe_agent_gpt_5_6_luna_low",
+      "label": "GPT-5.6 Luna [low]",
+      "x": 0.615192,
+      "y": 0,
+      "attempts": 44,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_gpt_5_6_luna_medium",
+      "label": "GPT-5.6 Luna [medium]",
+      "x": 1.815341,
+      "y": 1,
+      "attempts": 41,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_deepseek_v4_flash_max",
+      "label": "DeepSeek V4 Flash [max]",
+      "x": 3.167581,
+      "y": 4,
+      "attempts": 34,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_glm_5_3_flash_max",
+      "label": "GLM-5.3 Flash [max]",
+      "x": 4.785957,
+      "y": 10,
+      "attempts": 21,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_gpt_5_6_luna_high",
+      "label": "GPT-5.6 Luna [high]",
+      "x": 5.475561,
+      "y": 4,
+      "attempts": 36,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_deepseek_v4_pro_max",
+      "label": "DeepSeek V4 Pro [max]",
+      "x": 9.4801,
+      "y": 2,
+      "attempts": 39,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_gpt_5_6_luna_xhigh",
+      "label": "GPT-5.6 Luna [xhigh]",
+      "x": 11.580829,
+      "y": 1,
+      "attempts": 42,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_gpt_5_6_terra_low",
+      "label": "GPT-5.6 Terra [low]",
+      "x": 18.599086,
+      "y": 1,
+      "attempts": 43,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_gpt_5_6_terra_medium",
+      "label": "GPT-5.6 Terra [medium]",
+      "x": 20.998014,
+      "y": 4,
+      "attempts": 37,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_gpt_5_6_luna_max",
+      "label": "GPT-5.6 Luna [max]",
+      "x": 23.580418,
+      "y": 0,
+      "attempts": 44,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_grok_4_6_low",
+      "label": "Grok 4.6 [low]",
+      "x": 29.480596,
+      "y": 5,
+      "attempts": 34,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_gpt_5_6_sol_low",
+      "label": "GPT-5.6 Sol [low]",
+      "x": 36.274194,
+      "y": 5,
+      "attempts": 36,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_gpt_5_6_terra_high",
+      "label": "GPT-5.6 Terra [high]",
+      "x": 40.823191,
+      "y": 3,
+      "attempts": 36,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_claude_opus_5_low",
+      "label": "Claude Opus 5 [low]",
+      "x": 42.390215,
+      "y": 9,
+      "attempts": 29,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_claude_opus_5_medium",
+      "label": "Claude Opus 5 [medium]",
+      "x": 43.837359,
+      "y": 9,
+      "attempts": 19,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_gemini_3_7_flash_low",
+      "label": "Gemini 3.7 Flash [low]",
+      "x": 44.113829,
+      "y": 6,
+      "attempts": 32,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_gpt_6_astra_low",
+      "label": "GPT-6 Astra [low]",
+      "x": 47.617412,
+      "y": 5,
+      "attempts": 32,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_gpt_5_5_low",
+      "label": "GPT-5.5 [low]",
+      "x": 48.585068,
+      "y": 3,
+      "attempts": 39,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_gemini_3_7_flash_medium",
+      "label": "Gemini 3.7 Flash [medium]",
+      "x": 48.990601,
+      "y": 6,
+      "attempts": 28,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_gpt_5_6_sol_medium",
+      "label": "GPT-5.6 Sol [medium]",
+      "x": 54.964802,
+      "y": 5,
+      "attempts": 32,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_claude_sonnet_5_low",
+      "label": "Claude Sonnet 5 [low]",
+      "x": 57.025501,
+      "y": 5,
+      "attempts": 29,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_grok_4_5_high",
+      "label": "Grok 4.5 [high]",
+      "x": 60.255334,
+      "y": 7,
+      "attempts": 26,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_gemini_3_7_flash_high",
+      "label": "Gemini 3.7 Flash [high]",
+      "x": 61.552659,
+      "y": 6,
+      "attempts": 31,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_gemini_3_8_flash_medium",
+      "label": "Gemini 3.8 Flash [medium]",
+      "x": 62.356251,
+      "y": 5,
+      "attempts": 32,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_gemini_3_8_flash_high",
+      "label": "Gemini 3.8 Flash [high]",
+      "x": 63.003667,
+      "y": 6,
+      "attempts": 28,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_muse_spark_1_1_xhigh",
+      "label": "Muse Spark 1.1 [xhigh]",
+      "x": 66.31002,
+      "y": 6,
+      "attempts": 34,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_claude_opus_4_8_low",
+      "label": "Claude Opus 4.8 [low]",
+      "x": 68.946103,
+      "y": 5,
+      "attempts": 35,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_gemini_3_1_pro_preview_high",
+      "label": "Gemini 3.1 Pro Preview [high]",
+      "x": 70.331746,
+      "y": 3,
+      "attempts": 41,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_gpt_5_6_terra_xhigh",
+      "label": "GPT-5.6 Terra [xhigh]",
+      "x": 71.231575,
+      "y": 2,
+      "attempts": 38,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_glm_5_3_max",
+      "label": "GLM-5.3 [max]",
+      "x": 71.743155,
+      "y": 9,
+      "attempts": 19,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_gpt_5_5_medium",
+      "label": "GPT-5.5 [medium]",
+      "x": 75.831165,
+      "y": 6,
+      "attempts": 29,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_glm_5_2_high",
+      "label": "GLM-5.2 [high]",
+      "x": 82.188939,
+      "y": 6,
+      "attempts": 31,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_claude_opus_4_8_medium",
+      "label": "Claude Opus 4.8 [medium]",
+      "x": 86.707226,
+      "y": 7,
+      "attempts": 29,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_claude_fable_5_low",
+      "label": "Claude Fable 5 [low]",
+      "x": 87.068662,
+      "y": 8,
+      "attempts": 28,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_gpt_6_astra_medium",
+      "label": "GPT-6 Astra [medium]",
+      "x": 89.518132,
+      "y": 5,
+      "attempts": 31,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_claude_opus_4_8_high",
+      "label": "Claude Opus 4.8 [high]",
+      "x": 93.946385,
+      "y": 8,
+      "attempts": 27,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_qwen3_8_max_xhigh",
+      "label": "Qwen3.8 Max [xhigh]",
+      "x": 94.326647,
+      "y": 6,
+      "attempts": 28,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_muse_spark_1_2_xhigh",
+      "label": "Muse Spark 1.2 [xhigh]",
+      "x": 96.51982,
+      "y": 6,
+      "attempts": 29,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_claude_opus_5_high",
+      "label": "Claude Opus 5 [high]",
+      "x": 102.63421,
+      "y": 8,
+      "attempts": 20,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_grok_4_6_medium",
+      "label": "Grok 4.6 [medium]",
+      "x": 105.180226,
+      "y": 7,
+      "attempts": 34,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_claude_sonnet_5_medium",
+      "label": "Claude Sonnet 5 [medium]",
+      "x": 105.661725,
+      "y": 5,
+      "attempts": 31,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_gpt_5_6_sol_high",
+      "label": "GPT-5.6 Sol [high]",
+      "x": 106.560921,
+      "y": 4,
+      "attempts": 33,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_glm_5_2_max",
+      "label": "GLM-5.2 [max]",
+      "x": 112.292747,
+      "y": 7,
+      "attempts": 28,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_kimi_k2_7_code_default",
+      "label": "Kimi K2.7 Code [None]",
+      "x": 118.274836,
+      "y": 2,
+      "attempts": 42,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_kimi_k3_max",
+      "label": "Kimi K3 [max]",
+      "x": 118.31464,
+      "y": 7,
+      "attempts": 27,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_gemini_3_5_flash_high",
+      "label": "Gemini 3.5 Flash [high]",
+      "x": 119.227091,
+      "y": 5,
+      "attempts": 34,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_gpt_6_astra_high",
+      "label": "GPT-6 Astra [high]",
+      "x": 128.647666,
+      "y": 5,
+      "attempts": 35,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_gpt_6_astra_xhigh",
+      "label": "GPT-6 Astra [xhigh]",
+      "x": 128.821381,
+      "y": 5,
+      "attempts": 30,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_gpt_5_6_sol_xhigh",
+      "label": "GPT-5.6 Sol [xhigh]",
+      "x": 139.719573,
+      "y": 5,
+      "attempts": 32,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_grok_4_6_high",
+      "label": "Grok 4.6 [high]",
+      "x": 143.07603,
+      "y": 4,
+      "attempts": 33,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_grok_4_6_xhigh",
+      "label": "Grok 4.6 [xhigh]",
+      "x": 152.66634,
+      "y": 5,
+      "attempts": 32,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_gpt_5_6_terra_max",
+      "label": "GPT-5.6 Terra [max]",
+      "x": 160.053761,
+      "y": 4,
+      "attempts": 36,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_gpt_5_5_high",
+      "label": "GPT-5.5 [high]",
+      "x": 166.440298,
+      "y": 5,
+      "attempts": 33,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_claude_sonnet_4_6_high",
+      "label": "Claude Sonnet 4.6 [high]",
+      "x": 167.482538,
+      "y": 2,
+      "attempts": 39,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_gpt_5_4_xhigh",
+      "label": "GPT-5.4 [xhigh]",
+      "x": 172.805588,
+      "y": 3,
+      "attempts": 36,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_claude_opus_5_xhigh",
+      "label": "Claude Opus 5 [xhigh]",
+      "x": 187.641096,
+      "y": 8,
+      "attempts": 22,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_claude_sonnet_5_high",
+      "label": "Claude Sonnet 5 [high]",
+      "x": 207.743513,
+      "y": 6,
+      "attempts": 32,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_gpt_6_astra_max",
+      "label": "GPT-6 Astra [max]",
+      "x": 208.443234,
+      "y": 5,
+      "attempts": 29,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_gpt_5_6_sol_max",
+      "label": "GPT-5.6 Sol [max]",
+      "x": 210.349386,
+      "y": 5,
+      "attempts": 30,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_gpt_5_5_xhigh",
+      "label": "GPT-5.5 [xhigh]",
+      "x": 236.948518,
+      "y": 5,
+      "attempts": 32,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_claude_opus_4_8_xhigh",
+      "label": "Claude Opus 4.8 [xhigh]",
+      "x": 238.123552,
+      "y": 7,
+      "attempts": 31,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_claude_opus_5_max",
+      "label": "Claude Opus 5 [max]",
+      "x": 259.213552,
+      "y": 9,
+      "attempts": 23,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_claude_fable_5_xhigh",
+      "label": "Claude Fable 5 [xhigh]",
+      "x": 292.763672,
+      "y": 8,
+      "attempts": 23,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_claude_sonnet_5_xhigh",
+      "label": "Claude Sonnet 5 [xhigh]",
+      "x": 328.486719,
+      "y": 6,
+      "attempts": 32,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_claude_opus_4_8_max",
+      "label": "Claude Opus 4.8 [max]",
+      "x": 376.411742,
+      "y": 6,
+      "attempts": 33,
+      "missing_costs": 0
+    },
+    {
+      "id": "mini_swe_agent_claude_sonnet_5_max",
+      "label": "Claude Sonnet 5 [max]",
+      "x": 474.697626,
+      "y": 8,
+      "attempts": 24,
+      "missing_costs": 0
+    }
+  ]
+}

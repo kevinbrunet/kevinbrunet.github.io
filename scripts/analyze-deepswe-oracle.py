@@ -151,6 +151,22 @@ def main():
         and (x['mean_cost_usd_repriced']<m['mean_cost_usd_repriced'] or x['mean_single_trial_pass_rate']>m['mean_single_trial_pass_rate']) for x in metrics)]
     forward=replay([flash,luna,glm],grouped,universe)
     reverse=replay([luna,flash,glm],grouped,universe)
+    claude_metrics=[m for m in metrics if m['model'].startswith('claude-')]
+    most_expensive_claude=max(claude_metrics,key=lambda m:m['mean_cost_usd_repriced'])
+    claude_first_rows=[trials[0] for trials in grouped[most_expensive_claude['config']].values()]
+    if len(claude_first_rows)!=len(universe) or any(display_cost(r) is None for r in claude_first_rows):
+        raise ValueError('Most expensive Claude first-attempt baseline is incomplete')
+    claude_first_cost=sum(display_cost(r) for r in claude_first_rows)
+    claude_first_baseline={
+        'config':most_expensive_claude['config'],
+        'model':most_expensive_claude['model'],
+        'effort':most_expensive_claude['effort'],
+        'tasks':len(claude_first_rows),
+        'accepted':sum(success(r) for r in claude_first_rows),
+        'cost_usd_repriced':claude_first_cost,
+        'saving_vs_flash_luna_glm_usd':claude_first_cost-forward['cost_usd_repriced'],
+        'relative_saving_vs_flash_luna_glm':1-forward['cost_usd_repriced']/claude_first_cost,
+    }
     cumulative=[]
     covered=set()
     for i in range(4):
@@ -170,6 +186,7 @@ def main():
             'flash_vs_opus_medium_on_luna_failures':paired_test(sets[flash],sets['mini_swe_agent_claude_opus_5_medium'],failures),
             'metrics':metrics,'single_trial_frontier_partial_repricing':frontier,
             'flash_recovery_chronological':cumulative,'flash_luna_glm_replay':forward,'luna_flash_glm_replay':reverse,
+            'most_expensive_claude_first_attempt_baseline':claude_first_baseline,
             'relative_replay_saving':1-forward['cost_usd_repriced']/reverse['cost_usd_repriced']}
     args.output.mkdir(parents=True,exist_ok=True)
     (args.output/'analysis.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
@@ -177,7 +194,7 @@ def main():
         w=csv.DictWriter(h,['task_id','flagged_by_epoch','flash_passed','astra_passed'])
         w.writeheader()
         w.writerows({'task_id':t,'flagged_by_epoch':t in epoch,'flash_passed':t in sets[flash],'astra_passed':t in sets[astra]} for t in sorted(failures))
-    print(json.dumps({k:report[k] for k in ['luna_failures_flagged_by_epoch','sensitivity_scope','luna_vs_astra_paired','flash_vs_opus_medium_on_luna_failures','flash_recovery_chronological','flash_luna_glm_replay','luna_flash_glm_replay']},indent=2))
+    print(json.dumps({k:report[k] for k in ['luna_failures_flagged_by_epoch','sensitivity_scope','luna_vs_astra_paired','flash_vs_opus_medium_on_luna_failures','flash_recovery_chronological','flash_luna_glm_replay','luna_flash_glm_replay','most_expensive_claude_first_attempt_baseline']},indent=2))
 
 
 if __name__=='__main__': main()

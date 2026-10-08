@@ -28,6 +28,7 @@ Le script accepte également les mêmes fichiers non compressés. Il produit `an
 - GLM-5.3 Flash `[max]` : 96/113 seul ; 10 des 11 échecs de Luna récupérés ; union 112/113.
 - Progression Flash sur les échecs de Luna, dans l'ordre chronologique retenu : 3, puis 7, puis 0, puis 0 nouvelles tâches.
 - Flash → Luna → GLM-5.2 : 239 tentatives, coût estimé 76,46 $ ; ordre inverse : 209 tentatives, 119,31 $ ; économie relative d'environ 36 %.
+- Claude Sonnet 5 `[max]`, configuration Claude au coût moyen par essai le plus élevé : son premier essai chronologique sur chacune des 113 tâches coûte 2 924,49 $ et reçoit 68 verdicts positifs. La chaîne Flash → Luna → GLM-5.2 coûte environ 2 848 $ de moins, soit 97,4 % d’économie estimée, et reçoit 113 verdicts positifs.
 
 La version antérieure du tableau utilisait un ordre par identifiant de tentative. Cet ordre change les succès intermédiaires et les coûts de l'arrêt anticipé. Il ne change pas les unions finales. La convention retenue ici utilise les dates de démarrage pour pouvoir reproduire une progression temporelle publiée.
 

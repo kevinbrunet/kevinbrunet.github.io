@@ -1,0 +1,65 @@
+{{- $datasetName := .Get "dataset" -}}
+{{- $title := .Get "title" -}}
+{{- $description := .Get "description" -}}
+{{- $xLabel := .Get "x-label" -}}
+{{- $primary := .Get "primary" -}}
+{{- $costLabel := .Get "cost-label" | default $xLabel -}}
+{{- $coverageLabel := .Get "coverage-label" | default "Coverage" -}}
+{{- $coverageSuffix := .Get "coverage-suffix" | default "" -}}
+{{- $attemptsLabel := .Get "attempts-label" | default "Attempts" -}}
+{{- $scenarioLabel := .Get "scenario-label" | default "Scenario" -}}
+{{- $countLabel := .Get "count-label" | default "scenarios" -}}
+{{- $detailsLabel := .Get "details-label" | default "View data" -}}
+{{- if not (findRE `^[a-z0-9-]+$` $datasetName) -}}
+  {{- errorf "cost-comparison: invalid dataset %q in %s" $datasetName .Position -}}
+{{- end -}}
+{{- range $required := slice
+  (dict "name" "title" "value" $title)
+  (dict "name" "description" "value" $description)
+  (dict "name" "x-label" "value" $xLabel)
+  (dict "name" "primary" "value" $primary)
+-}}
+  {{- if not $required.value -}}
+    {{- errorf "cost-comparison: missing %s in %s" $required.name $.Position -}}
+  {{- end -}}
+{{- end -}}
+{{- $dataset := index site.Data.charts $datasetName -}}
+{{- if not $dataset -}}
+  {{- errorf "cost-comparison: unknown dataset %q in %s" $datasetName .Position -}}
+{{- end -}}
+{{- $langKey := printf "label_%s" site.Language.Lang -}}
+{{- .Page.Store.Set "hasCostComparison" true -}}
+{{- $chartID := printf "cost-comparison-%s-%d" $datasetName .Ordinal -}}
+<figure class="article-cost-comparison"
+  data-cost-comparison
+  data-x-label="{{ $xLabel }}"
+  data-cost-label="{{ $costLabel }}"
+  data-scenario-label="{{ $scenarioLabel }}"
+  data-coverage-label="{{ $coverageLabel }}"
+  data-coverage-suffix="{{ $coverageSuffix }}"
+  data-attempts-label="{{ $attemptsLabel }}"
+  data-primary="{{ $primary }}">
+  <header class="article-cost-comparison__header">
+    <span>{{ $dataset.point_count }} {{ $countLabel }}</span>
+    <h3 id="{{ $chartID }}-title">{{ $title }}</h3>
+    <p id="{{ $chartID }}-description">{{ $description }}</p>
+  </header>
+  <div class="article-cost-comparison__plot" id="{{ $chartID }}" aria-labelledby="{{ $chartID }}-title" aria-describedby="{{ $chartID }}-description"></div>
+  <details class="article-cost-comparison__data">
+    <summary>{{ $detailsLabel }}</summary>
+    <div>
+      <table>
+        <thead><tr><th scope="col">{{ $scenarioLabel }}</th><th scope="col">{{ $costLabel }}</th><th scope="col">{{ $coverageLabel }}</th><th scope="col">{{ $attemptsLabel }}</th></tr></thead>
+        <tbody>
+          {{- range $dataset.routes }}
+          {{- $label := index . $langKey | default .label_fr -}}
+          <tr data-cost-point data-id="{{ .id }}" data-label="{{ $label }}" data-cost="{{ .cost }}" data-coverage="{{ .coverage }}" data-attempts="{{ .attempts }}">
+            <th scope="row">{{ $label }}</th><td>{{ .cost }}</td><td>{{ .coverage }}{{ $coverageSuffix }}</td><td>{{ .attempts }}</td>
+          </tr>
+          {{- end }}
+        </tbody>
+      </table>
+    </div>
+  </details>
+  <figcaption>{{ .Inner | plainify }}</figcaption>
+</figure>

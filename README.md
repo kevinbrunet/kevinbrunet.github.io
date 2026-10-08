@@ -79,10 +79,62 @@ Légende de l'image.
 {{< zoomable-figure src="/images/articles/schema-vertical.png" alt="Description du diagramme" action="Agrandir" label="Voir le diagramme en grand" size="compact" >}}
 Légende d'un diagramme vertical affiché dans une largeur réduite.
 {{< /zoomable-figure >}}
+
+{{< scatter-chart
+  dataset="deepswe-luna-cost-recovery"
+  title="Coût et récupération"
+  description="Chaque point représente une configuration."
+  x-label="Tâches couvertes à quatre essais"
+  y-label="Échecs récupérés"
+  x-min="0" x-max="105"
+  y-min="0" y-max="11"
+  regression="none"
+  frontier="upper-left"
+  x-format="currency"
+  x-scale="log"
+  regression-exclude="configuration-de-reference"
+  primary="configuration-principale"
+  secondary="configuration-secondaire"
+  reference="configuration-de-reference"
+  regression-label="Tendance des configurations"
+  count-label="configurations"
+  x-total="113" y-total="11"
+  tooltip-x="Couverture"
+  tooltip-y="Échecs récupérés"
+  tooltip-residual="Écart à la tendance"
+  details-label="Voir les données"
+>}}
+Légende du graphique. Les données sont lues dans `data/charts/deepswe-luna-cost-recovery.json`.
+{{< /scatter-chart >}}
+
+{{< cost-comparison
+  dataset="deepswe-routing-orders"
+  title="Comparer deux scénarios"
+  description="Les scénarios atteignent le même résultat avec des coûts différents."
+  x-label="Coût estimé ($)"
+  primary="glm-first"
+  cost-label="Coût estimé"
+  coverage-label="Verdicts positifs"
+  attempts-label="Tentatives"
+  scenario-label="Scénario"
+  count-label="scénarios comparés"
+  details-label="Voir les données"
+>}}
+Légende du graphique. Les données sont lues dans `data/charts/deepswe-routing-orders.json`.
+{{< /cost-comparison >}}
 ```
 
 Les seules variantes acceptées par `callout` sont `scene`, `alert` et `key`.
 `zoomable-figure` accepte uniquement les tailles `wide` (par défaut) et `compact`.
+`scatter-chart` accepte uniquement les jeux de données nommés stockés dans
+`data/charts/`, les régressions `linear` ou `none`, les frontières `upper-left`
+ou `none`, les formats d’axe `number` ou `currency` et les échelles horizontales
+`linear` ou `log`. Les axes, domaines,
+infobulles, points mis en avant et analyses sont configurés
+depuis le Markdown. Le graphique conserve un tableau HTML accessible comme repli.
+`cost-comparison` compare des scénarios nommés à partir d’un jeu de données local
+contenant leur coût, leur couverture et leur nombre de tentatives. Le scénario
+principal est le seul affiché en bleu et un tableau HTML reste disponible en repli.
 Ajouter un nouveau composant visuel nécessite de créer ou d'étendre un shortcode
 dans `layouts/shortcodes/`, sans réactiver `markup.goldmark.renderer.unsafe`.
 

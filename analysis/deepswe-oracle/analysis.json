@@ -2640,5 +2640,15 @@
     "attempts": 209,
     "cost_usd_repriced": 119.30607250000001
   },
+  "most_expensive_claude_first_attempt_baseline": {
+    "config": "mini_swe_agent_claude_sonnet_5_max",
+    "model": "claude-sonnet-5",
+    "effort": "max",
+    "tasks": 113,
+    "accepted": 68,
+    "cost_usd_repriced": 2924.4878667000003,
+    "saving_vs_flash_luna_glm_usd": 2848.0244850550002,
+    "relative_saving_vs_flash_luna_glm": 0.9738540950996383
+  },
   "relative_replay_saving": 0.3590989960297286
 }

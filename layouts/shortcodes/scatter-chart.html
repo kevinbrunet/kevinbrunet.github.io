@@ -1,0 +1,119 @@
+{{- $datasetName := .Get "dataset" -}}
+{{- $title := .Get "title" -}}
+{{- $description := .Get "description" -}}
+{{- $xLabel := .Get "x-label" -}}
+{{- $yLabel := .Get "y-label" -}}
+{{- $xMin := .Get "x-min" -}}
+{{- $xMax := .Get "x-max" -}}
+{{- $yMin := .Get "y-min" -}}
+{{- $yMax := .Get "y-max" -}}
+{{- $primary := .Get "primary" -}}
+{{- $secondary := .Get "secondary" -}}
+{{- $reference := .Get "reference" -}}
+{{- $regression := .Get "regression" | default "linear" -}}
+{{- $regressionExclude := .Get "regression-exclude" | default "" -}}
+{{- $regressionLabel := .Get "regression-label" | default "Linear trend" -}}
+{{- $frontier := .Get "frontier" | default "none" -}}
+{{- $frontierLabel := .Get "frontier-label" | default "Pareto frontier" -}}
+{{- $xFormat := .Get "x-format" | default "number" -}}
+{{- $xScale := .Get "x-scale" | default "linear" -}}
+{{- $tooltipX := .Get "tooltip-x" | default $xLabel -}}
+{{- $tooltipY := .Get "tooltip-y" | default $yLabel -}}
+{{- $tooltipResidual := .Get "tooltip-residual" | default "Difference from trend" -}}
+{{- $tooltipRatio := .Get "tooltip-ratio" | default "" -}}
+{{- $tooltipAttempts := .Get "tooltip-attempts" | default "" -}}
+{{- $attemptsLabel := .Get "attempts-label" | default "" -}}
+{{- $detailsLabel := .Get "details-label" | default "View data" -}}
+{{- $countLabel := .Get "count-label" | default "points" -}}
+{{- $xTotal := .Get "x-total" | default "" -}}
+{{- $yTotal := .Get "y-total" | default "" -}}
+{{- if not (findRE `^[a-z0-9-]+$` $datasetName) -}}
+  {{- errorf "scatter-chart: invalid dataset %q in %s" $datasetName .Position -}}
+{{- end -}}
+{{- if not (in (slice "linear" "none") $regression) -}}
+  {{- errorf "scatter-chart: invalid regression %q in %s" $regression .Position -}}
+{{- end -}}
+{{- if not (in (slice "none" "upper-left") $frontier) -}}
+  {{- errorf "scatter-chart: invalid frontier %q in %s" $frontier .Position -}}
+{{- end -}}
+{{- if not (in (slice "number" "currency") $xFormat) -}}
+  {{- errorf "scatter-chart: invalid x-format %q in %s" $xFormat .Position -}}
+{{- end -}}
+{{- if not (in (slice "linear" "log") $xScale) -}}
+  {{- errorf "scatter-chart: invalid x-scale %q in %s" $xScale .Position -}}
+{{- end -}}
+{{- range $required := slice
+  (dict "name" "title" "value" $title)
+  (dict "name" "description" "value" $description)
+  (dict "name" "x-label" "value" $xLabel)
+  (dict "name" "y-label" "value" $yLabel)
+  (dict "name" "x-min" "value" $xMin)
+  (dict "name" "x-max" "value" $xMax)
+  (dict "name" "y-min" "value" $yMin)
+  (dict "name" "y-max" "value" $yMax)
+-}}
+  {{- if not $required.value -}}
+    {{- errorf "scatter-chart: missing %s in %s" $required.name $.Position -}}
+  {{- end -}}
+{{- end -}}
+{{- $dataset := index site.Data.charts $datasetName -}}
+{{- if not $dataset -}}
+  {{- errorf "scatter-chart: unknown dataset %q in %s" $datasetName .Position -}}
+{{- end -}}
+{{- .Page.Store.Set "hasScatterChart" true -}}
+{{- $chartID := printf "scatter-chart-%s-%d" $datasetName .Ordinal -}}
+<figure class="article-scatter-chart"
+  data-scatter-chart
+  data-x-label="{{ $xLabel }}"
+  data-y-label="{{ $yLabel }}"
+  data-x-min="{{ $xMin }}"
+  data-x-max="{{ $xMax }}"
+  data-y-min="{{ $yMin }}"
+  data-y-max="{{ $yMax }}"
+  data-regression="{{ $regression }}"
+  data-regression-exclude="{{ $regressionExclude }}"
+  data-regression-label="{{ $regressionLabel }}"
+  data-frontier="{{ $frontier }}"
+  data-frontier-label="{{ $frontierLabel }}"
+  data-x-format="{{ $xFormat }}"
+  data-x-scale="{{ $xScale }}"
+  data-tooltip-x="{{ $tooltipX }}"
+  data-tooltip-y="{{ $tooltipY }}"
+  data-tooltip-residual="{{ $tooltipResidual }}"
+  data-tooltip-ratio="{{ $tooltipRatio }}"
+  data-tooltip-attempts="{{ $tooltipAttempts }}"
+  data-x-total="{{ $xTotal }}"
+  data-y-total="{{ $yTotal }}"
+  data-primary="{{ $primary }}"
+  data-secondary="{{ $secondary }}"
+  data-reference="{{ $reference }}">
+  <header class="article-scatter-chart__header">
+    <span>{{ $dataset.point_count }} {{ $countLabel }}</span>
+    <h3 id="{{ $chartID }}-title">{{ $title }}</h3>
+    <p id="{{ $chartID }}-description">{{ $description }}</p>
+  </header>
+  <div class="article-scatter-chart__plot" id="{{ $chartID }}" aria-labelledby="{{ $chartID }}-title" aria-describedby="{{ $chartID }}-description"></div>
+  <div class="article-scatter-chart__legend" aria-hidden="true">
+    {{- if eq $regression "linear" }}<span><i class="is-default"></i>{{ $regressionLabel }}</span>{{ end -}}
+    {{- if eq $frontier "upper-left" }}<span><i class="is-frontier"></i>{{ $frontierLabel }}</span>{{ end -}}
+    {{- if $primary }}<span><i class="is-primary"></i>{{ range where $dataset.points "id" $primary }}{{ .label }}{{ end }}</span>{{ end -}}
+    {{- if $secondary }}<span><i class="is-secondary"></i>{{ range where $dataset.points "id" $secondary }}{{ .label }}{{ end }}</span>{{ end -}}
+    {{- if $reference }}<span><i class="is-reference"></i>{{ range where $dataset.points "id" $reference }}{{ .label }}{{ end }}</span>{{ end -}}
+  </div>
+  <details class="article-scatter-chart__data">
+    <summary>{{ $detailsLabel }}</summary>
+    <div>
+      <table>
+        <thead><tr><th scope="col">Configuration</th><th scope="col">{{ $xLabel }}</th><th scope="col">{{ $yLabel }}</th>{{ if $attemptsLabel }}<th scope="col">{{ $attemptsLabel }}</th>{{ end }}</tr></thead>
+        <tbody>
+          {{- range $dataset.points }}
+          <tr data-chart-point data-id="{{ .id }}" data-label="{{ .label }}" data-x="{{ .x }}" data-y="{{ .y }}" data-attempts="{{ .attempts }}">
+            <th scope="row">{{ .label }}</th><td>{{ .x }}</td><td>{{ .y }}</td>{{ if $attemptsLabel }}<td>{{ .attempts }}</td>{{ end }}
+          </tr>
+          {{- end }}
+        </tbody>
+      </table>
+    </div>
+  </details>
+  <figcaption>{{ .Inner | plainify }}</figcaption>
+</figure>

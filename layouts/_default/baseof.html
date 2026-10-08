@@ -75,5 +75,15 @@
     <p>{{ i18n "footer_signature_before" }} <a class="footer-signature" href="{{ if eq site.Language.Lang "fr" }}{{ "a-propos" | relLangURL }}{{ else }}{{ "about" | relLangURL }}{{ end }}">{{ i18n "footer_signature_link" }}</a><br>© {{ now.Year }}</p>
   </footer>
   <script src="{{ "js/main.js" | relURL }}" defer></script>
+  {{ if or (.Store.Get "hasScatterChart") (.Store.Get "hasCostComparison") }}
+  <script src="{{ "vendor/d3/d3.min.js" | relURL }}" defer></script>
+  <script src="{{ "vendor/observable-plot/plot.umd.min.js" | relURL }}" defer></script>
+  {{ end }}
+  {{ if .Store.Get "hasScatterChart" }}
+  <script src="{{ "js/scatter-chart.js" | relURL }}" defer></script>
+  {{ end }}
+  {{ if .Store.Get "hasCostComparison" }}
+  <script src="{{ "js/cost-comparison.js" | relURL }}" defer></script>
+  {{ end }}
 </body>
 </html>
