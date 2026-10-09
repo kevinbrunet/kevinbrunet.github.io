@@ -182,6 +182,7 @@ html {
 
 /* Socle éditorial commun à tous les articles. */
 .prose{--prose-soft:rgba(255,255,255,.38)}
+.article-layout>.prose{min-width:0}
 .prose>p:first-child{margin-top:0;padding-bottom:1.8rem;border-bottom:1px solid var(--line);font-family:Georgia,serif;font-size:clamp(1.28rem,2vw,1.55rem);line-height:1.55}
 .prose h2{position:relative;margin:3.2rem 0 1.3rem;padding-top:1.4rem;border-top:1px solid var(--line);font-size:clamp(2rem,4vw,2.8rem);line-height:1.02;text-transform:none}
 .prose h2:before{content:"";position:absolute;top:-3px;left:0;width:4.5rem;height:5px;background:var(--coral)}

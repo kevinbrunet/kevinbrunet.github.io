@@ -33,3 +33,13 @@ Le script accepte également les mêmes fichiers non compressés. Il produit `an
 La version antérieure du tableau utilisait un ordre par identifiant de tentative. Cet ordre change les succès intermédiaires et les coûts de l'arrêt anticipé. Il ne change pas les unions finales. La convention retenue ici utilise les dates de démarrage pour pouvoir reproduire une progression temporelle publiée.
 
 Les acceptations sont les verdicts du grader. Ces résultats ne constituent pas une revalidation indépendante des propositions ni une mesure prospective de la chaîne.
+
+## Stabilité du choix du complément
+
+Le [contrôle de sélection](complement-selection.md) réserve successivement chaque tâche, puis chaque dépôt. Il choisit le complément sur les seuls échecs de Luna dans les données restantes, en minimisant le coût estimé par échec récupéré, avec les mêmes 66 candidats que le graphique de l'article 2.
+
+```powershell
+python scripts/check-deepswe-complement-selection.py
+```
+
+GLM-5.3 Flash `[max]` reste sélectionné dans les 113 partitions par tâche et les 91 partitions par dépôt. Il récupère toujours 10 des 11 échecs réservés de Luna. Le rapport distingue les 11 partitions par tâche et les 10 partitions par dépôt où le complément est effectivement sollicité. Ce contrôle rétrospectif ne constitue ni une qualification indépendante de l'oracle ni un test sur de nouvelles données.
