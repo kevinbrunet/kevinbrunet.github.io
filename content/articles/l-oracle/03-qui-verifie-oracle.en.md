@@ -142,7 +142,7 @@ Oracle quality determines the search budget the system can exploit at a constant
 This constraint reinforces the argument of the first two articles. Reducing verification errors can make more economical attempts available. However, the cost of building, running, and maintaining the oracle belongs in the calculation.
 
 {{< callout variant="key" label="Gross savings are not net gains" >}}
-In the previous example, the simulated chain costs approximately **$2,848 less across 113 tasks** than one attempt with the most expensive Claude configuration. That amount is the gross budget available to fund verification.
+In the previous example, the estimated budget for one attempt with **Claude Opus 5 [max], the highest-ranked Claude configuration**, across the 113 tasks is approximately **$1,338**, compared with **$76.46** for the simulated chain. The difference, approximately **$1,262**, is the gross budget available to fund verification.
 
 Net gains must still subtract oracle execution and maintenance, human revalidation, and the expected cost of accepted errors. If those charges exceed that gross saving at a comparable volume, the architecture may improve coverage, but **it does not save money**.
 {{< /callout >}}

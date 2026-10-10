@@ -152,6 +152,20 @@ def main():
     forward=replay([flash,luna,glm],grouped,universe)
     reverse=replay([luna,flash,glm],grouped,universe)
     claude_metrics=[m for m in metrics if m['model'].startswith('claude-')]
+    best_claude=max(claude_metrics,key=lambda m:m['mean_single_trial_pass_rate'])
+    best_claude_budget=len(universe)*best_claude['mean_cost_usd_repriced']
+    best_claude_baseline={
+        'config':best_claude['config'],
+        'model':best_claude['model'],
+        'effort':best_claude['effort'],
+        'tasks':len(universe),
+        'mean_single_trial_pass_rate':best_claude['mean_single_trial_pass_rate'],
+        'mean_cost_usd_repriced':best_claude['mean_cost_usd_repriced'],
+        'estimated_single_attempt_budget_usd':best_claude_budget,
+        'saving_vs_flash_luna_glm_usd':best_claude_budget-forward['cost_usd_repriced'],
+        'relative_saving_vs_flash_luna_glm':1-forward['cost_usd_repriced']/best_claude_budget,
+        'comparison_basis':'Mean single-attempt cost multiplied by task count; chain cost from retrospective replay.'
+    }
     most_expensive_claude=max(claude_metrics,key=lambda m:m['mean_cost_usd_repriced'])
     claude_first_rows=[trials[0] for trials in grouped[most_expensive_claude['config']].values()]
     if len(claude_first_rows)!=len(universe) or any(display_cost(r) is None for r in claude_first_rows):
@@ -187,6 +201,7 @@ def main():
             'metrics':metrics,'single_trial_frontier_partial_repricing':frontier,
             'flash_recovery_chronological':cumulative,'flash_luna_glm_replay':forward,'luna_flash_glm_replay':reverse,
             'most_expensive_claude_first_attempt_baseline':claude_first_baseline,
+            'highest_ranked_claude_mean_attempt_baseline':best_claude_baseline,
             'relative_replay_saving':1-forward['cost_usd_repriced']/reverse['cost_usd_repriced']}
     args.output.mkdir(parents=True,exist_ok=True)
     (args.output/'analysis.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

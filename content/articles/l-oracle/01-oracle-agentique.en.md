@@ -3,7 +3,7 @@ title: "The Oracle, the Real Game Changer in Agentic AI"
 seo_title: "Oracles and agentic AI: why verification changes the best model"
 slug: "oracle-real-game-changer-agentic-ai"
 date: 2026-10-27
-description: "Across 113 DeepSWE tasks, an oracle-driven system saves 97.4% versus one run of the most expensive Claude configuration, with better observed coverage."
+description: "Well-defined tasks, verifiable results, and more processing time: across 113 tasks, move from about $1,338 for 74% success to $76 for 100%."
 categories: ["Artificial intelligence", "Software architecture", "Software engineering"]
 tags: ["ai-systems-harness-engineering", "ai-evaluation-evals"]
 series: ["l-oracle"]
@@ -13,15 +13,24 @@ cover: "/images/articles/oracle-agentique.en.png"
 draft: false
 ---
 
-{{< callout variant="scene" label="$2,848 saved across 113 tasks" >}}
-The most expensive Claude configuration in the dataset costs **$2,924.49** for **68 solved tasks out of 113**.
-
-Our system costs **$76.46** and receives **113 positive verdicts out of 113**.
-
-**In this retrospective replay, it costs approximately $2,848 less: an estimated 97.4% saving, with better observed coverage.**
+{{< callout variant="scene" label="Lower cost, with more processing time" >}}
+**If tasks are well defined and their results can be verified, allowing more processing time can substantially reduce the bill.** Across the 113 tasks studied, **Claude Opus 5 [max], the highest-ranked Claude configuration on DeepSWE, represents approximately $1,338 for a 74% average single-attempt success rate**. The replayed chain achieves **100% success for $76**.
 
 This becomes possible when a system can automatically verify an answer, reject a failure, and continue its search. This underestimated piece of infrastructure is called **the oracle**.
 {{< /callout >}}
+
+## Follow the data rather than reputation
+
+Even before adding attempts, comparing configurations across their available runs already identifies a less expensive model with a very similar average success rate on these tasks:
+
+| Configuration | Average single-attempt success rate | Estimated mean cost per attempt | Estimated budget for one attempt across 113 tasks |
+|---|---:|---:|---:|
+| Claude Opus 5 [max] | 73.6% | $11.84 | $1,338.38 |
+| GPT-6 Astra [xhigh] | 74.1% | $4.43 | $500.49 |
+
+**Replacing this Claude configuration with Astra already reduces the mean cost per attempt by 62.6%, with a comparable average success rate.**
+
+The oracle then allows us to go further: compare models over multiple attempts rather than only their first answer.
 
 ## The ranking changes when multiple attempts are allowed
 
@@ -107,6 +116,18 @@ A failed test can identify the unmet assertion, the observed value, or the relev
 
 DeepSWE does not provide that number. It already lets us test the most basic case: what happens when a model is allowed to fail and try again? Its coverage across up to four attempts offers a comparison point for separate retries, not the ceiling of an adaptive loop.
 
+## Variance is not enough: the system must buy the right diversity
+
+Luna’s additional attempts raise its observed coverage from an average 67.2% on one run to 90.3% across the four available runs. Yet 11 tasks still have no recorded success.
+
+Asking the same model to keep trying is therefore not necessarily the best use of the budget. The next step is to find another model whose errors overlap as little as possible with Luna’s: not the model that ranks highest overall, but the one that succeeds specifically where Luna fails.
+
+The oracle makes that complementarity measurable. For every candidate model, the system can count recovered failures, required attempts, and cost. Once the right pair is known, it can still compare routing orders, placing the more economical model first and paying for the next one only on the remainder.
+
+{{< pullquote >}}
+The best model is not necessarily the one that succeeds most often on its own. It is the one that adds the most successful outcomes to the system for every dollar spent.
+{{< /pullquote >}}
+
 ## Another way to buy intelligence
 
 This interpretation suggests an architecture that differs from the reflex of sending every task to the best model available.
@@ -128,18 +149,6 @@ Oracle
 ```
 
 Performance then comes from a combination: an economical model, diverse attempts, a reliable oracle, early stopping, and escalation. The most expensive intelligence intervenes only on the cases that resisted.
-
-## Variance is not enough: the system must buy the right diversity
-
-Luna’s additional attempts raise its observed coverage from an average 67.2% on one run to 90.3% across the four available runs. Yet 11 tasks still have no recorded success.
-
-Asking the same model to keep trying is therefore not necessarily the best use of the budget. The next step is to find another model whose errors overlap as little as possible with Luna’s: not the model that ranks highest overall, but the one that succeeds specifically where Luna fails.
-
-The oracle makes that complementarity measurable. For every candidate model, the system can count recovered failures, required attempts, and cost. Once the right pair is known, it can still compare routing orders, placing the more economical model first and paying for the next one only on the remainder.
-
-{{< pullquote >}}
-The best model is not necessarily the one that succeeds most often on its own. It is the one that adds the most successful outcomes to the system for every dollar spent.
-{{< /pullquote >}}
 
 ## After the race for models comes the race for oracles
 

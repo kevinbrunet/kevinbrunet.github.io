@@ -2650,5 +2650,17 @@
     "saving_vs_flash_luna_glm_usd": 2848.0244850550002,
     "relative_saving_vs_flash_luna_glm": 0.9738540950996383
   },
+  "highest_ranked_claude_mean_attempt_baseline": {
+    "config": "mini_swe_agent_claude_opus_5_max",
+    "model": "claude-opus-5",
+    "effort": "max",
+    "tasks": 113,
+    "mean_single_trial_pass_rate": 0.7364864864864865,
+    "mean_cost_usd_repriced": 11.844077419821827,
+    "estimated_single_attempt_budget_usd": 1338.3807484398665,
+    "saving_vs_flash_luna_glm_usd": 1261.9173667948664,
+    "relative_saving_vs_flash_luna_glm": 0.9428687376636787,
+    "comparison_basis": "Mean single-attempt cost multiplied by task count; chain cost from retrospective replay."
+  },
   "relative_replay_saving": 0.3590989960297286
 }

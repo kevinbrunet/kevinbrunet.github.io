@@ -3,7 +3,7 @@ title: "L'oracle, le vrai game changer de l'IA agentique"
 seo_title: "Oracle et IA agentique : pourquoi la vérification change le meilleur modèle"
 slug: "oracle-game-changer-ia-agentique"
 date: 2026-10-27
-description: "Des tâches bien délimitées, des résultats vérifiables et davantage de temps de traitement : sur 113 tâches, passer de 2 924 $ pour 60,2 % de réussite à 76 $ pour 100 %."
+description: "Des tâches bien délimitées, des résultats vérifiables et davantage de temps de traitement : sur 113 tâches, passer d'environ 1 338 $ pour 74 % de réussite à 76 $ pour 100 %."
 categories: ["Intelligence artificielle", "Architecture logicielle", "Ingénierie logicielle"]
 tags: ["ai-systems-harness-engineering", "ai-evaluation-evals"]
 series: ["l-oracle"]
@@ -14,23 +14,21 @@ draft: false
 ---
 
 {{< callout variant="scene" label="Moins cher, avec davantage de temps de traitement" >}}
-**Si les tâches sont bien délimitées et leurs résultats vérifiables, accepter davantage de temps de traitement peut fortement réduire la facture.** Dans ce rejeu rétrospectif, sur les 113 tâches étudiées, on passe de **2 924 $ pour 60,2 % de réussite** à **76 $ pour 100 % de réussite**, en autorisant plusieurs tentatives et en combinant les modèles.
+**Si les tâches sont bien délimitées et leurs résultats vérifiables, accepter davantage de temps de traitement peut fortement réduire la facture.** Sur les 113 tâches étudiées, **Claude Opus 5 [max], le Claude le mieux classé sur DeepSWE, représente environ 1 338 $ pour 74 % de réussite moyenne sur un essai**. La chaîne rejouée atteint **100 % de réussite pour 76 $**.
 
 Ce résultat devient possible lorsqu’un système sait vérifier automatiquement une réponse, rejeter un échec et poursuivre sa recherche. Cette infrastructure sous-estimée s’appelle **l’oracle**.
 {{< /callout >}}
 
 ## Se fier aux données plutôt qu'à la réputation
 
-Les **2 924 $** de départ correspondent à **Claude Sonnet 5 [max]** : son premier essai sur chacune des 113 tâches du rejeu obtient **68 réussites, soit 60,2 %**.
+Avant même de multiplier les tentatives, comparer les configurations sur l'ensemble de leurs exécutions permet déjà de choisir un modèle moins coûteux, avec un taux de réussite moyen très proche sur ces tâches :
 
-Avant même de multiplier les tentatives, comparer les configurations sur l'ensemble de leurs exécutions permet déjà de choisir un modèle moins coûteux et plus performant sur ces tâches :
+| Configuration | Taux de réussite moyen d'un essai | Coût moyen estimé d'un essai | Budget estimé pour un essai sur 113 tâches |
+|---|---:|---:|---:|
+| Claude Opus 5 [max] | 73,6 % | 11,84 $ | 1 338,38 $ |
+| GPT-6 Astra [xhigh] | 74,1 % | 4,43 $ | 500,49 $ |
 
-| Configuration | Taux de réussite moyen d'un essai | Coût moyen estimé d'un essai |
-|---|---:|---:|
-| Claude Sonnet 5 [max] | 53,8 % | 25,84 $ |
-| GPT-6 Astra [xhigh] | 74,1 % | 4,43 $ |
-
-**Remplacer cette configuration Claude par Astra réduit déjà le coût moyen d'un essai de 82,9 %, tout en améliorant le taux de réussite moyen.**
+**Remplacer cette configuration Claude par Astra réduit déjà le coût moyen d'un essai de 62,6 %, pour un taux de réussite moyen comparable.**
 
 L'oracle permet ensuite d'aller plus loin : comparer les modèles sur plusieurs tentatives, plutôt que sur leur seule première réponse.
 

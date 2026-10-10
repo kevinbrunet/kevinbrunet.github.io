@@ -142,7 +142,7 @@ La qualité de l'oracle détermine le budget de recherche que le système peut e
 C'est pourquoi cette contrainte renforce la thèse des deux premiers articles. Réduire les erreurs de vérification peut rendre accessibles davantage de tentatives économiques. Le coût de construction, d'exécution et de maintenance de l'oracle fait toutefois partie du calcul.
 
 {{< callout variant="key" label="L’économie brute n’est pas le gain net" >}}
-Dans l’exemple précédent, la chaîne simulée coûte environ **2 848 dollars de moins sur 113 tâches** qu’un essai de la configuration Claude la plus coûteuse. Cette somme constitue le budget brut disponible pour financer la vérification.
+Dans l’exemple précédent, le budget estimé d'un essai de **Claude Opus 5 [max], le Claude le mieux classé**, sur les 113 tâches est d'environ **1 338 dollars**, contre **76,46 dollars** pour la chaîne simulée. La différence, environ **1 262 dollars**, constitue le budget brut disponible pour financer la vérification.
 
 Le gain net retranche encore l’exécution et la maintenance de l’oracle, les revalidations humaines et le coût attendu des erreurs acceptées. Si ces charges dépassent cette économie brute sur un volume comparable, l’architecture améliore peut-être la couverture, mais **elle ne fait pas économiser d’argent**.
 {{< /callout >}}
