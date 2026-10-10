@@ -3,7 +3,7 @@ title: "L'oracle, le vrai game changer de l'IA agentique"
 seo_title: "Oracle et IA agentique : pourquoi la vérification change le meilleur modèle"
 slug: "oracle-game-changer-ia-agentique"
 date: 2026-10-27
-description: "Sur 113 tâches DeepSWE, un système piloté par un oracle économise 97,4 % face à un essai du Claude le plus cher, avec une meilleure couverture observée."
+description: "Des tâches bien délimitées, des résultats vérifiables et davantage de temps de traitement : sur 113 tâches, passer de 2 924 $ pour 60,2 % de réussite à 76 $ pour 100 %."
 categories: ["Intelligence artificielle", "Architecture logicielle", "Ingénierie logicielle"]
 tags: ["ai-systems-harness-engineering", "ai-evaluation-evals"]
 series: ["l-oracle"]
@@ -13,15 +13,26 @@ cover: "/images/articles/oracle-agentique.fr.png"
 draft: false
 ---
 
-{{< callout variant="scene" label="2 848 dollars économisés sur 113 tâches" >}}
-La configuration Claude la plus coûteuse du jeu de données revient à **2 924,49 dollars** pour **68 tâches résolues sur 113**.
+{{< callout variant="scene" label="Moins cher, avec davantage de temps de traitement" >}}
+**Si les tâches sont bien délimitées et leurs résultats vérifiables, accepter davantage de temps de traitement peut fortement réduire la facture.** Dans ce rejeu rétrospectif, sur les 113 tâches étudiées, on passe de **2 924 $ pour 60,2 % de réussite** à **76 $ pour 100 % de réussite**, en autorisant plusieurs tentatives et en combinant les modèles.
 
-Notre système revient à **76,46 dollars** et reçoit **113 verdicts positifs sur 113**.
-
-**Dans ce rejeu rétrospectif, il coûte environ 2 848 dollars de moins : une économie estimée de 97,4 %, avec une meilleure couverture observée.**
-
-Ce résultat devient possible lorsqu'un système sait vérifier automatiquement une réponse, rejeter un échec et poursuivre sa recherche. Cette infrastructure sous-estimée s'appelle **l'oracle**.
+Ce résultat devient possible lorsqu’un système sait vérifier automatiquement une réponse, rejeter un échec et poursuivre sa recherche. Cette infrastructure sous-estimée s’appelle **l’oracle**.
 {{< /callout >}}
+
+## Se fier aux données plutôt qu'à la réputation
+
+Les **2 924 $** de départ correspondent à **Claude Sonnet 5 [max]** : son premier essai sur chacune des 113 tâches du rejeu obtient **68 réussites, soit 60,2 %**.
+
+Avant même de multiplier les tentatives, comparer les configurations sur l'ensemble de leurs exécutions permet déjà de choisir un modèle moins coûteux et plus performant sur ces tâches :
+
+| Configuration | Taux de réussite moyen d'un essai | Coût moyen estimé d'un essai |
+|---|---:|---:|
+| Claude Sonnet 5 [max] | 53,8 % | 25,84 $ |
+| GPT-6 Astra [xhigh] | 74,1 % | 4,43 $ |
+
+**Remplacer cette configuration Claude par Astra réduit déjà le coût moyen d'un essai de 82,9 %, tout en améliorant le taux de réussite moyen.**
+
+L'oracle permet ensuite d'aller plus loin : comparer les modèles sur plusieurs tentatives, plutôt que sur leur seule première réponse.
 
 ## Le classement change quand on autorise plusieurs essais
 
@@ -107,6 +118,18 @@ Un test qui échoue peut indiquer l'assertion non respectée, la valeur observé
 
 DeepSWE ne donne pas ce chiffre. Il permet déjà de tester le cas le plus basique : que se passe-t-il lorsqu’on donne au modèle le droit à l’erreur ? Sa couverture sur jusqu’à quatre essais fournit un point de comparaison pour des *retries* séparés, pas le plafond d’une boucle adaptative.
 
+## La variance ne suffit pas : il faut acheter la bonne diversité
+
+Les essais supplémentaires de Luna font passer sa couverture observée de 67,2 % en moyenne sur une exécution à 90,3 % sur les quatre exécutions disponibles. Mais ils laissent encore 11 tâches sans succès enregistré.
+
+Continuer à demander au même modèle de recommencer n’est donc pas nécessairement la meilleure dépense. L’étape suivante consiste à chercher un autre modèle dont les erreurs se recouvrent le moins possible avec les siennes : non pas le mieux classé en général, mais celui qui réussit précisément là où Luna échoue.
+
+L’oracle rend cette complémentarité mesurable. Pour chaque modèle candidat, le système peut compter les échecs récupérés, le nombre d’essais nécessaires et leur coût. Une fois la bonne paire identifiée, il peut encore comparer les ordres de routage afin de placer le modèle le plus économique devant et de ne payer le suivant que sur le résidu.
+
+{{< pullquote >}}
+Le meilleur modèle n’est pas forcément celui qui réussit le plus souvent seul. C’est celui qui apporte au système le plus de réussites supplémentaires pour chaque dollar dépensé.
+{{< /pullquote >}}
+
 ## Une autre manière d'acheter de l'intelligence
 
 Cette lecture suggère une architecture différente du réflexe qui consiste à envoyer chaque tâche au meilleur modèle disponible.
@@ -128,18 +151,6 @@ Oracle
 ```
 
 La performance vient alors d'une combinaison : modèle économique, tentatives diverses, oracle fiable, arrêt anticipé et escalade. L'intelligence la plus coûteuse intervient seulement sur les cas qui ont résisté.
-
-## La variance ne suffit pas : il faut acheter la bonne diversité
-
-Les essais supplémentaires de Luna font passer sa couverture observée de 67,2 % en moyenne sur une exécution à 90,3 % sur les quatre exécutions disponibles. Mais ils laissent encore 11 tâches sans succès enregistré.
-
-Continuer à demander au même modèle de recommencer n’est donc pas nécessairement la meilleure dépense. L’étape suivante consiste à chercher un autre modèle dont les erreurs se recouvrent le moins possible avec les siennes : non pas le mieux classé en général, mais celui qui réussit précisément là où Luna échoue.
-
-L’oracle rend cette complémentarité mesurable. Pour chaque modèle candidat, le système peut compter les échecs récupérés, le nombre d’essais nécessaires et leur coût. Une fois la bonne paire identifiée, il peut encore comparer les ordres de routage afin de placer le modèle le plus économique devant et de ne payer le suivant que sur le résidu.
-
-{{< pullquote >}}
-Le meilleur modèle n’est pas forcément celui qui réussit le plus souvent seul. C’est celui qui apporte au système le plus de réussites supplémentaires pour chaque dollar dépensé.
-{{< /pullquote >}}
 
 ## Après la course aux modèles, la course aux oracles
 
