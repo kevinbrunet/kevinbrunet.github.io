@@ -19,6 +19,8 @@ draft: false
 Ce résultat devient possible lorsqu’un système sait vérifier automatiquement une réponse, rejeter un échec et poursuivre sa recherche. Cette infrastructure sous-estimée s’appelle **l’oracle**.
 {{< /callout >}}
 
+**Périmètre de l'analyse :** le classement officiel DeepSWE v1.1 daté du **22 septembre 2026**, avec le harness **mini-swe-agent**, à partir des données sauvegardées le **6 octobre 2026**. Les scores et les coûts présentés se rapportent à cette photographie ; les évaluations ultérieures avec d'autres harness constituent des comparaisons distinctes.
+
 ## Se fier aux données plutôt qu'à la réputation
 
 Avant même de multiplier les tentatives, comparer les configurations sur l'ensemble de leurs exécutions permet déjà de choisir un modèle moins coûteux, avec un taux de réussite moyen très proche sur ces tâches :

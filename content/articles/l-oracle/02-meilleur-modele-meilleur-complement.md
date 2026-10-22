@@ -21,6 +21,8 @@ Mais comment aller chercher la réussite sur les 11 tâches restantes ?
 **En cherchant son complément : non pas le meilleur modèle dans l’absolu, mais celui qui réussit précisément là où Luna échoue.**
 {{< /callout >}}
 
+**Périmètre de l'analyse :** comme dans le premier article, les calculs portent sur le classement officiel DeepSWE v1.1 daté du **22 septembre 2026**, avec **mini-swe-agent**, à partir des données sauvegardées le **6 octobre 2026**. Les nouveaux résultats obtenus avec d'autres harness ne sont pas intégrés à ce rejeu.
+
 Pour le trouver, il faut changer de classement : ne plus mesurer seulement la performance moyenne de chaque modèle, mais comparer les profils d’erreurs.
 
 ## Un classement cache les profils d'erreurs
