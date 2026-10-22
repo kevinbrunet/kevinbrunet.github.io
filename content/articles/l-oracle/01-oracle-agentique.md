@@ -19,7 +19,7 @@ draft: false
 Ce résultat devient possible lorsqu’un système sait vérifier automatiquement une réponse, rejeter un échec et poursuivre sa recherche. Cette infrastructure sous-estimée s’appelle **l’oracle**.
 {{< /callout >}}
 
-**Périmètre de l'analyse :** le classement officiel DeepSWE v1.1 daté du **22 septembre 2026**, avec le harness **mini-swe-agent**, à partir des données sauvegardées le **6 octobre 2026**. Les scores et les coûts présentés se rapportent à cette photographie ; les évaluations ultérieures avec d'autres harness constituent des comparaisons distinctes.
+Cette analyse porte sur le classement officiel DeepSWE v1.1 mis à jour le 22 septembre 2026, avec mini-swe-agent. Les résultats publiés ensuite avec d’autres modèles ou harness ne sont pas inclus.
 
 ## Se fier aux données plutôt qu'à la réputation
 

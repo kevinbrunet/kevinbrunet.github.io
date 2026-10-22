@@ -21,7 +21,7 @@ But how can we recover successful outcomes on the remaining 11 tasks?
 **By looking for its complement: not the best model in absolute terms, but the one that succeeds precisely where Luna fails.**
 {{< /callout >}}
 
-**Scope of the analysis:** as in the first article, the calculations use the official DeepSWE v1.1 leaderboard dated **September 22, 2026**, with **mini-swe-agent**, based on data saved on **October 6, 2026**. New results obtained with other harnesses are not included in this replay.
+This analysis covers the official DeepSWE v1.1 leaderboard updated on September 22, 2026, using mini-swe-agent. Results published later with other models or harnesses are not included.
 
 To find it, we need a different ranking: instead of measuring only each model’s average performance, we must compare their error profiles.
 

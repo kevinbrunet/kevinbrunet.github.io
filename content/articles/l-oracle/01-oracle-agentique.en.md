@@ -19,7 +19,7 @@ draft: false
 This becomes possible when a system can automatically verify an answer, reject a failure, and continue its search. This underestimated piece of infrastructure is called **the oracle**.
 {{< /callout >}}
 
-**Scope of the analysis:** the official DeepSWE v1.1 leaderboard dated **September 22, 2026**, using the **mini-swe-agent** harness, based on data saved on **October 6, 2026**. The scores and costs presented refer to this snapshot; later evaluations using other harnesses are separate comparisons.
+This analysis covers the official DeepSWE v1.1 leaderboard updated on September 22, 2026, using mini-swe-agent. Results published later with other models or harnesses are not included.
 
 ## Follow the data rather than reputation
 
