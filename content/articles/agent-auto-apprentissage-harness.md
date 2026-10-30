@@ -3,6 +3,7 @@ title: "Un agent qui apprend tout seul ? C’est plus complexe qu’on ne le pen
 seo_title: "Auto-apprentissage des agents IA : qui valide les leçons ?"
 slug: "agent-auto-apprentissage-harness"
 date: 2026-11-02
+lastmod: 2026-10-30T18:30:36+01:00
 description: "Une nouvelle étude montre qu’accumuler davantage d’expériences peut dégrader un harness. Apprendre de ses erreurs demande aussi de savoir quelles leçons retenir."
 categories: ["Intelligence artificielle", "Architecture logicielle"]
 tags: ["ai-systems-harness-engineering", "ai-evaluation-evals"]

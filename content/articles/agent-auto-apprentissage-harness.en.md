@@ -3,6 +3,7 @@ title: "An agent that learns on its own? It’s more complex than we think."
 seo_title: "Self-learning AI agents: who validates the lessons?"
 slug: "self-learning-agent-harness"
 date: 2026-11-02
+lastmod: 2026-10-30T18:30:36+01:00
 description: "A new study shows that accumulating more experience can degrade a harness. Learning from mistakes also requires knowing which lessons to keep."
 categories: ["Artificial intelligence", "Software architecture"]
 tags: ["ai-systems-harness-engineering", "ai-evaluation-evals"]
