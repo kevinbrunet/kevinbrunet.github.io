@@ -3,7 +3,7 @@ title: "Un agent qui apprend tout seul ? C’est plus complexe qu’on ne le pen
 seo_title: "Auto-apprentissage des agents IA : qui valide les leçons ?"
 slug: "agent-auto-apprentissage-harness"
 date: 2026-11-02
-lastmod: 2026-10-30T18:30:36+01:00
+lastmod: 2026-11-01T15:59:10+01:00
 description: "Une nouvelle étude montre qu’accumuler davantage d’expériences peut dégrader un harness. Apprendre de ses erreurs demande aussi de savoir quelles leçons retenir."
 categories: ["Intelligence artificielle", "Architecture logicielle"]
 tags: ["ai-systems-harness-engineering", "ai-evaluation-evals"]
@@ -56,13 +56,17 @@ Le travail couvre trois benchmarks et deux configurations d’exécution.
 
 Les **60 % d’exécutions de validation économisées** concernent un audit distinct : 12 candidats, 160 tâches et une comparaison à l’évaluation complète. Ce chiffre ne mesure pas une réduction de 60 % du coût total de l’agent.
 
-Ces résultats décrivent les conditions étudiées. Ils ne prouvent ni que l’expérience nuit toujours, ni que SSR résout tout auto-apprentissage.
+{{< callout variant="key" label="La conclusion de l’étude" >}}
+**Davantage d’expériences peut améliorer le harness, à condition de sélectionner celles qui guident ses changements.** Avec SSR, les auteurs montrent comment tirer parti d’un ensemble d’expériences plus large dans les configurations étudiées.
 
-Pour une équipe qui conçoit son système, la question devient concrète : **quelles expériences alimentent chaque modification, et comment départager les changements proposés ?**
+La démarche qu’ils proposent consiste à sélectionner des expériences complémentaires, à produire plusieurs modifications du harness, puis à les mettre en concurrence. Le budget d’évaluation se concentre progressivement sur les candidats les plus prometteurs.
+{{< /callout >}}
+
+L’étude propose donc d’automatiser aussi le choix des expériences et la comparaison des modifications. Les auteurs précisent qu’il reste à vérifier la généralisation à d’autres modèles et contextes.
 
 ## Conserver, qualifier, sélectionner, promouvoir
 
-Je propose de séparer quatre décisions dans l’architecture d’un agent qui capitalise son expérience.
+À partir de ce résultat, je propose une traduction en architecture opérationnelle. Les quatre décisions qui suivent prolongent la méthode des chercheurs avec des choix de gestion de la mémoire et de mise en service.
 
 | Décision | Question à résoudre | Exemple de la migration |
 |---|---|---|
@@ -117,7 +121,9 @@ Un ensemble de tests devient de fait un outil d’optimisation dès que ses rés
 
 ## Automatiser l’apprentissage, démontrer le progrès
 
-Automatiser la capture d’expérience est utile. Automatiser la proposition de changements l’est aussi. Mais leur valeur dépend du mécanisme qui décide quelles leçons méritent de devenir durables.
+La conclusion scientifique de SSR ouvre une piste : **on peut tirer parti de davantage d’expériences en automatisant leur sélection et en comparant les changements qu’elles inspirent.** Les résultats obtenus restent à confirmer au-delà des modèles et des tâches étudiés.
+
+Pour la mise en service, j’en retiens une exigence d’architecture : décider quelles leçons méritent de devenir durables, puis surveiller leurs effets.
 
 Dans la série [Aucun harnais n’est parfait]({{< relref "/series/aucun-harnais-n-est-parfait" >}}), la fiabilité dépend déjà des limites de nos contrôles. L’auto-apprentissage ajoute une responsabilité : vérifier que les changements issus de ces contrôles améliorent les prochaines exécutions.
 

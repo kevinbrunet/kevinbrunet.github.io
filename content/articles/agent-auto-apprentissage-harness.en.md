@@ -3,7 +3,7 @@ title: "An agent that learns on its own? It’s more complex than we think."
 seo_title: "Self-learning AI agents: who validates the lessons?"
 slug: "self-learning-agent-harness"
 date: 2026-11-02
-lastmod: 2026-10-30T18:30:36+01:00
+lastmod: 2026-11-01T15:59:10+01:00
 description: "A new study shows that accumulating more experience can degrade a harness. Learning from mistakes also requires knowing which lessons to keep."
 categories: ["Artificial intelligence", "Software architecture"]
 tags: ["ai-systems-harness-engineering", "ai-evaluation-evals"]
@@ -56,13 +56,17 @@ The work covers three benchmarks and two execution setups.
 
 The reported **60% reduction in validation executions** concerns a separate audit: 12 candidates, 160 tasks, and a comparison against full evaluation. This figure does not mean a 60% reduction in the agent’s total cost.
 
-These results describe the conditions studied. They do not prove that experience always hurts, or that SSR solves every self-learning problem.
+{{< callout variant="key" label="The study’s conclusion" >}}
+**More experience can improve the harness, provided the experiences guiding its changes are selected.** With SSR, the authors demonstrate how to benefit from a larger set of experiences in the configurations studied.
 
-For a team designing its system, the question becomes concrete: **which experiences inform each change, and how should the proposed changes be compared?**
+Their proposed approach is to select complementary experiences, produce several harness modifications, and put them in competition. The evaluation budget progressively focuses on the most promising candidates.
+{{< /callout >}}
+
+The study therefore proposes automating the choice of experiences and the comparison of modifications too. The authors note that generalization to other models and contexts still needs to be verified.
 
 ## Capture, qualify, select, promote
 
-I propose separating four decisions in the architecture of an agent that builds on its experience.
+Building on this result, I propose translating it into an operational architecture. The following four decisions extend the researchers’ method with choices about memory management and deployment.
 
 | Decision | Question to answer | Migration example |
 |---|---|---|
@@ -117,7 +121,9 @@ A test set effectively becomes an optimization tool once its results are regular
 
 ## Automate learning, demonstrate progress
 
-Automating experience capture is useful. Automating change proposals is useful too. But their value depends on the mechanism that decides which lessons deserve to persist.
+SSR’s scientific conclusion opens a path: **more experience can be useful when its selection is automated and the changes it inspires are compared.** The results still need to be confirmed beyond the models and tasks studied.
+
+For deployment, I draw an architectural requirement from this: decide which lessons deserve to persist, then monitor their effects.
 
 In [No Harness Is Perfect]({{< relref "/series/aucun-harnais-n-est-parfait" >}}), reliability already depends on the limits of our controls. Self-learning adds a responsibility: checking that the changes emerging from those controls improve subsequent executions.
 
