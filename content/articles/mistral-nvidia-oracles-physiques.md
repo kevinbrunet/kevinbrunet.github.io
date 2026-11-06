@@ -4,7 +4,7 @@ seo_title: "Mistral et NVIDIA : agents IA, simulation et oracles physiques"
 slug: "mistral-nvidia-oracles-physiques"
 date: 2026-10-30T18:45:00+01:00
 publishDate: 2026-10-30T18:45:00+01:00
-lastmod: 2026-10-30T18:45:52+01:00
+lastmod: 2026-11-06T09:47:38+01:00
 description: "Relier un agent à un simulateur permet de tester ses propositions. La fiabilité dépend encore des hypothèses, des critères d’acceptation et de leur confrontation au réel."
 categories: ["Intelligence artificielle", "Architecture logicielle", "Ingénierie logicielle"]
 tags: ["ai-evaluation-evals", "ai-systems-harness-engineering"]
@@ -26,6 +26,12 @@ Nous cherchons à rendre les modèles capables de raisonner, de planifier et d�
 L’[annonce de Mistral et NVIDIA du 21 octobre 2026](https://mistral.ai/fr/news/mistral-nvidia-ai-for-industrial-engineering/) offre un terrain concret pour examiner cette question. Relier des agents aux outils d’ingénierie pourrait permettre de confronter leurs propositions à des calculs et à des contraintes explicites.
 
 Dans la série [L’oracle](/series/l-oracle/), j’examine comment un verdict exploitable permet d’organiser plusieurs tentatives et de combiner des modèles. La série [Aucun harnais n’est parfait](/series/aucun-harnais-n-est-parfait/) en rappelle la frontière : les contrôles héritent des hypothèses et des angles morts de leurs concepteurs. L’ingénierie physique réunit ces deux questions.
+
+{{< callout variant="key" label="Mise à jour du 6 novembre 2026" >}}
+Le 3 novembre, OpenAI a annoncé une [collaboration de recherche avec Mazda](https://openai.com/index/accelerating-engineering-for-the-physical-world/). Les travaux associent les ingénieurs en aérodynamique et en sécurité des collisions. Ils s’appuient sur des simulations d’écoulement de l’air et de comportement structurel pour explorer des conceptions tenant compte du style et du coût. Les résultats de cette collaboration sont annoncés pour les prochains mois.
+
+J’y vois un autre cas concret de la boucle décrite ici : proposer, simuler, examiner et réviser. **La question reste de qualifier ce que les contrôles permettent d’accepter.**
+{{< /callout >}}
 
 ## Ce que Mistral et NVIDIA annoncent
 
@@ -132,4 +138,5 @@ Si votre agent trouve une conception qui passe tous les contrôles, **qu’avez-
 ## Sources
 
 - Mistral AI, [*Mistral fait avancer l’IA pour l’ingénierie avec NVIDIA*](https://mistral.ai/fr/news/mistral-nvidia-ai-for-industrial-engineering/), 21 octobre 2026.
+- OpenAI, [*Accelerating engineering for the physical world*](https://openai.com/index/accelerating-engineering-for-the-physical-world/), 3 novembre 2026.
 - NASA Glenn Research Center, [*Overview of CFD Verification & Validation*](https://www.grc.nasa.gov/www/wind/valid/tutorial/overview.html).

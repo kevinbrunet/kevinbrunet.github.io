@@ -4,7 +4,7 @@ seo_title: "Mistral and NVIDIA: AI agents, simulation and physical oracles"
 slug: "mistral-nvidia-physical-oracles"
 date: 2026-10-30T18:45:00+01:00
 publishDate: 2026-10-30T18:45:00+01:00
-lastmod: 2026-10-30T18:45:52+01:00
+lastmod: 2026-11-06T09:47:38+01:00
 description: "Connecting an agent to a simulator lets it test its proposals. Reliability still depends on assumptions, acceptance criteria and comparisons with the real world."
 categories: ["Artificial Intelligence", "Software Architecture", "Software Engineering"]
 tags: ["ai-evaluation-evals", "ai-systems-harness-engineering"]
@@ -26,6 +26,12 @@ We are working to make models capable of reasoning, planning and using tools. Ye
 The [announcement by Mistral and NVIDIA on October 21, 2026](https://mistral.ai/fr/news/mistral-nvidia-ai-for-industrial-engineering/) provides a concrete setting for examining this question. Connecting agents to engineering tools could allow their proposals to be tested against calculations and explicit constraints.
 
 In [The Oracle](/en/series/l-oracle/), I examine how an actionable verdict makes it possible to organize multiple attempts and combine models. [No Harness Is Perfect](/en/series/aucun-harnais-n-est-parfait/) highlights the limits: checks inherit their designers’ assumptions and blind spots. Physical engineering brings these two questions together.
+
+{{< callout variant="key" label="Update: November 6, 2026" >}}
+On November 3, OpenAI announced a [research collaboration with Mazda](https://openai.com/index/accelerating-engineering-for-the-physical-world/). The work involves aerodynamics and crash-safety engineers. It uses airflow and structural simulations to explore designs while accounting for styling and cost. Results from this collaboration are expected in the coming months.
+
+I see this as another concrete example of the loop described here: propose, simulate, examine and revise. **The question remains how to qualify what the checks allow us to accept.**
+{{< /callout >}}
 
 ## What Mistral and NVIDIA are announcing
 
@@ -132,4 +138,5 @@ If your agent finds a design that passes every check, **what have you establishe
 ## Sources
 
 - Mistral AI, [*Mistral fait avancer l’IA pour l’ingénierie avec NVIDIA*](https://mistral.ai/fr/news/mistral-nvidia-ai-for-industrial-engineering/), October 21, 2026.
+- OpenAI, [*Accelerating engineering for the physical world*](https://openai.com/index/accelerating-engineering-for-the-physical-world/), November 3, 2026.
 - NASA Glenn Research Center, [*Overview of CFD Verification & Validation*](https://www.grc.nasa.gov/www/wind/valid/tutorial/overview.html).
